@@ -137,7 +137,7 @@
 
   /* ── ABOUT STRIP ── */
   .about-strip { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
-  .about-img { background: url('https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=900&q=80') center/cover; min-height: 400px; }
+  .about-img { background: url('https://feedmedia.egorealestate.com/Zfeed/S5/C40096/P27967004/Tphoto/ID1cbeaa01-0000-0500-0000-000016f2dc53.jpg') center/cover; min-height: 400px; }
   .about-content { background: var(--charcoal); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
   .about-content h2 { font-family: var(--serif); font-size: 38px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 24px; }
@@ -307,6 +307,7 @@
   }
 
   @media (max-width: 480px) {
+    .prop-img { aspect-ratio: 3/2; }
     .hero-left { padding: 36px 20px; min-height: 55vh; }
     .hero-title { font-size: clamp(30px, 9vw, 42px); }
     footer { grid-template-columns: 1fr; }
@@ -485,7 +486,16 @@
   <div class="listings-header">
     <span class="section-tag" data-i18n="listings_tag">Portfolio</span>
     <h1 class="section-title" data-i18n="listings_title">All <em>Properties</em></h1>
-    <p style="margin-top:12px;font-size:14px;color:var(--mid);max-width:560px;line-height:1.8;"><span data-i18n="listings_intro">A carefully curated selection of properties that meet the Luxxo Homes standard. Not just listed — selected.</span></p>
+    <p style="margin-top:12px;font-size:14px;color:var(--mid);max-width:560px;line-height:1.8;"><div style="margin-top:16px;display:flex;gap:40px;flex-wrap:wrap;max-width:700px;">
+      <div style="border-left:2px solid var(--gold);padding-left:20px;">
+        <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500;" data-i18n="listings_badge1">Casa Renovo Projects</div>
+        <p style="font-size:13px;color:var(--mid);line-height:1.75;" data-i18n="listings_badge1_text">Renovated by our own team</p>
+      </div>
+      <div style="border-left:2px solid var(--border);padding-left:20px;">
+        <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--light);margin-bottom:6px;font-weight:500;" data-i18n="listings_badge2">Luxxo Selection</div>
+        <p style="font-size:13px;color:var(--mid);line-height:1.75;" data-i18n="listings_badge2_text">Handpicked for quality & location</p>
+      </div>
+    </div></p>
   </div>
   <div class="listings-filters">
     <select class="filter-select" id="list-type" onchange="renderListings()">
@@ -582,18 +592,21 @@
 
   </div>
   <div style="background:var(--cream);padding:60px 48px;text-align:center;margin-top:2px;">
-    <p style="font-size:14px;color:var(--mid);margin-bottom:24px;" data-i18n="portfolio_cta_text">Want to list your property with us or discuss a sale?</p>
-    <button onclick="showPage('contact')" style="background:var(--charcoal);color:var(--warm-white);border:none;padding:13px 36px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;" data-i18n="portfolio_cta_btn">Talk to Edwin</button>
+    <h2 style="font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:14px;" data-i18n="portfolio_cta_title">Inspired by what we create?</h2>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8;" data-i18n="portfolio_cta_text">Let's talk about what's possible — whether you're looking to buy, sell or invest on the Costa del Sol.</p>
+    <button onclick="showPage('contact')" style="background:var(--charcoal);color:var(--warm-white);border:none;padding:14px 40px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='var(--charcoal)';this.style.color='var(--warm-white)'" data-i18n="portfolio_cta_btn">Get in touch</button>
   </div>
 </div>
 
 <!-- ══ BUYER'S GUIDE ══ -->
 <div id="page-buyers" class="page">
-  <div class="guide-hero">
-    <span class="section-tag" data-i18n="buyers_tag">Aankoopbegeleiding</span>
-    <h1 data-i18n="buyers_title">Buying property in Spain — <em>guided by experts</em></h1>
-    <p data-i18n="buyers_intro">Purchasing a home in Spain as a foreign buyer involves more steps than you might expect. We take care of every detail — so your path from search to keys is clear, safe, and enjoyable.</p>
-    <p style="margin-top:16px;font-size:15px;color:rgba(250,248,244,.55);max-width:600px;line-height:1.85;" data-i18n="buyers_insider">We know the Spanish market from the inside.</p>
+  <div class="guide-hero-photo">
+    <img src="/casahillside.jpg" alt="Marbella Sea View">
+    <div class="guide-hero-text">
+      <span class="section-tag" data-i18n="buyers_tag">Buyer's Guide</span>
+      <h1 data-i18n="buyers_title">Buying property in Spain — <em>guided by experts</em></h1>
+      <p data-i18n="buyers_intro">Purchasing a home in Spain as a foreign buyer involves more steps than you might expect. We take care of every detail — so your path from search to keys is clear, safe, and enjoyable.</p>
+    </div>
   </div>
   <div class="guide-steps">
     <div class="step">
@@ -639,10 +652,10 @@
       </div>
     </div>
   </div>
-  <div class="guide-cta-box">
-    <h2 data-i18n="guide_cta_title">Ready to find your <em>Marbella home?</em></h2>
-    <p data-i18n="guide_cta_sub">Book a free, no-obligation consultation with Edwin. We'll listen first, advise second.</p>
-    <button class="btn-search" style="max-width:280px;margin:0 auto;" onclick="showPage('contact')" data-i18n="guide_cta_btn">Book a consultation →</button>
+  <div class="guide-cta-box" style="background:var(--charcoal);color:var(--warm-white);">
+    <h2 style="color:var(--warm-white);" data-i18n="guide_cta_title">Plan a free consultation with <em>Gijs, Jacco or Edwin.</em></h2>
+    <p style="color:rgba(250,248,244,.6);" data-i18n="guide_cta_sub">No obligations. We listen first, advise second. Your journey to Marbella starts with one conversation.</p>
+    <button class="btn-search" style="max-width:320px;margin:0 auto;background:var(--gold);color:var(--charcoal);border-color:var(--gold);" onclick="showPage('contact')" data-i18n="guide_cta_btn">Plan a free conversation →</button>
   </div>
 </div>
 
@@ -663,13 +676,35 @@
   <!-- MAIN STORY -->
   <div style="max-width:900px;margin:0 auto;padding:80px 48px 0;" class="about-inner">
 
-    <!-- BRIDGE NL/ES -->
-    <div style="margin-bottom:72px;">
+    <!-- TWO BRANDS BLOCK -->
+    <div style="margin-bottom:64px;">
       <span class="section-tag" style="text-align:left;display:block;margin-bottom:12px;" data-i18n="bridge_tag">The bridge between the Netherlands and Spain</span>
-      <h2 class="section-title" style="text-align:left;margin-bottom:24px;" data-i18n="bridge_h2">We know the pitfalls.<br><em>Because we've been there.</em></h2>
-      <p style="font-size:15px;color:var(--mid);line-height:1.9;margin-bottom:16px;">Buying in Spain sounds attractive. And it is — if you know what you're doing. The market works differently, the regulations are different, and local contractors don't always deliver what they promise. We know these pitfalls inside and out.</p>
-      <p style="font-size:15px;color:var(--mid);line-height:1.9;margin-bottom:16px;">Our greatest advantage: we operate on both sides of the border. Jacco runs a company in the Netherlands from which we supply kitchens, bathrooms and flooring for every renovation project. Not because it's easy — but because it means we keep full control over quality. No surprises on site. No compromises on materials.</p>
-      <p style="font-size:15px;color:var(--mid);line-height:1.9;" data-i18n="bridge_p3">We advise clients in the Netherlands who are considering a purchase.</p>
+      <h2 class="section-title" style="text-align:left;margin-bottom:36px;" data-i18n="bridge_h2">Two brands.<br><em>One standard.</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;" class="team-grid-2col">
+        <div style="background:var(--charcoal);padding:40px;">
+          <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500;">Luxxo Homes</div>
+          <p style="font-size:13px;color:rgba(250,248,244,.7);line-height:1.9;" data-i18n="bridge_p1">We are a boutique real estate agency on the Costa del Sol, specialising in quality renovated properties. We guide international buyers through every step — from first search to signing at the notary. Six languages, one dedicated team, zero compromises.</p>
+        </div>
+        <div style="background:var(--cream);padding:40px;">
+          <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500;">Casa Renovo Marbella</div>
+          <p style="font-size:13px;color:var(--mid);line-height:1.9;" data-i18n="bridge_p2">Our own renovation company on the Costa del Sol. We buy, transform and sell properties to the highest standard — with materials sourced directly from the Netherlands and finished by our own team. Every project is overseen by Jacco and styled by Djoni Granneman.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASA RENOVO VIDEO + NL BRIDGE -->
+    <div class="cr-video-block" style="margin-bottom:64px;margin-left:-48px;margin-right:-48px;">
+      <div class="cr-video-wrap">
+        <video autoplay muted loop playsinline style="min-height:400px;">
+          <source src="/casarenovo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="cr-text-wrap">
+        <div class="cr-badge" data-i18n="bridge_tag">The bridge between the Netherlands and Spain</div>
+        <h2 class="cr-h2" data-i18n="bridge_h2">Two brands.<br><em>One standard.</em></h2>
+        <p class="cr-p" data-i18n="bridge_p3">We advise clients in the Netherlands who are considering a purchase in Spain, and guide them all the way to the keys in their hand. One team, from start to finish.</p>
+        <p class="cr-p" style="font-size:13px;color:var(--light);">Kitchens, bathrooms and flooring come directly from the Netherlands — that's how we guarantee quality on every project.</p>
+      </div>
     </div>
 
     <!-- TEAM PHOTO -->
@@ -681,9 +716,10 @@
     <!-- TEAM CARDS -->
     <div style="margin-bottom:72px;">
       <span class="section-tag" style="text-align:left;display:block;margin-bottom:12px;" data-i18n="team_tag">The team</span>
-      <h2 class="section-title" style="text-align:left;margin-bottom:48px;" data-i18n="team_h2">Three types.<br><em>One goal.</em></h2>
+      <h2 class="section-title" style="text-align:left;margin-bottom:16px;" data-i18n="team_h2">Stronger together.<br><em>Better for you.</em></h2>
+      <p style="font-size:15px;color:var(--mid);line-height:1.85;max-width:580px;margin-bottom:48px;" data-i18n="team_intro">Four people. Each with their own strength. Together they cover every aspect of the process — from construction site to notary, from interior to investment. That's what makes the difference.</p>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;" class="team-grid-2col">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;" class="team-grid-2col">
         <div style="background:var(--cream);padding:40px;">
           <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;" data-i18n="gijs_role">The Local Hero</div>
           <div style="font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px;" data-i18n="gijs_name">Gijs Hoeve</div>
@@ -695,35 +731,21 @@
           <p style="font-size:14px;color:var(--mid);line-height:1.85;" data-i18n="jacco_desc">Jacco steps onto a building site and immediately sees what's working and what isn't. He manages the entire technical process — from the first sledgehammer to the last finishing touch. Materials arrive on time, at the right quality, in the right place. Not by coincidence.</p>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;" class="team-grid-2col">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="team-grid-2col">
         <div style="background:var(--cream);padding:40px;">
           <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;" data-i18n="edwin_role">The Control Freak</div>
           <div style="font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px;" data-i18n="edwin_name">Edwin de Groot</div>
           <p style="font-size:14px;color:var(--mid);line-height:1.85;" data-i18n="edwin_desc">Every project needs someone who keeps the overview, streamlines processes and makes sure everyone is pointing in the same direction. That's Edwin. He tracks what's running, what needs doing, and what's at risk of going wrong. Not the most glamorous role — but without him, the engine doesn't run.</p>
         </div>
-        <div style="background:var(--charcoal);padding:40px;">
+        <div style="background:var(--cream);padding:40px;">
           <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;" data-i18n="djoni_role">Style & Interior</div>
-          <div style="font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px;color:var(--warm-white);" data-i18n="djoni_name">Djoni Granneman</div>
-          <p style="font-size:14px;color:rgba(250,248,244,.65);line-height:1.85;" data-i18n="djoni_desc">We work closely with Djoni Granneman, our dedicated stylist and interior architect. Djoni guides every project from structural layout to full furnishing and styling. Her touch ensures a renovated property isn't just technically perfect — it breathes a quality that people feel immediately.</p>
+          <div style="font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px;color:var(--charcoal);" data-i18n="djoni_name">Djoni Granneman</div>
+          <p style="font-size:14px;color:var(--mid);line-height:1.85;" data-i18n="djoni_desc">We work closely with Djoni Granneman, our dedicated stylist and interior architect. Djoni guides every project from structural layout to full furnishing and styling. Her touch ensures a renovated property isn't just technically perfect — it breathes a quality that people feel immediately.</p>
         </div>
       </div>
     </div>
 
-    <!-- STATS -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:80px;" class="stats-3col">
-      <div style="background:var(--cream);padding:40px;text-align:center;">
-        <div style="font-family:var(--serif);font-size:48px;font-weight:300;">6</div>
-        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-top:8px;">Languages spoken</div>
-      </div>
-      <div style="background:var(--cream);padding:40px;text-align:center;">
-        <div style="font-family:var(--serif);font-size:48px;font-weight:300;">200+</div>
-        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-top:8px;">Portals worldwide</div>
-      </div>
-      <div style="background:var(--cream);padding:40px;text-align:center;">
-        <div style="font-family:var(--serif);font-size:48px;font-weight:300;">100%</div>
-        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-top:8px;">Personal service</div>
-      </div>
-    </div>
+
 
   </div>
 </div>
@@ -732,23 +754,23 @@
 <div id="page-soon" class="page">
   <div class="soon-hero">
     <div class="soon-hero-content">
-      <span class="section-tag">In ontwikkeling</span>
-      <h1>Hard aan het werk.<br><em>Binnenkort beschikbaar.</em></h1>
-      <p>Terwijl u dit leest, zijn onze teams bezig om deze woningen te transformeren tot iets bijzonders. Van ruwe steen tot instapklare luxe — Casa Renovo Marbella op zijn best. Interesse? Neem contact op voor exclusieve preview-toegang.</p>
+      <span class="section-tag" data-i18n="soon_tag">In ontwikkeling</span>
+      <h1 data-i18n="soon_h1">Hard aan het werk.<br><em>Binnenkort beschikbaar.</em></h1>
+      <p data-i18n="soon_p">Terwijl u dit leest, zijn onze teams bezig om deze woningen te transformeren tot iets bijzonders. Van ruwe steen tot instapklare luxe — Casa Renovo Marbella op zijn best. Interesse? Neem contact op voor exclusieve preview-toegang.</p>
     </div>
   </div>
   <div class="section-header">
-    <span class="section-tag">Onze projecten in uitvoering</span>
+    <span class="section-tag" data-i18n="soon_section_tag">Onze projecten in uitvoering</span>
     <h2 class="section-title">Coming <em>Soon</em></h2>
-    <p class="section-sub">Deze woningen zijn momenteel in renovatie of ontwikkeling. Wees er vroeg bij.</p>
+    <p class="section-sub" data-i18n="soon_sub">Deze woningen zijn momenteel in renovatie of ontwikkeling. Wees er vroeg bij.</p>
   </div>
   <div id="soon-grid" class="soon-grid">
     <div class="loading loading-spin">Loading</div>
   </div>
   <div style="background:var(--cream);padding:60px 48px;text-align:center;margin-top:2px;">
-    <h2 style="font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:12px;">Wilt u als eerste weten wanneer deze woning beschikbaar is?</h2>
-    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;">Meld u aan voor exclusieve updates van Luxxo Homes.</p>
-    <button onclick="showPage('contact')" style="background:var(--charcoal);color:var(--warm-white);border:none;padding:14px 36px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='var(--charcoal)';this.style.color='var(--warm-white)'">Neem contact op</button>
+    <h2 style="font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:12px;" data-i18n="soon_cta_title">Wilt u als eerste weten wanneer deze woning beschikbaar is?</h2>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;" data-i18n="soon_cta_sub">Meld u aan voor exclusieve updates van Luxxo Homes.</p>
+    <button onclick="showPage('contact')" style="background:var(--charcoal);color:var(--warm-white);border:none;padding:14px 36px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='var(--charcoal)';this.style.color='var(--warm-white)'" data-i18n="soon_cta_btn">Neem contact op</button>
   </div>
 </div>
 
@@ -809,8 +831,9 @@
   <div class="footer-col">
     <h4>Contact</h4>
     <ul>
-      <li><a href="tel:+34681294029">+34 681 294 029</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#d3b6b7a4babd93bfa6ababbcbbbcbeb6a0fdb0bcbe"><span class="__cf_email__" data-cfemail="10757467797e507c6568687f787f7d75633e737f7d">[email&#160;protected]</span></a></li>
+      <li><a href="tel:+34681294029">Gijs &nbsp;+34 681 294 029</a></li>
+      <li><a href="tel:+34633925630">Edwin &nbsp;+34 633 925 630</a></li>
+      <li><a href="mailto:info@luxxohomes.com">info@luxxohomes.com</a></li>
       <li><a>luxxohomes.com</a></li>
     </ul>
   </div>
@@ -868,7 +891,8 @@ const lang = {
     bridge_p3:'We advise clients in the Netherlands who are considering a purchase, and guide them all the way through to the keys in their hand in Spain. One team, from start to finish.',
     team_caption:'<span data-i18n="team_caption">Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  And a very important team member</span>',
     team_tag:'The team',
-    team_h2:'Three types.<br><em>One goal.</em>',
+    team_h2:'Stronger together.<br><em>Better for you.</em>',
+    team_intro:'Four people. Each with their own strength. Together they cover every aspect of the process \u2014 from construction site to notary, from interior to investment. That\u2019s what makes the difference.',
     gijs_role:'The Local Hero',
     gijs_name:'Gijs Hoeve',
     gijs_desc:'Gijs knows Marbella the way others know their own backyard. The areas, the prices, the network — and the opportunities that never appear in a brochure. He is the face on the ground: present, involved and always reachable for the people he guides.',
@@ -887,6 +911,25 @@ const lang = {
     portfolio_standard_text:'Kitchens, bathrooms and flooring sourced directly from the Netherlands. Structural work supervised by our own team. Styled and finished by Djoni Granneman. Every project is a reflection of what we believe luxury living should look and feel like.',
     buyers_insider:'We know the Spanish market from the inside — not as outsiders, but as people who build, invest and live here ourselves. That perspective makes all the difference.',
     contact_personal:'Whether you’re exploring from the Netherlands or already on the Costa del Sol — Gijs, Jacco and Edwin are ready to help. No obligations, no sales pitch. Just an honest conversation.',
+        soon_tag:'Under development',
+    soon_h1:'Hard at work.<br><em>Coming soon.</em>',
+    soon_p:'While you read this, our teams are transforming these properties into something exceptional. From raw material to turnkey luxury — Casa Renovo Marbella at its best.',
+    soon_section_tag:'Our projects in progress',
+    soon_sub:'These properties are currently under renovation or development. Be the first to know.',
+    soon_cta_title:'Want to be the first to know when this property is available?',
+    soon_cta_sub:'Register for exclusive updates from Luxxo Homes.',
+    soon_cta_btn:'Get in touch',
+    soon_empty:'New projects will be announced here soon. Keep an eye on this page.',
+    listings_badge1:'Casa Renovo Projects',
+    listings_badge1_text:'Renovated by our own team',
+    listings_badge2:'Luxxo Selection',
+    listings_badge2_text:'Handpicked for quality & location',
+        portfolio_cta_title:'Inspired by what we create?',
+    portfolio_cta_text:'Let\'s talk about what\'s possible — whether you\'re looking to buy, sell or invest on the Costa del Sol.',
+    portfolio_cta_btn:'Get in touch',
+    guide_cta_title:'Plan a free consultation with <em>Gijs, Jacco or Edwin.</em>',
+    guide_cta_sub:'No obligations. We listen first, advise second. Your journey to Marbella starts with one conversation.',
+    guide_cta_btn:'Plan a free conversation →',
     beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
@@ -929,13 +972,14 @@ const lang = {
     about_p1:'Wij verkopen niet zomaar woningen. Wij creëren ze. Luxxo Homes is onderdeel van <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — samen met <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, ons eigen renovatiebedrijf op de Costa del Sol.',
     about_p2:'Wij kopen woningen, renoveren ze naar een uitzonderlijk niveau en brengen ze via Luxxo Homes op de markt. Daarnaast begeleiden we kopers bij het vinden van andere woningen — maar alleen als die woning echt aan onze standaard voldoet.',
     bridge_tag:'De brug tussen Nederland en Spanje',
-    bridge_h2:'Wij kennen de valkuilen.<br><em>Want wij zijn er zelf ingestapt.</em>',
+    bridge_h2:'Twee merken.<br><em>\u00c9\u00e9n standaard.</em>',
     bridge_p1:'Kopen in Spanje klinkt aantrekkelijk. En dat is het ook — als je weet wat je doet. De markt werkt anders, de regelgeving is anders, en lokale aannemers leveren lang niet altijd wat ze beloven. Wij kennen die valkuilen van binnen en van buiten.',
     bridge_p2:'Ons grote voordeel: we opereren aan beide kanten van de grens. Jacco heeft in Nederland een bedrijf van waaruit we keukens, badkamers en vloeren leveren voor elk renovatieproject. Niet omdat het makkelijk is — maar omdat we zo de kwaliteit volledig in eigen hand hebben. Geen verrassingen op de bouwplaats. Geen compromissen over materialen.',
     bridge_p3:'Wij adviseren klanten in Nederland die een aankoop overwegen, en begeleiden hen helemaal tot aan de sleutel in hun hand in Spanje. Één team, van begin tot einde.',
     team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  En een zeer belangrijk teamlid',
     team_tag:'Het team',
-    team_h2:'Drie types.<br><em>Één doel.</em>',
+    team_h2:'Samen sterker.<br><em>Beter voor jou.</em>',
+    team_intro:'Vier mensen. Elk met zijn eigen kracht. Samen dekken ze elk onderdeel van het proces — van bouwplaats tot notaris, van interieur tot investering.',
     gijs_role:'De Local Hero',
     gijs_name:'Gijs Hoeve',
     gijs_desc:'Gijs kent Marbella zoals anderen hun eigen achtertuin kennen. De gebieden, de prijzen, het netwerk — en de kansen die nooit in een brochure staan. Hij is het gezicht op de grond: aanwezig, betrokken en altijd bereikbaar voor de mensen die hij begeleidt.',
@@ -954,6 +998,25 @@ const lang = {
     portfolio_standard_text:'Keukens, badkamers en vloeren rechtstreeks uit Nederland. Bouwkundig werk aangestuurd door ons eigen team. Gestileerd en afgewerkt door Djoni Granneman. Elk project weerspiegelt wat wij vinden dat luxe wonen moet zijn.',
     buyers_insider:'Wij kennen de Spaanse markt van binnenuit — niet als buitenstaander, maar als mensen die hier zelf bouwen, investeren en leven. Dat perspectief maakt het verschil.',
     contact_personal:'Of je nu vanuit Nederland verkent of al op de Costa del Sol bent — Gijs, Jacco en Edwin staan klaar. Geen verplichtingen, geen verkoopverhaal. Gewoon een eerlijk gesprek.',
+        soon_tag:'In ontwikkeling',
+    soon_h1:'Hard aan het werk.<br><em>Binnenkort beschikbaar.</em>',
+    soon_p:'Terwijl u dit leest, zijn onze teams bezig om deze woningen te transformeren tot iets bijzonders. Van ruwe steen tot instapklare luxe — Casa Renovo Marbella op zijn best.',
+    soon_section_tag:'Onze projecten in uitvoering',
+    soon_sub:'Deze woningen zijn momenteel in renovatie of ontwikkeling. Wees er vroeg bij.',
+    soon_cta_title:'Wilt u als eerste weten wanneer deze woning beschikbaar is?',
+    soon_cta_sub:'Meld u aan voor exclusieve updates van Luxxo Homes.',
+    soon_cta_btn:'Neem contact op',
+    soon_empty:'Binnenkort worden hier nieuwe projecten aangekondigd. Houd deze pagina in de gaten.',
+    listings_badge1:'Casa Renovo Projecten',
+    listings_badge1_text:'Gerenoveerd door ons eigen team',
+    listings_badge2:'Luxxo Selectie',
+    listings_badge2_text:'Geselecteerd op kwaliteit & locatie',
+        portfolio_cta_title:'Geïnspireerd geraakt?',
+    portfolio_cta_text:'Laten we bespreken wat mogelijk is — of u nu wilt kopen, verkopen of investeren op de Costa del Sol.',
+    portfolio_cta_btn:'Neem contact op',
+    guide_cta_title:'Plan een gratis gesprek met <em>Gijs, Jacco of Edwin.</em>',
+    guide_cta_sub:'Geen verplichtingen. Wij luisteren eerst, adviseren daarna. Uw reis naar Marbella begint met één gesprek.',
+    guide_cta_btn:'Plan een gratis gesprek →',
     beds:'slaapk.',baths:'badk.',sqm:'m\u00b2',view_details:'Bekijk details',enquire:'Informatie aanvragen'
   },
   es: {
@@ -1002,7 +1065,8 @@ const lang = {
     bridge_p3:'Asesoramos a clientes en Países Bajos que consideran una compra y los acompañamos hasta tener las llaves en mano en España. Un equipo, de principio a fin.',
     team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  Y un miembro muy importante del equipo',
     team_tag:'El equipo',
-    team_h2:'Tres tipos.<br><em>Un objetivo.</em>',
+    team_h2:'M\u00e1s fuertes juntos.<br><em>Mejor para ti.</em>',
+    team_intro:'Cuatro personas. Cada una con su propia fortaleza. Juntos cubren cada aspecto del proceso \u2014 desde la obra hasta el notario, del interiorismo a la inversi\u00f3n.',
     gijs_role:'El Héroe Local',
     gijs_name:'Gijs Hoeve',
     gijs_desc:'Gijs conoce Marbella como otros conocen su propio jardín. Las zonas, los precios, la red — y las oportunidades que nunca aparecen en un folleto. Es el rostro sobre el terreno: presente, involucrado y siempre accesible.',
@@ -1021,6 +1085,25 @@ const lang = {
     portfolio_standard_text:'Cocinas, baños y suelos suministrados directamente desde Países Bajos. Obra supervisada por nuestro equipo. Estilizado y terminado por Djoni Granneman. Cada proyecto refleja lo que creemos que debe ser el lujo.',
     buyers_insider:'Conocemos el mercado español desde dentro — no como forasteros, sino como personas que aquí construimos, invertimos y vivimos. Esa perspectiva marca la diferencia.',
     contact_personal:'Tanto si explora desde Países Bajos como si ya está en la Costa del Sol — Gijs, Jacco y Edwin están listos para ayudar. Sin compromisos, sin discurso de ventas. Solo una conversación honesta.',
+        soon_tag:'En desarrollo',
+    soon_h1:'Trabajando duro.<br><em>Próximamente disponible.</em>',
+    soon_p:'Mientras lee esto, nuestros equipos están transformando estas propiedades en algo excepcional.',
+    soon_section_tag:'Nuestros proyectos en curso',
+    soon_sub:'Estas propiedades están actualmente en renovación. Sé el primero en saberlo.',
+    soon_cta_title:'¿Quieres ser el primero en saber cuándo esté disponible?',
+    soon_cta_sub:'Regístrate para recibir actualizaciones exclusivas.',
+    soon_cta_btn:'Contáctanos',
+    soon_empty:'Pronto se anunciarán nuevos proyectos aquí.',
+    listings_badge1:'Proyectos Casa Renovo',
+    listings_badge1_text:'Renovado por nuestro propio equipo',
+    listings_badge2:'Selección Luxxo',
+    listings_badge2_text:'Elegido por calidad y ubicación',
+        portfolio_cta_title:'¿Inspiración encontrada?',
+    portfolio_cta_text:'Hablemos de lo que es posible, ya sea que quieras comprar, vender o invertir en la Costa del Sol.',
+    portfolio_cta_btn:'Contáctanos',
+    guide_cta_title:'Planifica una consulta gratuita con <em>Gijs, Jacco o Edwin.</em>',
+    guide_cta_sub:'Sin compromisos. Escuchamos primero, asesoramos después.',
+    guide_cta_btn:'Planificar una consulta gratuita →',
     beds:'dorm.',baths:'ba\u00f1os',sqm:'m\u00b2',view_details:'Ver detalles',enquire:'Solicitar informaci\u00f3n'
   },
   de: {
@@ -1069,7 +1152,8 @@ const lang = {
     bridge_p3:'Wir beraten Kunden in den Niederlanden, die einen Kauf erwagen, und begleiten sie bis zum Schlüssel in der Hand in Spanien. Ein Team, von Anfang bis Ende.',
     team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  Und ein sehr wichtiges Teammitglied',
     team_tag:'Das Team',
-    team_h2:'Drei Typen.<br><em>Ein Ziel.</em>',
+    team_h2:'Gemeinsam st\u00e4rker.<br><em>Besser f\u00fcr Sie.</em>',
+    team_intro:'Vier Menschen. Jeder mit seiner eigenen St\u00e4rke. Gemeinsam decken sie jeden Aspekt des Prozesses ab \u2014 von der Baustelle bis zum Notar, vom Interieur bis zur Investition.',
     gijs_role:'Der Local Hero',
     gijs_name:'Gijs Hoeve',
     gijs_desc:'Gijs kennt Marbella wie andere ihren eigenen Garten. Die Gebiete, die Preise, das Netzwerk — und die Chancen, die nie in einer Broühuere auftauchen. Er ist das Gesicht vor Ort: präsent, engagiert und immer erreichbar.',
@@ -1088,6 +1172,25 @@ const lang = {
     portfolio_standard_text:'Küchen, Bäder und Böden direkt aus den Niederlanden bezogen. Bauarbeiten von unserem eigenen Team überwacht. Gestaltet und fertiggestellt von Djoni Granneman. Jedes Projekt spiegelt wider, was wir unter Luxusleben verstehen.',
     buyers_insider:'Wir kennen den spanischen Markt von innen — nicht als Außenseiter, sondern als Menschen, die hier selbst bauen, investieren und leben. Diese Perspektive macht den Unterschied.',
     contact_personal:'Ob Sie von den Niederlanden aus erkunden oder bereits an der Costa del Sol sind — Gijs, Jacco und Edwin stehen bereit. Keine Verpflichtungen, kein Verkaufsgespräch. Nur ein ehrliches Gespräch.',
+        soon_tag:'In Entwicklung',
+    soon_h1:'Wir arbeiten daran.<br><em>Demnächst verfügbar.</em>',
+    soon_p:'Während Sie dies lesen, verwandeln unsere Teams diese Immobilien in etwas Außergewöhnliches.',
+    soon_section_tag:'Unsere laufenden Projekte',
+    soon_sub:'Diese Immobilien befinden sich im Umbau. Seien Sie als Erster dabei.',
+    soon_cta_title:'Möchten Sie als Erster wissen, wann diese Immobilie verfügbar ist?',
+    soon_cta_sub:'Registrieren Sie sich für exklusive Updates.',
+    soon_cta_btn:'Kontakt aufnehmen',
+    soon_empty:'Neue Projekte werden bald angekündigt.',
+    listings_badge1:'Casa Renovo Projekte',
+    listings_badge1_text:'Von unserem Team renoviert',
+    listings_badge2:'Luxxo Auswahl',
+    listings_badge2_text:'Handverlesen nach Qualität & Lage',
+        portfolio_cta_title:'Inspiriert?',
+    portfolio_cta_text:'Lassen Sie uns besprechen, was möglich ist — ob Sie kaufen, verkaufen oder investieren möchten.',
+    portfolio_cta_btn:'Kontakt aufnehmen',
+    guide_cta_title:'Planen Sie ein kostenloses Gespräch mit <em>Gijs, Jacco oder Edwin.</em>',
+    guide_cta_sub:'Keine Verpflichtungen. Wir hören zuerst zu, beraten dann.',
+    guide_cta_btn:'Kostenloses Gespräch planen →',
     beds:'SZ',baths:'BZ',sqm:'m\u00b2',view_details:'Details ansehen',enquire:'Diese Immobilie anfragen'
   },
   sv: {
@@ -1136,7 +1239,8 @@ const lang = {
     bridge_p3:'Vi rådger kunder i Nederländerna som överväger ett köp och följer dem hela vägen till nycklarna i handen i Spanien. Ett team, från början till slut.',
     team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  Och en mycket viktig teammedlem',
     team_tag:'Teamet',
-    team_h2:'Tre typer.<br><em>Ett mål.</em>',
+    team_h2:'Starkare tillsammans.<br><em>Bättre för dig.</em>',
+    team_intro:'Fyra människor. Var och en med sin egen styrka. Tillsammans täcker de varje aspekt av processen — från byggarbetsplats till notarius.',
     gijs_role:'Den lokala hjälten',
     gijs_name:'Gijs Hoeve',
     gijs_desc:'Gijs känner Marbella som andra känner sin egen trädgård. Områdena, priserna, nätverket — och möjligheterna som aldrig dyker upp i en broschyr. Han är ansiktet på plats: närvarande, engagerad och alltid tillgänglig.',
@@ -1155,6 +1259,25 @@ const lang = {
     portfolio_standard_text:'Kök, badrum och golv levererade direkt från Nederländerna. Byggarbeten övervakade av vårt eget team. Formgiven och färdigställd av Djoni Granneman. Varje projekt speglar vad vi tror att lyxigt boende ska se ut och kännas.',
     buyers_insider:'Vi känner den spanska marknaden inifrån — inte som utomstående, utan som människor som själva bygger, investerar och lever här. Det perspektivet gör skillnad.',
     contact_personal:'Oavsett om du utforskar från Nederländerna eller redan är på Costa del Sol — Gijs, Jacco och Edwin är redo att hjälpa. Inga förpliktelser, inget säljsnack. Bara ett ärligt samtal.',
+        soon_tag:'Under utveckling',
+    soon_h1:'Hårt arbete pågår.<br><em>Kommer snart.</em>',
+    soon_p:'Våra team omvandlar dessa fastigheter till något exceptionellt.',
+    soon_section_tag:'Våra pågående projekt',
+    soon_sub:'Dessa fastigheter renoveras för närvarande. Var först med att veta.',
+    soon_cta_title:'Vill du vara först med att veta när fastigheten är tillgänglig?',
+    soon_cta_sub:'Registrera dig för exklusiva uppdateringar.',
+    soon_cta_btn:'Kontakta oss',
+    soon_empty:'Nya projekt annonseras snart här.',
+    listings_badge1:'Casa Renovo-projekt',
+    listings_badge1_text:'Renoverat av vårt eget team',
+    listings_badge2:'Luxxo Urval',
+    listings_badge2_text:'Handplockat för kvalitet & läge',
+        portfolio_cta_title:'Inspirerad?',
+    portfolio_cta_text:'Låt oss prata om vad som är möjligt — oavsett om du vill köpa, sälja eller investera.',
+    portfolio_cta_btn:'Kontakta oss',
+    guide_cta_title:'Planera ett gratis samtal med <em>Gijs, Jacco eller Edwin.</em>',
+    guide_cta_sub:'Inga förpliktelser. Vi lyssnar först, rådger sedan.',
+    guide_cta_btn:'Planera ett gratis samtal →',
     beds:'sovrum',baths:'badrum',sqm:'m\u00b2',view_details:'Se detaljer',enquire:'F\u00f6rfr\u00e5gan om fastighet'
   },
   pl: {
@@ -1203,7 +1326,8 @@ const lang = {
     bridge_p3:'Doradzamy klientom w Holandii rozważającym zakup i prowadzimy ich aż do kluczy w ręku w Hiszpanii. Jeden zespół, od początku do końca.',
     team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  I bardzo ważny członek zespołu',
     team_tag:'Zespół',
-    team_h2:'Trzy typy.<br><em>Jeden cel.</em>',
+    team_h2:'Silniejsi razem.<br><em>Lepiej dla Ciebie.</em>',
+    team_intro:'Cztery osoby. Ka\u017cda z w\u0142asn\u0105 si\u0142\u0105. Razem obejmuj\u0105 ka\u017cdy aspekt procesu \u2014 od placu budowy po notariusza, od wn\u0119trz po inwestycje.',
     gijs_role:'Lokalny Bohater',
     gijs_name:'Gijs Hoeve',
     gijs_desc:'Gijs zna Marbellę tak, jak inni znają własny ogród. Obszary, ceny, sieć — i możliwości, które nigdy nie pojawiają się w broszurze. Jest twarzą na miejscu: obecny, zaangażowany i zawsze dostępny.',
@@ -1222,6 +1346,25 @@ const lang = {
     portfolio_standard_text:'Kuchnie, łazienki i podłogi dostarczane bezpośrednio z Holandii. Prace budowlane nadzorowane przez nasz zespół. Ostylizowane i wykończone przez Djoni Granneman. Każdy projekt odzwierciedla to, czym według nas powinno być luksusowe życie.',
     buyers_insider:'Znamy hiszpański rynek od środka — nie jako obcy, ale jako ludzie, którzy tu sami budują, inwestują i żyją. Ta perspektywa robi różnicę.',
     contact_personal:'Czy eksplorujesz z Holandii, czy jesteś już na Costa del Sol — Gijs, Jacco i Edwin są gotowi pomóc. Bez zobowiązań, bez mowy sprzedażowej. Tylko uczciwa rozmowa.',
+        soon_tag:'W trakcie realizacji',
+    soon_h1:'Ciężko pracujemy.<br><em>Wkrótce dostępne.</em>',
+    soon_p:'Nasze zespoły przekształcają te nieruchomości w coś wyjątkowego.',
+    soon_section_tag:'Nasze projekty w toku',
+    soon_sub:'Te nieruchomości są aktualnie w remoncie. Bądź pierwszy.',
+    soon_cta_title:'Chcesz być pierwszym, który się dowie?',
+    soon_cta_sub:'Zapisz się na ekskluzywne aktualizacje.',
+    soon_cta_btn:'Skontaktuj się',
+    soon_empty:'Nowe projekty będą wkrótce ogłoszone.',
+    listings_badge1:'Projekty Casa Renovo',
+    listings_badge1_text:'Wyremontowane przez nasz zespół',
+    listings_badge2:'Selekcja Luxxo',
+    listings_badge2_text:'Wybrane za jakość i lokalizację',
+        portfolio_cta_title:'Zainspirowany?',
+    portfolio_cta_text:'Porozmawiajmy o możliwościach — czy chcesz kupować, sprzedawać czy inwestować.',
+    portfolio_cta_btn:'Skontaktuj się',
+    guide_cta_title:'Zaplanuj bezpłatną rozmowę z <em>Gijsem, Jackiem lub Edwinem.</em>',
+    guide_cta_sub:'Bez zobowiązań. Najpierw słuchamy, potem doradzimy.',
+    guide_cta_btn:'Zaplanuj bezpłatną rozmowę →',
     beds:'sypialnie',baths:'\u0142azienki',sqm:'m\u00b2',view_details:'Zobacz szczeg\u00f3\u0142y',enquire:'Zapytaj o t\u0119 nieruchomo\u015b\u0107'
   }
 };
@@ -1434,7 +1577,7 @@ function renderSoon() {
   if (!grid) return;
   var soon = allProperties.filter(function(p){ return p.notes === 'soon'; });
   if (!soon.length) {
-    grid.innerHTML = '<div class="soon-empty">Binnenkort worden hier nieuwe projecten aangekondigd. Houd deze pagina in de gaten.</div>';
+    grid.innerHTML = '<div class="soon-empty">' + t('soon_empty') + '</div>';
     return;
   }
   grid.innerHTML = soon.map(function(p,i){
@@ -1485,6 +1628,13 @@ function openModal(id) {
     + '</div>'
     + (desc ? '<div class="modal-desc">' + desc.replace(/\n/g,'<br>') + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
+    + ((p.lat && p.lon && p.lat !== 0 && p.lon !== 0) ? '<div style="margin:24px 0 0;">'
+        + '<div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:10px;">Location</div>'
+        + '<div style="height:220px;overflow:hidden;border:1px solid var(--border);">'
+        + '<iframe width="100%" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" '
+        + 'src="https://www.openstreetmap.org/export/embed.html?bbox=' + (p.lon-0.008) + '%2C' + (p.lat-0.005) + '%2C' + (p.lon+0.008) + '%2C' + (p.lat+0.005) + '&layer=mapnik&marker=' + p.lat + '%2C' + p.lon + '" '
+        + 'style="border:0;width:100%;height:220px;" loading="lazy"></iframe>'
+        + '</div></div>' : '')
     + '<button class="modal-cta" onclick="showPage(\'contact\')">' + t('enquire') + '</button>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';

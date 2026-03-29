@@ -53,11 +53,27 @@ exports.handler = async function() {
       const p = match[1];
       var ref = getTag(p, 'ref');
       var tag = '';
+      var sortOrder = 999;
       var cleanRef = ref;
+      // Parse sort number: e.g. "Casa Hillside portfolio #1" → order=1
+      var orderMatch = ref.match(/#(\d+)\s*$/);
+      if (orderMatch) {
+        sortOrder = parseInt(orderMatch[1]);
+        ref = ref.replace(/#\d+\s*$/, '').trim();
+        cleanRef = ref;
+      }
+      // Parse tag: soon / portfolio / sold
       var tagMatch = ref.match(/\s+(soon|portfolio|sold)$/i);
       if (tagMatch) {
         tag = tagMatch[1].toLowerCase();
         cleanRef = ref.replace(/\s+(soon|portfolio|sold)$/i, '').trim();
+      }
+      // Parse lat/lon from location block
+      var lat = 0, lon = 0;
+      var locBlock = p.match(/<location>([\s\S]*?)<\/location>/i);
+      if (locBlock) {
+        lat = parseFloat(getTag(locBlock[1], 'latitude')) || 0;
+        lon = parseFloat(getTag(locBlock[1], 'longitude')) || 0;
       }
       properties.push({
         id: getTag(p, 'id'),
@@ -70,6 +86,9 @@ exports.handler = async function() {
         baths: getTag(p, 'baths'),
         built: parseInt(getTag(p, 'built')) || 0,
         notes: tag || getTag(p, 'notes').toLowerCase().trim(),
+        sort_order: sortOrder,
+        lat: lat,
+        lon: lon,
         desc_en: getLangDesc(p, 'en'),
         desc_nl: getLangDesc(p, 'nl'),
         desc_es: getLangDesc(p, 'es'),
@@ -78,6 +97,7 @@ exports.handler = async function() {
         features: getAllTags((p.match(/<features>([\s\S]*?)<\/features>/i) || ['',''])[1], 'feature'),
       });
     }
+    properties.sort(function(a,b){ return a.sort_order - b.sort_order; });
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },

@@ -45,7 +45,7 @@
 
   /* ── HERO ── */
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; margin-top: 72px; }
-  .hero-left { background: var(--charcoal); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; position: relative; overflow: hidden; }
+  .hero-left { background: #2A2A28; display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; position: relative; overflow: hidden; }
   .hero-left::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=900&q=80') center/cover; opacity: .18; }
   .hero-left-content { position: relative; z-index: 1; }
   .hero-tag { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 400; }
@@ -137,6 +137,8 @@
 
   /* ── ABOUT STRIP ── */
   .about-strip { display: grid; grid-template-columns: 1fr 1fr; height: 360px; }
+  .about-video-strip { margin-top: 72px; height: 360px; }
+  .about-video-cell { overflow: hidden; position: relative; height: 360px; }
   .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; height: 360px; }
   .about-content { background: #2A2A28; padding: 48px 56px; display: flex; flex-direction: column; justify-content: center; height: 360px; overflow: hidden; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
@@ -186,7 +188,7 @@
   .footer-col li { margin-bottom: 9px; }
   .footer-col a { font-size: 13px; color: rgba(250,248,244,.45); text-decoration: none; transition: color .2s; cursor: pointer; }
   .footer-col a:hover { color: var(--warm-white); }
-  .footer-bottom { background: var(--charcoal); padding: 18px 48px; border-top: 1px solid rgba(255,255,255,.06); display: flex; justify-content: space-between; }
+  .footer-bottom { background: #2A2A28; padding: 18px 48px; border-top: 1px solid rgba(255,255,255,.06); display: flex; justify-content: space-between; }
   .footer-bottom p { font-size: 12px; color: rgba(250,248,244,.28); }
 
   /* ── PAGE VIEWS ── */
@@ -673,7 +675,7 @@
       </div>
     </div>
   </div>
-  <div class="guide-cta-box" style="background:#333330;color:var(--warm-white);">
+  <div class="guide-cta-box" style="background:#2A2A28;color:var(--warm-white);">
     <h2 style="color:var(--warm-white);" data-i18n="guide_cta_title">Plan a free consultation with <em>Gijs, Jacco or Edwin.</em></h2>
     <p style="color:rgba(250,248,244,.6);" data-i18n="guide_cta_sub">No obligations. We listen first, advise second. Your journey to Marbella starts with one conversation.</p>
     <button class="btn-search" style="max-width:320px;margin:0 auto;background:var(--gold);color:var(--charcoal);border-color:var(--gold);" onclick="showPage('contact')" data-i18n="guide_cta_btn">Plan a free conversation →</button>
@@ -684,9 +686,9 @@
 <div id="page-about" class="page">
 
   <!-- VIDEO HERO STRIP -->
-  <section style="display:grid;grid-template-columns:1fr 1fr;height:360px;margin-top:72px;" class="about-strip">
-    <div style="overflow:hidden;position:relative;height:360px;">
-      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+  <section class="about-strip about-video-strip">
+    <div class="about-video-cell">
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center 75%;display:block;">
         <source src="/casarenovo.mp4" type="video/mp4">
       </video>
     </div>

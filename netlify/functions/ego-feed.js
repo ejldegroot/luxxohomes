@@ -61,6 +61,7 @@ exports.handler = async function() {
         beds: getTag(p, 'beds'),
         baths: getTag(p, 'baths'),
         built: parseInt(getTag(p, 'built')) || 0,
+        notes: getTag(p, 'notes').toLowerCase().trim(),
         desc_en: getLangDesc(p, 'en'),
         desc_nl: getLangDesc(p, 'nl'),
         desc_es: getLangDesc(p, 'es'),

@@ -327,6 +327,7 @@
     <li><a onclick="showPage('home')" data-i18n="nav_home">Home</a></li>
     <li><a onclick="showPage('listings')" data-i18n="nav_properties">Properties</a></li>
     <li><a onclick="showPage('portfolio')" data-i18n="nav_portfolio">Portfolio</a></li>
+    <li><a onclick="showPage('soon')" data-i18n="nav_soon">Coming Soon</a></li>
     <li><a onclick="showPage('buyers')" data-i18n="nav_buyers">Buyer's Guide</a></li>
     <li><a onclick="showPage('about')" data-i18n="nav_about">About</a></li>
     <li><a onclick="showPage('contact')" data-i18n="nav_contact">Contact</a></li>
@@ -360,6 +361,7 @@
   <a onclick="showPage('home');closeMobileMenu()" data-i18n="nav_home">Home</a>
   <a onclick="showPage('listings');closeMobileMenu()" data-i18n="nav_properties">Properties</a>
   <a onclick="showPage('portfolio');closeMobileMenu()" data-i18n="nav_portfolio">Portfolio</a>
+  <a onclick="showPage('soon');closeMobileMenu()" data-i18n="nav_soon">Coming Soon</a>
   <a onclick="showPage('buyers');closeMobileMenu()" data-i18n="nav_buyers">Buyer's Guide</a>
   <a onclick="showPage('about');closeMobileMenu()" data-i18n="nav_about">About</a>
   <a onclick="showPage('contact');closeMobileMenu()" data-i18n="nav_contact">Contact</a>
@@ -527,6 +529,10 @@
       </div>
     </div>
   </div>
+  <!-- DYNAMIC from eGO feed -->
+  <div id="portfolio-dynamic" style="margin-top:2px;"></div>
+
+  <!-- STATIC placeholder cards -->
   <div class="portfolio-grid" style="margin-top:2px;">
 
     <div class="portfolio-card" style="animation-delay:0ms">
@@ -722,6 +728,31 @@
   </div>
 </div>
 
+<!-- ══ COMING SOON ══ -->
+<div id="page-soon" class="page">
+  <div class="soon-hero">
+    <div class="soon-hero-content">
+      <span class="section-tag">In ontwikkeling</span>
+      <h1>Hard aan het werk.<br><em>Binnenkort beschikbaar.</em></h1>
+      <p>Terwijl u dit leest, zijn onze teams bezig om deze woningen te transformeren tot iets bijzonders. Van ruwe steen tot instapklare luxe — Casa Renovo Marbella op zijn best. Interesse? Neem contact op voor exclusieve preview-toegang.</p>
+    </div>
+  </div>
+  <div class="section-header">
+    <span class="section-tag">Onze projecten in uitvoering</span>
+    <h2 class="section-title">Coming <em>Soon</em></h2>
+    <p class="section-sub">Deze woningen zijn momenteel in renovatie of ontwikkeling. Wees er vroeg bij.</p>
+  </div>
+  <div id="soon-grid" class="soon-grid">
+    <div class="loading loading-spin">Loading</div>
+  </div>
+  <div style="background:var(--cream);padding:60px 48px;text-align:center;margin-top:2px;">
+    <h2 style="font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:12px;">Wilt u als eerste weten wanneer deze woning beschikbaar is?</h2>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;">Meld u aan voor exclusieve updates van Luxxo Homes.</p>
+    <button onclick="showPage('contact')" style="background:var(--charcoal);color:var(--warm-white);border:none;padding:14px 36px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='var(--charcoal)';this.style.color='var(--warm-white)'">Neem contact op</button>
+  </div>
+</div>
+
+
 <!-- ══ CONTACT ══ -->
 <div id="page-contact" class="page">
   <div class="contact-section" style="padding-top:140px;">
@@ -792,7 +823,7 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const lang = {
   en: {
-    nav_home:'Home',nav_properties:'Properties',nav_portfolio:'Portfolio',nav_buyers:"Buyer's Guide",nav_about:'About',nav_contact:'Contact',nav_cta:'Get in touch',
+    nav_home:'Home',nav_properties:'Properties',nav_portfolio:'Portfolio',nav_soon:'Coming Soon',nav_buyers:"Buyer's Guide",nav_about:'About',nav_contact:'Contact',nav_cta:'Get in touch',
     hero_tag:'Luxury Real Estate \u00b7 Marbella',hero_title:'Your <em>exceptional</em><br>home in<br>Marbella',
     hero_sub:'We curate the finest properties on the Costa del Sol \u2014 for those who choose to live without compromise.',
     hero_btn_props:'View properties',hero_btn_guide:'Buying guide',
@@ -859,7 +890,7 @@ const lang = {
     beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
-    nav_home:'Home',nav_properties:'Woningen',nav_portfolio:'Portfolio',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',nav_contact:'Contact',nav_cta:'Neem contact op',
+    nav_home:'Home',nav_properties:'Woningen',nav_portfolio:'Portfolio',nav_soon:'In ontwikkeling',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',nav_contact:'Contact',nav_cta:'Neem contact op',
     hero_tag:'Luxe Vastgoed \u00b7 Marbella',hero_title:'Uw <em>uitzonderlijke</em><br>woning in<br>Marbella',
     hero_sub:'Wij selecteren de mooiste woningen aan de Costa del Sol.',
     hero_btn_props:'Bekijk woningen',hero_btn_guide:'Aankoopbegeleiding',
@@ -1215,6 +1246,8 @@ function showPage(name) {
   if (pg) pg.classList.add('active');
   window.scrollTo(0,0);
   if (name === 'listings') renderListings();
+  if (name === 'soon') renderSoon();
+  if (name === 'portfolio') renderPortfolio();
 }
 
 function applyFiltersAndShow() {
@@ -1236,6 +1269,8 @@ async function loadFeed() {
     allProperties = data;
     populateLocationFilters();
     renderFeatured();
+    renderPortfolio();
+    renderSoon();
   } catch(e) {
     var el = document.getElementById('featured-grid');
     if (el) el.innerHTML = '<div class="loading" style="animation:none;">Unable to load live properties. Please check back shortly.</div>';
@@ -1269,14 +1304,17 @@ function propCard(p, delay) {
   delay = delay || 0;
   var img = (p.photos && p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=70';
   var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+  var isSold = p.notes === 'sold';
+  var soldOverlay = isSold ? '<div class="prop-sold-overlay"><div class="prop-sold-banner">Sold</div></div>' : '';
   return '<div class="prop-card" style="animation-delay:' + delay + 'ms" data-propid="' + p.id + '" onclick="openModal(this.dataset.propid)">'
-    + '<div class="prop-img-wrap">'
+    + '<div class="prop-img-wrap" style="position:relative;">'
     + '<img class="prop-img" src="' + img + '" alt="" loading="lazy">'
     + '<div class="prop-overlay"></div>'
     + '<div class="prop-badge">' + (p.type||'') + '</div>'
+    + soldOverlay
     + '</div>'
     + '<div class="prop-info">'
-    + '<div class="prop-price">' + fmtPrice(p.price) + '</div>'
+    + '<div class="prop-price">' + (isSold ? '<span style="text-decoration:line-through;opacity:.5;">' + fmtPrice(p.price) + '</span>' : fmtPrice(p.price)) + '</div>'
     + '<div class="prop-name">' + (p.ref||'') + '</div>'
     + '<div class="prop-location">' + loc + '</div>'
     + '</div>'
@@ -1294,7 +1332,9 @@ function propCard(p, delay) {
 function renderFeatured() {
   var el = document.getElementById('featured-grid');
   if (!el || !allProperties.length) return;
-  el.innerHTML = allProperties.slice(0,3).map(function(p,i){ return propCard(p, i*80); }).join('');
+  // Only show properties that are for sale (no notes, or empty notes) - not sold/soon/portfolio
+  var forSale = allProperties.filter(function(p){ return !p.notes || p.notes === '' || p.notes === 'sold'; });
+  el.innerHTML = forSale.slice(0,3).map(function(p,i){ return propCard(p, i*80); }).join('') || '<div class="loading" style="animation:none;">No properties available.</div>';
 }
 
 function filterProperties() {
@@ -1303,7 +1343,8 @@ function filterProperties() {
   var beds = parseInt(((document.getElementById('list-beds')||{}).value) || activeFilters.beds || 0);
   var maxP = parseInt(((document.getElementById('filter-price')||{}).value) || 0);
   var sort = ((document.getElementById('list-sort')||{}).value) || 'price_desc';
-  var props = allProperties.slice();
+  // Exclude portfolio and soon from listings — include sold (with banner)
+  var props = allProperties.filter(function(p){ return p.notes !== 'portfolio' && p.notes !== 'soon'; });
   if (type) props = props.filter(function(p){ return p.type && p.type.toLowerCase().indexOf(type.toLowerCase()) !== -1; });
   if (loc)  props = props.filter(function(p){ return (p.location_detail||'').indexOf(loc) !== -1 || (p.town||'').indexOf(loc) !== -1; });
   if (beds) props = props.filter(function(p){ return parseInt(p.beds||0) >= beds; });
@@ -1318,10 +1359,104 @@ function renderListings() {
   if (!grid) return;
   var props = filterProperties();
   var count = document.getElementById('results-count');
-  if (count) count.textContent = props.length + ' properties';
+  if (count) count.textContent = props.filter(function(p){ return p.notes !== 'sold'; }).length + ' properties';
   if (!props.length) { grid.innerHTML = '<div class="loading" style="animation:none;">No properties match your filters.</div>'; return; }
   grid.innerHTML = props.map(function(p,i){ return propCard(p, i*40); }).join('');
   activeFilters = {};
+}
+
+function renderPortfolio() {
+  // Casa Renovo projects (notes=portfolio)
+  var renovo = allProperties.filter(function(p){ return p.notes === 'portfolio'; });
+  // Sold via Luxxo (notes=sold)
+  var soldProps = allProperties.filter(function(p){ return p.notes === 'sold'; });
+
+  var html = '';
+
+  if (renovo.length) {
+    html += '<div style="padding:0 2px 2px;">'
+      + '<div style="padding:32px 48px 16px;"><span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">Casa Renovo Marbella \u2014 Onze eigen projecten</span></div>'
+      + '<div class="portfolio-grid" style="margin-top:0;">'
+      + renovo.map(function(p,i){
+          var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80';
+          var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+          var desc = getDesc(p);
+          return '<div class="portfolio-card" style="animation-delay:' + (i*80) + 'ms" data-propid="' + p.id + '" onclick="openModal(this.dataset.propid)">'
+            + '<img src="' + img + '" alt="' + (p.ref||'') + '" loading="lazy">'
+            + '<div class="portfolio-info">'
+            + '<span class="portfolio-sold" style="background:var(--gold);color:var(--charcoal);">Casa Renovo</span>'
+            + '<div class="portfolio-name">' + (p.ref||'') + '</div>'
+            + '<div class="portfolio-location">' + loc + '</div>'
+            + (desc ? '<div class="portfolio-desc">' + desc.replace(/\n/g,' ').substring(0,180) + (desc.length>180?'\u2026':'') + '</div>' : '')
+            + '<div class="portfolio-specs">'
+            + '<div class="portfolio-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
+            + '<div class="portfolio-spec"><strong>' + (p.built||'\u2014') + ' m\u00b2</strong>built</div>'
+            + '<div class="portfolio-spec"><strong>' + (p.type||'') + '</strong></div>'
+            + '</div></div></div>';
+        }).join('')
+      + '</div></div>';
+  }
+
+  if (soldProps.length) {
+    html += '<div style="padding:0 2px 2px;margin-top:2px;">'
+      + '<div style="padding:32px 48px 16px;"><span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">Verkocht via Luxxo Homes</span></div>'
+      + '<div class="portfolio-grid" style="margin-top:0;">'
+      + soldProps.map(function(p,i){
+          var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80';
+          var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+          var desc = getDesc(p);
+          return '<div class="portfolio-card" style="animation-delay:' + (i*80) + 'ms" data-propid="' + p.id + '" onclick="openModal(this.dataset.propid)">'
+            + '<img src="' + img + '" alt="' + (p.ref||'') + '" loading="lazy" style="filter:grayscale(20%)">'
+            + '<div class="portfolio-info">'
+            + '<span class="portfolio-sold">Sold</span>'
+            + '<div class="portfolio-name">' + (p.ref||'') + '</div>'
+            + '<div class="portfolio-location">' + loc + '</div>'
+            + (desc ? '<div class="portfolio-desc">' + desc.replace(/\n/g,' ').substring(0,180) + (desc.length>180?'\u2026':'') + '</div>' : '')
+            + '<div class="portfolio-specs">'
+            + '<div class="portfolio-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
+            + '<div class="portfolio-spec"><strong>' + (p.built||'\u2014') + ' m\u00b2</strong>built</div>'
+            + '<div class="portfolio-spec"><strong>' + (p.type||'') + '</strong></div>'
+            + '</div></div></div>';
+        }).join('')
+      + '</div></div>';
+  }
+
+  // Static placeholder cards at the bottom
+  var staticGrid = document.querySelector('.portfolio-grid[style*="margin-top:2px"]');
+  if (!renovo.length && !soldProps.length && staticGrid) return; // keep static if no dynamic
+
+  var dynContainer = document.getElementById('portfolio-dynamic');
+  if (dynContainer) dynContainer.innerHTML = html || '<div class="soon-empty">No portfolio items yet.</div>';
+}
+
+function renderSoon() {
+  var grid = document.getElementById('soon-grid');
+  if (!grid) return;
+  var soon = allProperties.filter(function(p){ return p.notes === 'soon'; });
+  if (!soon.length) {
+    grid.innerHTML = '<div class="soon-empty">Binnenkort worden hier nieuwe projecten aangekondigd. Houd deze pagina in de gaten.</div>';
+    return;
+  }
+  grid.innerHTML = soon.map(function(p,i){
+    var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80';
+    var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+    var desc = getDesc(p);
+    return '<div class="soon-card" style="animation-delay:' + (i*80) + 'ms">'
+      + '<div class="soon-card-img">'
+      + '<img src="' + img + '" alt="' + (p.ref||'') + '" loading="lazy">'
+      + '<div class="soon-badge">Coming Soon</div>'
+      + '</div>'
+      + '<div class="soon-card-info">'
+      + '<div class="soon-card-name">' + (p.ref||'') + '</div>'
+      + '<div class="soon-card-loc">' + loc + '</div>'
+      + (desc ? '<div class="soon-card-desc">' + desc.replace(/\n/g,' ').substring(0,200) + (desc.length>200?'\u2026':'') + '</div>' : '')
+      + '<div class="soon-card-specs">'
+      + '<div class="soon-card-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
+      + '<div class="soon-card-spec"><strong>' + (p.baths||'\u2014') + '</strong>' + t('baths') + '</div>'
+      + (p.built ? '<div class="soon-card-spec"><strong>' + p.built + ' m\u00b2</strong>built</div>' : '')
+      + '</div>'
+      + '</div></div>';
+  }).join('');
 }
 
 function openModal(id) {

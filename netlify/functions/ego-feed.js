@@ -51,9 +51,17 @@ exports.handler = async function() {
     let match;
     while ((match = propRegex.exec(xml)) !== null) {
       const p = match[1];
+      var ref = getTag(p, 'ref');
+      var tag = '';
+      var cleanRef = ref;
+      var tagMatch = ref.match(/\s+(soon|portfolio|sold)$/i);
+      if (tagMatch) {
+        tag = tagMatch[1].toLowerCase();
+        cleanRef = ref.replace(/\s+(soon|portfolio|sold)$/i, '').trim();
+      }
       properties.push({
         id: getTag(p, 'id'),
-        ref: getTag(p, 'ref'),
+        ref: cleanRef,
         price: parseInt(getTag(p, 'price')) || 0,
         type: getTag(p, 'type'),
         town: getTag(p, 'town'),
@@ -61,7 +69,7 @@ exports.handler = async function() {
         beds: getTag(p, 'beds'),
         baths: getTag(p, 'baths'),
         built: parseInt(getTag(p, 'built')) || 0,
-        notes: getTag(p, 'notes').toLowerCase().trim(),
+        notes: tag || getTag(p, 'notes').toLowerCase().trim(),
         desc_en: getLangDesc(p, 'en'),
         desc_nl: getLangDesc(p, 'nl'),
         desc_es: getLangDesc(p, 'es'),

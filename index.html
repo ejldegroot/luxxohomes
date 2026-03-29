@@ -138,7 +138,7 @@
   /* ── ABOUT STRIP ── */
   .about-strip { display: grid; grid-template-columns: 1fr 1fr; }
   .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; min-height: 400px; }
-  .about-content { background: #2A2A28; padding: 40px 48px; display: flex; flex-direction: column; justify-content: center; max-height: 360px; overflow: hidden; }
+  .about-content { background: #2A2A28; padding: 40px 48px; display: flex; flex-direction: column; justify-content: center; height: 320px; overflow: hidden; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
   .about-content h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 20px; }
   .about-content h2 em { font-style: italic; color: var(--gold-light); }
@@ -684,8 +684,8 @@
 <div id="page-about" class="page">
 
   <!-- VIDEO HERO STRIP -->
-  <section style="display:grid;grid-template-columns:1fr 1fr;max-height:360px;margin-top:72px;overflow:hidden;" class="about-strip">
-    <div style="overflow:hidden;position:relative;background:#2A2A28;display:flex;align-items:stretch;max-height:360px;">
+  <section style="display:grid;grid-template-columns:1fr 1fr;height:320px;gap:16px;margin-top:72px;" class="about-strip">
+    <div style="overflow:hidden;position:relative;background:#2A2A28;height:320px;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
         <source src="/casarenovo.mp4" type="video/mp4">
       </video>
@@ -722,7 +722,7 @@
     <!-- TEAM PHOTO -->
     <div style="margin-bottom:72px;">
       <img src="/team.jpg" alt="Het team van Luxxo Homes" style="width:100%;max-height:420px;object-fit:cover;object-position:center 20%;display:block;">
-      <p style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-top:12px;text-align:center;">Gijs Hoeve &nbsp;·&nbsp; Jacco Hamstra &nbsp;·&nbsp; Edwin de Groot &nbsp;·&nbsp; Djoni Granneman &nbsp;·&nbsp; And a very important team member</p>
+
     </div>
 
     <!-- TEAM CARDS -->
@@ -817,7 +817,7 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
+<footer style="grid-template-columns:1fr 1fr 1fr;">
   <div class="footer-brand">
     <span class="footer-logo">Luxxo <span>Homes</span></span>
     <p>Luxury real estate on the Costa del Sol.<br>Marbella's most personal property service.</p>
@@ -837,16 +837,17 @@
       <div>
         <a href="mailto:info@luxxohomes.com" style="font-size:14px;color:var(--warm-white);text-decoration:none;font-weight:300;">info@luxxohomes.com</a>
       </div>
-      <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);">
-        <p style="font-size:11px;color:rgba(250,248,244,.35);line-height:1.9;">
-          Luxxo Homes SL<br>
-          Bulevar Alfonso de Hohenlohe<br>
-          Edificio Milla de Oro, Oficina 3<br>
-          29602 Marbella<br>
-          <span style="margin-top:4px;display:block;">B23848534</span>
-        </p>
-      </div>
     </div>
+  </div>
+  <div>
+    <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500;">Vestiging</h4>
+    <p style="font-size:13px;color:rgba(250,248,244,.85);line-height:2;font-weight:300;">
+      Luxxo Homes SL<br>
+      Bulevar Alfonso de Hohenlohe<br>
+      Edificio Milla de Oro, Oficina 3<br>
+      29602 Marbella<br>
+      <span style="font-size:11px;color:rgba(250,248,244,.4);">B23848534</span>
+    </p>
   </div>
 </footer>
 <div class="footer-bottom" style="background:#2A2A28;border-top:1px solid rgba(255,255,255,.05);">

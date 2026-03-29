@@ -136,9 +136,9 @@
   .guide-cta-box p { font-size: 14px; color: var(--mid); max-width: 480px; margin: 0 auto 32px; line-height: 1.8; }
 
   /* ── ABOUT STRIP ── */
-  .about-strip { display: grid; grid-template-columns: 1fr 1fr; }
-  .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; min-height: 400px; }
-  .about-content { background: #2A2A28; padding: 40px 48px; display: flex; flex-direction: column; justify-content: center; height: 320px; overflow: hidden; }
+  .about-strip { display: grid; grid-template-columns: 1fr 1fr; height: 360px; }
+  .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; height: 360px; }
+  .about-content { background: #2A2A28; padding: 48px 56px; display: flex; flex-direction: column; justify-content: center; height: 360px; overflow: hidden; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
   .about-content h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 20px; }
   .about-content h2 em { font-style: italic; color: var(--gold-light); }
@@ -601,11 +601,11 @@
 <div id="page-buyers" class="page">
   <div class="guide-hero-photo">
     <img src="/buyersguide.jpg" alt="Marbella Sea View">
-    <div class="guide-hero-text">
-      <span class="section-tag" data-i18n="buyers_tag">Buyer's Guide</span>
-      <h1 data-i18n="buyers_title">Buying property in Spain — <em>guided by experts</em></h1>
-      <p data-i18n="buyers_intro">Purchasing a home in Spain as a foreign buyer involves more steps than you might expect. We take care of every detail — so your path from search to keys is clear, safe, and enjoyable.</p>
-    </div>
+  </div>
+  <div style="padding:48px 64px 0;">
+    <span class="section-tag" data-i18n="buyers_tag">Buyer's Guide</span>
+    <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:300;line-height:1.1;margin:12px 0 16px;" data-i18n="buyers_title">Buying property in Spain — <em>guided by experts</em></h1>
+    <p style="font-size:15px;color:var(--mid);max-width:560px;line-height:1.85;" data-i18n="buyers_intro">Purchasing a home in Spain as a foreign buyer involves more steps than you might expect. We take care of every detail — so your path from search to keys is clear, safe, and enjoyable.</p>
   </div>
   <!-- WHY LUXXO BLOCK -->
   <div style="background:var(--cream);padding:60px 64px 48px;margin-top:2px;">
@@ -684,9 +684,9 @@
 <div id="page-about" class="page">
 
   <!-- VIDEO HERO STRIP -->
-  <section style="display:grid;grid-template-columns:1fr 1fr;height:320px;gap:16px;margin-top:72px;" class="about-strip">
-    <div style="overflow:hidden;position:relative;background:#2A2A28;height:320px;">
-      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+  <section style="display:grid;grid-template-columns:1fr 1fr;height:360px;margin-top:72px;" class="about-strip">
+    <div style="overflow:hidden;position:relative;height:360px;">
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
         <source src="/casarenovo.mp4" type="video/mp4">
       </video>
     </div>
@@ -827,11 +827,11 @@
     <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500;">Contact</h4>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="display:flex;align-items:baseline;gap:20px;">
-        <span style="color:rgba(250,248,244,.5);font-size:12px;min-width:44px;">Gijs</span>
+        <span style="color:var(--warm-white);font-size:13px;min-width:44px;font-weight:300;">Gijs</span>
         <a href="tel:+34681294029" style="font-size:15px;color:var(--warm-white);text-decoration:none;font-weight:300;">+34 681 294 029</a>
       </div>
       <div style="display:flex;align-items:baseline;gap:20px;">
-        <span style="color:rgba(250,248,244,.5);font-size:12px;min-width:44px;">Edwin</span>
+        <span style="color:var(--warm-white);font-size:13px;min-width:44px;font-weight:300;">Edwin</span>
         <a href="tel:+34633925630" style="font-size:15px;color:var(--warm-white);text-decoration:none;font-weight:300;">+34 633 925 630</a>
       </div>
       <div>
@@ -840,13 +840,13 @@
     </div>
   </div>
   <div>
-    <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500;">Vestiging</h4>
+    <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500;" data-i18n="footer_office">Bedrijfsgegevens</h4>
     <p style="font-size:13px;color:rgba(250,248,244,.85);line-height:2;font-weight:300;">
       Luxxo Homes SL<br>
       Bulevar Alfonso de Hohenlohe<br>
       Edificio Milla de Oro, Oficina 3<br>
       29602 Marbella<br>
-      <span style="font-size:11px;color:rgba(250,248,244,.4);">B23848534</span>
+      <span style="font-size:11px;color:rgba(250,248,244,.75);">B23848534</span>
     </p>
   </div>
 </footer>
@@ -947,11 +947,12 @@ const lang = {
         buyers_why_tag:'Why choose Luxxo Homes?',
     buyers_why_h2:'We know Marbella. <em>Inside out.</em>',
     buyers_why1_h:'Local market knowledge',
-    buyers_why1_p:'Gijs has lived and worked in Marbella for years. He knows every neighbourhood, the realistic prices, and which properties are genuinely good value.',
+    buyers_why1_p:'We know every neighbourhood on the Costa del Sol. Realistic prices, genuine value, and the inside knowledge that only comes from years of working in this market every day.',
     buyers_why2_h:'Independent advice',
     buyers_why2_p:'We represent you — not the seller. Our advice is honest, even when that means telling you to walk away from a property.',
     buyers_why3_h:'Dutch-Spanish network',
     buyers_why3_p:'We are fluent in both worlds. From Dutch due diligence mindset to Spanish notary processes — we bridge the gap and protect your interests at every step.',
+    footer_office:'Company details',
     beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
@@ -1044,11 +1045,12 @@ const lang = {
         buyers_why_tag:'Waarom kiezen voor Luxxo Homes?',
     buyers_why_h2:'Wij kennen Marbella. <em>Van binnen en buiten.</em>',
     buyers_why1_h:'Lokale marktkennis',
-    buyers_why1_p:'Gijs woont en werkt al jaren in Marbella. Hij kent de wijken, de reële prijzen en welke woningen werkelijk goede waarde bieden.',
+    buyers_why1_p:'We kennen elke wijk in en rond Marbella. Realistische prijzen, echte waarde, en de kennis van de markt die alleen komt van dagelijks in dit gebied actief te zijn.',
     buyers_why2_h:'Onafhankelijk advies',
     buyers_why2_p:'Wij vertegenwoordigen u — niet de verkoper. Ons advies is eerlijk, ook als dat betekent dat we u adviseren een woning te laten lopen.',
     buyers_why3_h:'Nederlands-Spaans netwerk',
     buyers_why3_p:'We zijn thuis in beide werelden. Van Nederlandse due diligence mentaliteit tot Spaanse notarisprocessen — wij slaan de brug en beschermen uw belangen.',
+    footer_office:'Bedrijfsgegevens',
     beds:'slaapk.',baths:'badk.',sqm:'m\u00b2',view_details:'Bekijk details',enquire:'Informatie aanvragen'
   },
   es: {
@@ -1138,6 +1140,7 @@ const lang = {
         contact_strip_h2:'¿Listo para encontrar su <em>hogar en Marbella?</em>',
     contact_strip_p:'Gijs, Jacco &amp; Edwin están listos para ayudar. Sin compromisos, solo una conversación honesta.',
     contact_strip_btn:'Contáctanos →',
+    footer_office:'Datos de empresa',
     beds:'dorm.',baths:'ba\u00f1os',sqm:'m\u00b2',view_details:'Ver detalles',enquire:'Solicitar informaci\u00f3n'
   },
   de: {
@@ -1227,6 +1230,7 @@ const lang = {
         contact_strip_h2:'Bereit, Ihr <em>Marbella Zuhause</em> zu finden?',
     contact_strip_p:'Gijs, Jacco &amp; Edwin stehen bereit. Keine Verpflichtungen, nur ein ehrliches Gespräch.',
     contact_strip_btn:'Kontakt aufnehmen →',
+    footer_office:'Firmendaten',
     beds:'SZ',baths:'BZ',sqm:'m\u00b2',view_details:'Details ansehen',enquire:'Diese Immobilie anfragen'
   },
   sv: {
@@ -1316,6 +1320,7 @@ const lang = {
         contact_strip_h2:'Redo att hitta ditt <em>Marbella hem?</em>',
     contact_strip_p:'Gijs, Jacco &amp; Edwin är redo att hjälpa. Inga förpliktelser.',
     contact_strip_btn:'Kontakta oss →',
+    footer_office:'Företagsuppgifter',
     beds:'sovrum',baths:'badrum',sqm:'m\u00b2',view_details:'Se detaljer',enquire:'F\u00f6rfr\u00e5gan om fastighet'
   },
   pl: {
@@ -1405,6 +1410,7 @@ const lang = {
         contact_strip_h2:'Gotowy znaleźć swój <em>dom w Marbelli?</em>',
     contact_strip_p:'Gijs, Jacco &amp; Edwin są gotowi pomóc. Bez zobowiązań.',
     contact_strip_btn:'Skontaktuj się →',
+    footer_office:'Dane firmy',
     beds:'sypialnie',baths:'\u0142azienki',sqm:'m\u00b2',view_details:'Zobacz szczeg\u00f3\u0142y',enquire:'Zapytaj o t\u0119 nieruchomo\u015b\u0107'
   }
 };

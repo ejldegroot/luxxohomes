@@ -549,55 +549,7 @@
   <!-- DYNAMIC from eGO feed -->
   <div id="portfolio-dynamic" style="margin-top:2px;"></div>
 
-  <!-- STATIC placeholder cards -->
-  <div class="portfolio-grid" style="margin-top:2px;">
 
-    <div class="portfolio-card" style="animation-delay:0ms">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Villa Mirador">
-      <div class="portfolio-info">
-        <span class="portfolio-sold" data-i18n="portfolio_sold">Sold</span>
-        <div class="portfolio-name">Villa Mirador</div>
-        <div class="portfolio-location">La Zagaleta, Benahavís</div>
-        <div class="portfolio-desc" data-i18n="portfolio_desc_1">A stunning hillside villa with panoramic sea views, sold to a Belgian family relocating permanently to the Costa del Sol. Handled from first viewing to notary signing.</div>
-        <div class="portfolio-specs">
-          <div class="portfolio-spec"><strong>4</strong><span data-i18n="beds">beds</span></div>
-          <div class="portfolio-spec"><strong>580 m²</strong><span data-i18n="sqm_built">built</span></div>
-          <div class="portfolio-spec"><strong>€2,100,000</strong><span data-i18n="sold_price">sold</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="portfolio-card" style="animation-delay:80ms">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Penthouse Coral">
-      <div class="portfolio-info">
-        <span class="portfolio-sold" data-i18n="portfolio_sold">Sold</span>
-        <div class="portfolio-name">Penthouse Coral Beach</div>
-        <div class="portfolio-location">Marbella Golden Mile</div>
-        <div class="portfolio-desc" data-i18n="portfolio_desc_2">Beachfront penthouse on the Golden Mile. Sold off-market to an existing client within two weeks of listing. Full buyer guidance service included.</div>
-        <div class="portfolio-specs">
-          <div class="portfolio-spec"><strong>3</strong><span data-i18n="beds">beds</span></div>
-          <div class="portfolio-spec"><strong>240 m²</strong><span data-i18n="sqm_built">built</span></div>
-          <div class="portfolio-spec"><strong>€1,350,000</strong><span data-i18n="sold_price">sold</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="portfolio-card" style="animation-delay:160ms">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" alt="Casa Blanca">
-      <div class="portfolio-info">
-        <span class="portfolio-sold" data-i18n="portfolio_sold">Sold</span>
-        <div class="portfolio-name">Casa Blanca</div>
-        <div class="portfolio-location">Nueva Andalucía, Marbella</div>
-        <div class="portfolio-desc" data-i18n="portfolio_desc_3">Contemporary villa in the golf valley, sold to a Dutch couple through our exclusive partner network. Full purchase guidance from legal due diligence to completion.</div>
-        <div class="portfolio-specs">
-          <div class="portfolio-spec"><strong>5</strong><span data-i18n="beds">beds</span></div>
-          <div class="portfolio-spec"><strong>420 m²</strong><span data-i18n="sqm_built">built</span></div>
-          <div class="portfolio-spec"><strong>€1,750,000</strong><span data-i18n="sold_price">sold</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
   <div style="background:var(--cream);padding:60px 48px;text-align:center;margin-top:2px;">
     <h2 style="font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:14px;" data-i18n="portfolio_cta_title">Inspired by what we create?</h2>
     <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8;" data-i18n="portfolio_cta_text">Let's talk about what's possible — whether you're looking to buy, sell or invest in and around Marbella.</p>
@@ -1622,12 +1574,8 @@ function renderPortfolio() {
       + '</div></div>';
   }
 
-  // Static placeholder cards at the bottom
-  var staticGrid = document.querySelector('.portfolio-grid[style*="margin-top:2px"]');
-  if (!renovo.length && !soldProps.length && staticGrid) return; // keep static if no dynamic
-
   var dynContainer = document.getElementById('portfolio-dynamic');
-  if (dynContainer) dynContainer.innerHTML = html || '<div class="soon-empty">No portfolio items yet.</div>';
+  if (dynContainer) dynContainer.innerHTML = html || '<div class="soon-empty" style="padding:40px;text-align:center;color:var(--light);" data-i18n="portfolio_empty">Portfolio projecten worden binnenkort toegevoegd.</div>';
 }
 
 function renderSoon() {

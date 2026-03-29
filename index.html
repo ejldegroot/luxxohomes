@@ -581,373 +581,337 @@
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══ i18n ══
 const lang = {
   en: {
-    nav_home:'Home', nav_properties:'Properties', nav_portfolio:'Portfolio', nav_buyers:"Buyer's Guide", nav_about:'About', nav_contact:'Contact', nav_cta:'Get in touch',
-    hero_tag:'Luxury Real Estate · Marbella',
-    hero_title:'Your <em>exceptional</em><br>home in<br>Marbella',
-    hero_sub:'We curate the finest properties on the Costa del Sol — for those who choose to live without compromise.',
-    hero_btn_props:'View properties', hero_btn_guide:"Buying guide",
-    search_title:'Find your property', search_type:'Type', search_location:'Location', search_beds:'Bedrooms', search_price:'Max. price', search_btn:'View properties →',
-    all_types:'All types', all_locations:'All areas',
-    featured_tag:'Our selection', featured_title:'Featured <em>Properties</em>',
-    featured_sub:'Handpicked residences that embody the Luxxo Homes standard of living.',
-    loading:'Loading properties',
-    view_all:'View all properties',
-    about_tag:'Luxxo Homes', about_title:'A different kind of <em>estate agency</em>',
+    nav_home:'Home',nav_properties:'Properties',nav_portfolio:'Portfolio',nav_buyers:"Buyer's Guide",nav_about:'About',nav_contact:'Contact',nav_cta:'Get in touch',
+    hero_tag:'Luxury Real Estate \u00b7 Marbella',hero_title:'Your <em>exceptional</em><br>home in<br>Marbella',
+    hero_sub:'We curate the finest properties on the Costa del Sol \u2014 for those who choose to live without compromise.',
+    hero_btn_props:'View properties',hero_btn_guide:'Buying guide',
+    search_title:'Find your property',search_type:'Type',search_location:'Location',search_beds:'Bedrooms',search_price:'Max. price',search_btn:'View properties \u2192',
+    all_types:'All types',all_locations:'All areas',
+    featured_tag:'Our selection',featured_title:'Featured <em>Properties</em>',featured_sub:'Handpicked residences that embody the Luxxo Homes standard of living.',
+    loading:'Loading properties',view_all:'View all properties',
+    about_tag:'Luxxo Homes',about_title:'A different kind of <em>estate agency</em>',
     about_p1:"We don't just list properties. We match exceptional homes with the right people.",
-    about_p2:'Based in Marbella, serving international buyers from across Europe and beyond. English, Dutch, German, Spanish, Swedish and Polish spoken.',
+    about_p2:'Based in Marbella, serving international buyers from across Europe and beyond.',
     about_cta:'Our story',
-    guide_teaser_tag:'Buying in Spain', guide_teaser_title:'We guide you through <em>every step</em>',
-    guide_teaser_sub:'From property search to the keys in your hand — we handle the complexity so you can focus on the excitement.',
-    guide_teaser_btn:'Learn about our service',
-    listings_tag:'Portfolio', listings_title:'All <em>Properties</em>',
-    portfolio_tag:'Track record', portfolio_title:'Our <em>Portfolio</em>',
-    portfolio_sub:'A selection of properties we have successfully sold — a testament to the Luxxo Homes standard.',
-    portfolio_sold:'Sold', beds:'beds', sqm_built:'built', sold_price:'sold',
-    portfolio_desc_1:'A stunning hillside villa with panoramic sea views, sold to a Belgian family relocating permanently to the Costa del Sol.',
-    portfolio_desc_2:'Beachfront penthouse on the Golden Mile. Sold off-market to an existing client within two weeks of listing.',
-    portfolio_desc_3:'Contemporary villa in the golf valley, sold to a Dutch couple through our exclusive partner network.',
-    portfolio_cta_text:'Want to list your property with us or discuss a sale?',
-    portfolio_cta_btn:'Talk to Edwin',
-    buyers_tag:'Buyer\'s Guide', buyers_title:'Buying property in Spain — <em>guided by experts</em>',
-    buyers_intro:'Purchasing a home in Spain as a foreign buyer involves more steps than you might expect. We take care of every detail — so your path from search to keys is clear, safe, and enjoyable.',
-    step1_title:'Personal intake & wishlist', step1_desc:"We start with an in-depth conversation about your lifestyle, priorities, and budget. We curate a selection of properties that truly match your criteria — no wasted viewings.",
-    step2_title:'Viewings & area guidance', step2_desc:"We personally accompany you on viewings and give honest, independent advice on each property and location. We know every neighbourhood — the advantages and the pitfalls.",
-    step3_title:'Legal & financial due diligence', step3_desc:"We connect you with trusted independent lawyers who check the legal status of the property, arrange your NIE number, and structure the transaction correctly.",
-    step4_title:'Negotiation & offer', step4_desc:"We negotiate on your behalf — with market knowledge, professionalism, and the right timing. Our goal is to get you the best possible price and terms.",
-    step5_title:'Signing & completion', step5_desc:"We guide you through the notary process, ensure all documents are in order, and are present at completion.",
-    step6_title:'After-sale support', step6_desc:"Our relationship doesn't end at the notary. We assist with utilities, community registration, renovation introductions, and settling in comfortably.",
-    guide_cta_title:'Ready to find your <em>Marbella home?</em>', guide_cta_sub:'Book a free, no-obligation consultation with Edwin. We listen first, advise second.',
-    guide_cta_btn:'Book a consultation →',
-    contact_tag:'Get in touch', contact_title:"Let's find your <em>perfect home</em>",
-    contact_sub:'We respond within one business day. Your enquiry is completely confidential.',
-    form_name:'Name', form_email:'Email', form_phone:'Phone', form_budget:'Budget', form_message:'Message', form_send:'Send enquiry →',
-    beds:'beds', baths:'baths', sqm:'m²', view_details:'View details', enquire:'Enquire about this property',
+    guide_teaser_tag:'Buying in Spain',guide_teaser_title:'We guide you through <em>every step</em>',
+    guide_teaser_sub:'From property search to the keys in your hand.',guide_teaser_btn:'Learn about our service',
+    listings_tag:'Portfolio',listings_title:'All <em>Properties</em>',
+    portfolio_tag:'Track record',portfolio_title:'Our <em>Portfolio</em>',
+    portfolio_sub:'A selection of properties we have successfully sold.',
+    portfolio_sold:'Sold',beds:'beds',sqm_built:'built',sold_price:'sold',
+    portfolio_desc_1:'Hillside villa with panoramic sea views, sold to a Belgian family.',
+    portfolio_desc_2:'Beachfront penthouse on the Golden Mile. Sold off-market in two weeks.',
+    portfolio_desc_3:'Contemporary villa in the golf valley, sold to a Dutch couple.',
+    portfolio_cta_text:'Want to list your property with us?',portfolio_cta_btn:'Talk to Edwin',
+    buyers_tag:"Buyer's Guide",buyers_title:'Buying property in Spain \u2014 <em>guided by experts</em>',
+    buyers_intro:'Purchasing a home in Spain as a foreign buyer involves more steps than you might expect.',
+    step1_title:'Personal intake & wishlist',step1_desc:'We start with an in-depth conversation about your lifestyle, priorities, and budget.',
+    step2_title:'Viewings & area guidance',step2_desc:'We personally accompany you on viewings and give honest, independent advice.',
+    step3_title:'Legal & financial due diligence',step3_desc:'We connect you with trusted independent lawyers who check the legal status of the property.',
+    step4_title:'Negotiation & offer',step4_desc:'We negotiate on your behalf with market knowledge and at the right timing.',
+    step5_title:'Signing & completion',step5_desc:'We guide you through the notary process and are present at completion.',
+    step6_title:'After-sale support',step6_desc:'We assist with utilities, community registration, and settling in comfortably.',
+    guide_cta_title:'Ready to find your <em>Marbella home?</em>',guide_cta_sub:'Book a free, no-obligation consultation with Edwin.',guide_cta_btn:'Book a consultation \u2192',
+    contact_tag:'Get in touch',contact_title:"Let's find your <em>perfect home</em>",contact_sub:'We respond within one business day.',
+    form_name:'Name',form_email:'Email',form_phone:'Phone',form_budget:'Budget',form_message:'Message',form_send:'Send enquiry \u2192',
+    beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
-    nav_home:'Home', nav_properties:'Woningen', nav_portfolio:'Portfolio', nav_buyers:'Aankoopbegeleiding', nav_about:'Over ons', nav_contact:'Contact', nav_cta:'Neem contact op',
-    hero_tag:'Luxe Vastgoed · Marbella',
-    hero_title:'Uw <em>uitzonderlijke</em><br>woning in<br>Marbella',
-    hero_sub:'Wij selecteren de mooiste woningen aan de Costa del Sol — voor wie bewust kiest voor kwaliteit van leven.',
-    hero_btn_props:'Bekijk woningen', hero_btn_guide:'Aankoopbegeleiding',
-    search_title:'Vind uw woning', search_type:'Type', search_location:'Locatie', search_beds:'Slaapkamers', search_price:'Max. prijs', search_btn:'Bekijk woningen →',
-    all_types:'Alle types', all_locations:'Alle gebieden',
-    featured_tag:'Onze selectie', featured_title:'Uitgelichte <em>Woningen</em>',
-    featured_sub:'Zorgvuldig geselecteerde residences die de Luxxo Homes-standaard belichamen.',
-    loading:'Woningen laden',
-    view_all:'Bekijk alle woningen',
-    about_tag:'Luxxo Homes', about_title:'Een ander soort <em>makelaar</em>',
-    about_p1:"Wij plaatsen niet zomaar woningen online. Wij verbinden uitzonderlijke huizen met de juiste mensen.",
-    about_p2:'Gevestigd in Marbella, actief voor internationale kopers vanuit heel Europa en daarbuiten. Nederlands, Engels, Duits, Spaans, Zweeds en Pools gesproken.',
+    nav_home:'Home',nav_properties:'Woningen',nav_portfolio:'Portfolio',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',nav_contact:'Contact',nav_cta:'Neem contact op',
+    hero_tag:'Luxe Vastgoed \u00b7 Marbella',hero_title:'Uw <em>uitzonderlijke</em><br>woning in<br>Marbella',
+    hero_sub:'Wij selecteren de mooiste woningen aan de Costa del Sol.',
+    hero_btn_props:'Bekijk woningen',hero_btn_guide:'Aankoopbegeleiding',
+    search_title:'Vind uw woning',search_type:'Type',search_location:'Locatie',search_beds:'Slaapkamers',search_price:'Max. prijs',search_btn:'Bekijk woningen \u2192',
+    all_types:'Alle types',all_locations:'Alle gebieden',
+    featured_tag:'Onze selectie',featured_title:'Uitgelichte <em>Woningen</em>',featured_sub:'Zorgvuldig geselecteerde residences.',
+    loading:'Woningen laden',view_all:'Bekijk alle woningen',
+    about_tag:'Luxxo Homes',about_title:'Een ander soort <em>makelaar</em>',
+    about_p1:'Wij verbinden uitzonderlijke huizen met de juiste mensen.',
+    about_p2:'Gevestigd in Marbella, actief voor internationale kopers vanuit heel Europa.',
     about_cta:'Ons verhaal',
-    guide_teaser_tag:'Kopen in Spanje', guide_teaser_title:'Wij begeleiden u door <em>elke stap</em>',
-    guide_teaser_sub:'Van zoeken naar de sleutel in uw hand — wij regelen de complexiteit zodat u zich kunt focussen op de plezierige kant.',
-    guide_teaser_btn:'Meer over onze dienst',
-    listings_tag:'Aanbod', listings_title:'Alle <em>Woningen</em>',
-    portfolio_tag:'Referenties', portfolio_title:'Ons <em>Portfolio</em>',
-    portfolio_sub:'Een selectie van woningen die wij succesvol hebben verkocht — een bewijs van de Luxxo Homes standaard.',
-    portfolio_sold:'Verkocht', beds:'slaapk.', sqm_built:'gebouwd', sold_price:'verkoopprijs',
-    portfolio_desc_1:'Een prachtige heuvelwoning met panoramisch zeezicht, verkocht aan een Belgisch gezin dat permanent naar de Costa del Sol verhuisde.',
-    portfolio_desc_2:'Beachfront penthouse op de Golden Mile. Off-market verkocht aan een bestaande klant binnen twee weken na listing.',
-    portfolio_desc_3:'Contemporaine villa in de golfvallei, verkocht aan een Nederlands echtpaar via ons exclusieve partnernetwerk.',
-    portfolio_cta_text:'Wilt u uw woning bij ons aanbieden of een verkoop bespreken?',
-    portfolio_cta_btn:'Spreek met Edwin',
-    buyers_tag:'Aankoopbegeleiding', buyers_title:'Kopen in Spanje — <em>begeleid door experts</em>',
-    buyers_intro:'Een woning kopen in Spanje als buitenlandse koper kent meer stappen dan u misschien verwacht. Wij regelen elk detail — zodat uw traject van zoeken naar sleutel helder, veilig en prettig verloopt.',
-    step1_title:'Persoonlijke intake & wensenlijst', step1_desc:'We starten met een uitgebreid gesprek over uw leefstijl, prioriteiten en budget. Vervolgens stellen wij een selectie samen die écht bij u past — geen verspilde bezichtigingen.',
-    step2_title:'Bezichtigingen & gebiedsadvies', step2_desc:'Wij begeleiden u persoonlijk bij bezichtigingen en geven eerlijk, onafhankelijk advies. Wij kennen elke buurt — de pluspunten én de valkuilen.',
-    step3_title:'Juridisch & financieel onderzoek', step3_desc:'Wij verbinden u met betrouwbare onafhankelijke advocaten die de juridische status controleren, uw NIE-nummer regelen en de transactie correct structureren.',
-    step4_title:'Onderhandeling & bod', step4_desc:'Wij onderhandelen namens u — met marktkennis, professionaliteit en het juiste moment. Ons doel: de beste prijs en voorwaarden voor u.',
-    step5_title:'Ondertekening & overdracht', step5_desc:'Wij begeleiden u door het notarisproces, zorgen dat alle documenten kloppen en zijn aanwezig bij de overdracht.',
-    step6_title:'Nazorg', step6_desc:'Onze relatie eindigt niet bij de notaris. Wij helpen met nutsvoorzieningen, VvE-inschrijving, aannemer­introducties en alles wat u nodig heeft om comfortabel te settelen.',
-    guide_cta_title:'Klaar om uw <em>Marbella-woning</em> te vinden?', guide_cta_sub:'Plan een gratis, vrijblijvend gesprek met Edwin. Wij luisteren eerst, adviseren daarna.',
-    guide_cta_btn:'Plan een gesprek →',
-    contact_tag:'Neem contact op', contact_title:'Laten we uw <em>droomwoning</em> vinden',
-    contact_sub:'Wij reageren binnen één werkdag. Uw aanvraag is volledig vertrouwelijk.',
-    form_name:'Naam', form_email:'E-mail', form_phone:'Telefoon', form_budget:'Budget', form_message:'Bericht', form_send:'Verstuur aanvraag →',
-    beds:'slaapk.', baths:'badk.', sqm:'m²', view_details:'Bekijk details', enquire:'Informatie aanvragen',
+    guide_teaser_tag:'Kopen in Spanje',guide_teaser_title:'Wij begeleiden u door <em>elke stap</em>',
+    guide_teaser_sub:'Van zoeken naar de sleutel in uw hand.',guide_teaser_btn:'Meer over onze dienst',
+    listings_tag:'Aanbod',listings_title:'Alle <em>Woningen</em>',
+    portfolio_tag:'Referenties',portfolio_title:'Ons <em>Portfolio</em>',
+    portfolio_sub:'Een selectie van woningen die wij succesvol hebben verkocht.',
+    portfolio_sold:'Verkocht',beds:'slaapk.',sqm_built:'gebouwd',sold_price:'verkoopprijs',
+    portfolio_desc_1:'Heuvelwoning met panoramisch zeezicht, verkocht aan een Belgisch gezin.',
+    portfolio_desc_2:'Beachfront penthouse op de Golden Mile. Off-market verkocht in twee weken.',
+    portfolio_desc_3:'Contemporaine villa in de golfvallei, verkocht aan een Nederlands echtpaar.',
+    portfolio_cta_text:'Wilt u uw woning bij ons aanbieden?',portfolio_cta_btn:'Spreek met Edwin',
+    buyers_tag:'Aankoopbegeleiding',buyers_title:'Kopen in Spanje \u2014 <em>begeleid door experts</em>',
+    buyers_intro:'Een woning kopen in Spanje als buitenlandse koper kent meer stappen dan u verwacht.',
+    step1_title:'Persoonlijke intake',step1_desc:'We starten met een uitgebreid gesprek over uw leefstijl en budget.',
+    step2_title:'Bezichtigingen',step2_desc:'Wij begeleiden u persoonlijk bij bezichtigingen.',
+    step3_title:'Juridisch onderzoek',step3_desc:'Wij verbinden u met betrouwbare advocaten.',
+    step4_title:'Onderhandeling',step4_desc:'Wij onderhandelen namens u voor de beste prijs.',
+    step5_title:'Overdracht',step5_desc:'Wij begeleiden u door het notarisproces.',
+    step6_title:'Nazorg',step6_desc:'Wij helpen met nutsvoorzieningen en inschrijvingen.',
+    guide_cta_title:'Klaar om uw <em>Marbella-woning</em> te vinden?',guide_cta_sub:'Plan een gratis gesprek met Edwin.',guide_cta_btn:'Plan een gesprek \u2192',
+    contact_tag:'Neem contact op',contact_title:'Laten we uw <em>droomwoning</em> vinden',contact_sub:'Wij reageren binnen \u00e9\u00e9n werkdag.',
+    form_name:'Naam',form_email:'E-mail',form_phone:'Telefoon',form_budget:'Budget',form_message:'Bericht',form_send:'Verstuur aanvraag \u2192',
+    beds:'slaapk.',baths:'badk.',sqm:'m\u00b2',view_details:'Bekijk details',enquire:'Informatie aanvragen'
   },
   es: {
-    nav_home:'Inicio', nav_properties:'Propiedades', nav_portfolio:'Portafolio', nav_buyers:'Guía de compra', nav_about:'Nosotros', nav_contact:'Contacto', nav_cta:'Contáctenos',
-    hero_tag:'Inmobiliaria de Lujo · Marbella',
-    hero_title:'Su <em>excepcional</em><br>hogar en<br>Marbella',
-    hero_sub:'Seleccionamos las mejores propiedades de la Costa del Sol, para quienes eligen vivir sin renuncias.',
-    hero_btn_props:'Ver propiedades', hero_btn_guide:'Guía de compra',
-    search_title:'Encuentre su propiedad', search_type:'Tipo', search_location:'Zona', search_beds:'Dormitorios', search_price:'Precio máx.', search_btn:'Ver propiedades →',
-    all_types:'Todos los tipos', all_locations:'Todas las zonas',
-    featured_tag:'Nuestra selección', featured_title:'Propiedades <em>Destacadas</em>',
-    featured_sub:'Residencias seleccionadas que encarnan el estándar de Luxxo Homes.',
-    loading:'Cargando propiedades', view_all:'Ver todas las propiedades',
-    about_tag:'Luxxo Homes', about_title:'Una agencia <em>diferente</em>',
-    about_p1:'No solo publicamos propiedades. Conectamos hogares excepcionales con las personas adecuadas.',
-    about_p2:'Con sede en Marbella, atendemos a compradores internacionales de toda Europa.',
+    nav_home:'Inicio',nav_properties:'Propiedades',nav_portfolio:'Portafolio',nav_buyers:'Gu\u00eda de compra',nav_about:'Nosotros',nav_contact:'Contacto',nav_cta:'Cont\u00e1ctenos',
+    hero_tag:'Inmobiliaria de Lujo \u00b7 Marbella',hero_title:'Su <em>excepcional</em><br>hogar en<br>Marbella',
+    hero_sub:'Seleccionamos las mejores propiedades de la Costa del Sol.',
+    hero_btn_props:'Ver propiedades',hero_btn_guide:'Gu\u00eda de compra',
+    search_title:'Encuentre su propiedad',search_type:'Tipo',search_location:'Zona',search_beds:'Dormitorios',search_price:'Precio m\u00e1x.',search_btn:'Ver propiedades \u2192',
+    all_types:'Todos los tipos',all_locations:'Todas las zonas',
+    featured_tag:'Nuestra selecci\u00f3n',featured_title:'Propiedades <em>Destacadas</em>',featured_sub:'Residencias seleccionadas.',
+    loading:'Cargando propiedades',view_all:'Ver todas las propiedades',
+    about_tag:'Luxxo Homes',about_title:'Una agencia <em>diferente</em>',
+    about_p1:'Conectamos hogares excepcionales con las personas adecuadas.',
+    about_p2:'Con sede en Marbella, atendemos compradores internacionales.',
     about_cta:'Nuestra historia',
-    guide_teaser_tag:'Comprar en España', guide_teaser_title:'Le guiamos en <em>cada paso</em>',
-    guide_teaser_sub:'Desde la búsqueda hasta las llaves en su mano — gestionamos la complejidad para que usted se enfoque en la emoción.',
-    guide_teaser_btn:'Conocer nuestro servicio',
-    listings_tag:'Cartera', listings_title:'Todas las <em>Propiedades</em>',
-    portfolio_tag:'Trayectoria', portfolio_title:'Nuestro <em>Portafolio</em>',
-    portfolio_sub:'Una selección de propiedades que hemos vendido con éxito.',
-    portfolio_sold:'Vendido', beds:'dorm.', sqm_built:'construido', sold_price:'precio venta',
-    portfolio_desc_1:'Impresionante villa con vistas panorámicas al mar, vendida a una familia belga que se trasladó definitivamente a la Costa del Sol.',
-    portfolio_desc_2:'Ático en primera línea de playa en la Milla de Oro. Vendido fuera del mercado a un cliente existente en dos semanas.',
-    portfolio_desc_3:'Villa contemporánea en el valle del golf, vendida a una pareja holandesa a través de nuestra red de socios.',
-    portfolio_cta_text:'¿Desea vender su propiedad con nosotros?',
-    portfolio_cta_btn:'Hablar con Edwin',
-    buyers_tag:'Guía de compra', buyers_title:'Comprar en España — <em>asesorado por expertos</em>',
-    buyers_intro:'Comprar una propiedad en España como extranjero implica más pasos de los que podría esperar. Nos encargamos de cada detalle.',
-    step1_title:'Entrevista personal', step1_desc:'Comenzamos con una conversación sobre su estilo de vida, prioridades y presupuesto para crear una selección que realmente se adapte a sus necesidades.',
-    step2_title:'Visitas y asesoramiento por zona', step2_desc:'Le acompañamos personalmente en las visitas y le ofrecemos un consejo honesto e independiente sobre cada propiedad y ubicación.',
-    step3_title:'Due diligence legal y financiera', step3_desc:'Le conectamos con abogados independientes de confianza que verifican el estado legal de la propiedad y tramitan su NIE.',
-    step4_title:'Negociación y oferta', step4_desc:'Negociamos en su nombre con conocimiento del mercado y en el momento adecuado para obtener el mejor precio y condiciones.',
-    step5_title:'Firma y escritura', step5_desc:'Le guiamos a través del proceso notarial y estamos presentes en la firma.',
-    step6_title:'Apoyo postventa', step6_desc:'Nuestra relación no termina en la notaría. Le ayudamos con suministros, registro en la comunidad y todo lo que necesite.',
-    guide_cta_title:'¿Listo para encontrar su <em>hogar en Marbella?</em>', guide_cta_sub:'Reserve una consulta gratuita y sin compromiso con Edwin.',
-    guide_cta_btn:'Reservar consulta →',
-    contact_tag:'Contáctenos', contact_title:'Encontremos su <em>hogar perfecto</em>',
-    contact_sub:'Respondemos en un día hábil. Su consulta es completamente confidencial.',
-    form_name:'Nombre', form_email:'Correo', form_phone:'Teléfono', form_budget:'Presupuesto', form_message:'Mensaje', form_send:'Enviar consulta →',
-    beds:'dorm.', baths:'baños', sqm:'m²', view_details:'Ver detalles', enquire:'Solicitar información',
+    guide_teaser_tag:'Comprar en Espa\u00f1a',guide_teaser_title:'Le guiamos en <em>cada paso</em>',
+    guide_teaser_sub:'Desde la b\u00fasqueda hasta las llaves.',guide_teaser_btn:'Conocer nuestro servicio',
+    listings_tag:'Cartera',listings_title:'Todas las <em>Propiedades</em>',
+    portfolio_tag:'Trayectoria',portfolio_title:'Nuestro <em>Portafolio</em>',
+    portfolio_sub:'Propiedades que hemos vendido con \u00e9xito.',
+    portfolio_sold:'Vendido',beds:'dorm.',sqm_built:'construido',sold_price:'precio venta',
+    portfolio_desc_1:'Villa con vistas panor\u00e1micas al mar, vendida a una familia belga.',
+    portfolio_desc_2:'Atico en primera l\u00ednea de playa vendido en dos semanas.',
+    portfolio_desc_3:'Villa contempor\u00e1nea vendida a una pareja holandesa.',
+    portfolio_cta_text:'\u00bfDesea vender su propiedad con nosotros?',portfolio_cta_btn:'Hablar con Edwin',
+    buyers_tag:'Gu\u00eda de compra',buyers_title:'Comprar en Espa\u00f1a \u2014 <em>con expertos</em>',
+    buyers_intro:'Comprar en Espa\u00f1a como extranjero implica m\u00e1s pasos de lo esperado.',
+    step1_title:'Entrevista personal',step1_desc:'Conversaci\u00f3n sobre su estilo de vida y presupuesto.',
+    step2_title:'Visitas',step2_desc:'Le acompa\u00f1amos en las visitas.',
+    step3_title:'Due diligence legal',step3_desc:'Le conectamos con abogados de confianza.',
+    step4_title:'Negociaci\u00f3n',step4_desc:'Negociamos en su nombre.',
+    step5_title:'Firma',step5_desc:'Le guiamos por el proceso notarial.',
+    step6_title:'Apoyo postventa',step6_desc:'Le ayudamos despu\u00e9s de la compra.',
+    guide_cta_title:'\u00bfListo para su <em>hogar en Marbella?</em>',guide_cta_sub:'Reserve una consulta gratuita.',guide_cta_btn:'Reservar consulta \u2192',
+    contact_tag:'Cont\u00e1ctenos',contact_title:'Encontremos su <em>hogar perfecto</em>',contact_sub:'Respondemos en un d\u00eda h\u00e1bil.',
+    form_name:'Nombre',form_email:'Correo',form_phone:'Tel\u00e9fono',form_budget:'Presupuesto',form_message:'Mensaje',form_send:'Enviar consulta \u2192',
+    beds:'dorm.',baths:'ba\u00f1os',sqm:'m\u00b2',view_details:'Ver detalles',enquire:'Solicitar informaci\u00f3n'
   },
   de: {
-    nav_home:'Start', nav_properties:'Immobilien', nav_portfolio:'Portfolio', nav_buyers:'Kaufberatung', nav_about:'Über uns', nav_contact:'Kontakt', nav_cta:'Kontakt aufnehmen',
-    hero_tag:'Luxusimmobilien · Marbella',
-    hero_title:'Ihr <em>außergewöhnliches</em><br>Zuhause in<br>Marbella',
-    hero_sub:'Wir kuratieren die schönsten Immobilien an der Costa del Sol — für Menschen, die keine Kompromisse eingehen.',
-    hero_btn_props:'Immobilien ansehen', hero_btn_guide:'Kaufberatung',
-    search_title:'Finden Sie Ihre Immobilie', search_type:'Typ', search_location:'Lage', search_beds:'Schlafzimmer', search_price:'Max. Preis', search_btn:'Immobilien ansehen →',
-    all_types:'Alle Typen', all_locations:'Alle Lagen',
-    featured_tag:'Unsere Auswahl', featured_title:'Ausgewählte <em>Immobilien</em>',
-    featured_sub:'Sorgfältig ausgewählte Residenzen, die den Luxxo Homes Standard verkörpern.',
-    loading:'Immobilien werden geladen', view_all:'Alle Immobilien ansehen',
-    about_tag:'Luxxo Homes', about_title:'Eine andere Art von <em>Maklerbüro</em>',
-    about_p1:'Wir listen nicht nur Immobilien. Wir verbinden außergewöhnliche Häuser mit den richtigen Menschen.',
-    about_p2:'Mit Sitz in Marbella betreuen wir internationale Käufer aus ganz Europa. Deutsch, Englisch, Niederländisch, Spanisch, Schwedisch und Polnisch gesprochen.',
+    nav_home:'Start',nav_properties:'Immobilien',nav_portfolio:'Portfolio',nav_buyers:'Kaufberatung',nav_about:'\u00dcber uns',nav_contact:'Kontakt',nav_cta:'Kontakt aufnehmen',
+    hero_tag:'Luxusimmobilien \u00b7 Marbella',hero_title:'Ihr <em>au\u00dfergew\u00f6hnliches</em><br>Zuhause in<br>Marbella',
+    hero_sub:'Wir kuratieren die sch\u00f6nsten Immobilien an der Costa del Sol.',
+    hero_btn_props:'Immobilien ansehen',hero_btn_guide:'Kaufberatung',
+    search_title:'Finden Sie Ihre Immobilie',search_type:'Typ',search_location:'Lage',search_beds:'Schlafzimmer',search_price:'Max. Preis',search_btn:'Immobilien ansehen \u2192',
+    all_types:'Alle Typen',all_locations:'Alle Lagen',
+    featured_tag:'Unsere Auswahl',featured_title:'Ausgew\u00e4hlte <em>Immobilien</em>',featured_sub:'Sorgf\u00e4ltig ausgew\u00e4hlte Residenzen.',
+    loading:'Immobilien werden geladen',view_all:'Alle Immobilien ansehen',
+    about_tag:'Luxxo Homes',about_title:'Eine andere Art von <em>Maklerb\u00fcro</em>',
+    about_p1:'Wir verbinden au\u00dfergew\u00f6hnliche H\u00e4user mit den richtigen Menschen.',
+    about_p2:'Mit Sitz in Marbella betreuen wir internationale K\u00e4ufer.',
     about_cta:'Unsere Geschichte',
-    guide_teaser_tag:'Kaufen in Spanien', guide_teaser_title:'Wir begleiten Sie durch <em>jeden Schritt</em>',
-    guide_teaser_sub:'Von der Suche bis zum Schlüssel — wir übernehmen die Komplexität, damit Sie sich auf das Wesentliche konzentrieren können.',
-    guide_teaser_btn:'Mehr über unseren Service',
-    listings_tag:'Portfolio', listings_title:'Alle <em>Immobilien</em>',
-    portfolio_tag:'Referenzen', portfolio_title:'Unser <em>Portfolio</em>',
-    portfolio_sub:'Eine Auswahl erfolgreich verkaufter Immobilien.',
-    portfolio_sold:'Verkauft', beds:'SZ', sqm_built:'Wohnfläche', sold_price:'Verkaufspreis',
-    portfolio_desc_1:'Beeindruckende Hanglage-Villa mit Panoramablick auf das Meer, verkauft an eine belgische Familie.',
-    portfolio_desc_2:'Strandpenthouse an der Goldenen Meile. Innerhalb von zwei Wochen off-market verkauft.',
-    portfolio_desc_3:'Zeitgenössische Villa im Golftal, verkauft an ein niederländisches Paar über unser Partnernetzwerk.',
-    portfolio_cta_text:'Möchten Sie Ihre Immobilie bei uns anbieten?',
-    portfolio_cta_btn:'Edwin kontaktieren',
-    buyers_tag:'Kaufberatung', buyers_title:'Immobilienkauf in Spanien — <em>von Experten begleitet</em>',
-    buyers_intro:'Der Kauf einer Immobilie in Spanien als ausländischer Käufer umfasst mehr Schritte als erwartet. Wir kümmern uns um jedes Detail.',
-    step1_title:'Persönliches Gespräch & Wunschliste', step1_desc:'Wir beginnen mit einem ausführlichen Gespräch über Ihren Lebensstil und Ihr Budget und erstellen eine maßgeschneiderte Immobilienauswahl.',
-    step2_title:'Besichtigungen & Ortsberatung', step2_desc:'Wir begleiten Sie persönlich bei Besichtigungen und geben ehrliche, unabhängige Empfehlungen.',
-    step3_title:'Rechtliche & finanzielle Prüfung', step3_desc:'Wir verbinden Sie mit vertrauenswürdigen Anwälten, die die rechtliche Lage prüfen und Ihre NIE-Nummer beantragen.',
-    step4_title:'Verhandlung & Angebot', step4_desc:'Wir verhandeln in Ihrem Namen mit Marktkenntnis und zum richtigen Zeitpunkt für den bestmöglichen Preis.',
-    step5_title:'Unterzeichnung & Übergabe', step5_desc:'Wir begleiten Sie durch den Notartermin und sind bei der Übergabe anwesend.',
-    step6_title:'Nachbetreuung', step6_desc:'Unsere Beziehung endet nicht beim Notar. Wir helfen bei Versorgungsanschlüssen, Gemeinschaftsregistrierung und mehr.',
-    guide_cta_title:'Bereit für Ihr <em>Marbella-Zuhause?</em>', guide_cta_sub:'Vereinbaren Sie ein kostenloses, unverbindliches Gespräch mit Edwin.',
-    guide_cta_btn:'Beratungsgespräch buchen →',
-    contact_tag:'Kontakt', contact_title:'Finden wir Ihr <em>perfektes Zuhause</em>',
-    contact_sub:'Wir antworten innerhalb eines Werktages. Ihre Anfrage ist völlig vertraulich.',
-    form_name:'Name', form_email:'E-Mail', form_phone:'Telefon', form_budget:'Budget', form_message:'Nachricht', form_send:'Anfrage senden →',
-    beds:'SZ', baths:'BZ', sqm:'m²', view_details:'Details ansehen', enquire:'Diese Immobilie anfragen',
+    guide_teaser_tag:'Kaufen in Spanien',guide_teaser_title:'Wir begleiten Sie durch <em>jeden Schritt</em>',
+    guide_teaser_sub:'Von der Suche bis zum Schl\u00fcssel.',guide_teaser_btn:'Mehr \u00fcber unseren Service',
+    listings_tag:'Portfolio',listings_title:'Alle <em>Immobilien</em>',
+    portfolio_tag:'Referenzen',portfolio_title:'Unser <em>Portfolio</em>',
+    portfolio_sub:'Erfolgreich verkaufte Immobilien.',
+    portfolio_sold:'Verkauft',beds:'SZ',sqm_built:'Wohnfl\u00e4che',sold_price:'Verkaufspreis',
+    portfolio_desc_1:'Villa mit Panoramablick auf das Meer, verkauft an eine belgische Familie.',
+    portfolio_desc_2:'Strandpenthouse an der Goldenen Meile innerhalb von zwei Wochen verkauft.',
+    portfolio_desc_3:'Zeitgen\u00f6ssische Villa im Golftal an ein niederl\u00e4ndisches Paar verkauft.',
+    portfolio_cta_text:'M\u00f6chten Sie Ihre Immobilie bei uns anbieten?',portfolio_cta_btn:'Edwin kontaktieren',
+    buyers_tag:'Kaufberatung',buyers_title:'Immobilienkauf in Spanien \u2014 <em>von Experten begleitet</em>',
+    buyers_intro:'Der Kauf in Spanien umfasst mehr Schritte als erwartet.',
+    step1_title:'Pers\u00f6nliches Gespr\u00e4ch',step1_desc:'Wir besprechen Ihren Lebensstil und Budget.',
+    step2_title:'Besichtigungen',step2_desc:'Wir begleiten Sie pers\u00f6nlich.',
+    step3_title:'Rechtliche Pr\u00fcfung',step3_desc:'Wir verbinden Sie mit Anw\u00e4lten.',
+    step4_title:'Verhandlung',step4_desc:'Wir verhandeln f\u00fcr den besten Preis.',
+    step5_title:'Unterzeichnung',step5_desc:'Wir begleiten Sie beim Notar.',
+    step6_title:'Nachbetreuung',step6_desc:'Wir helfen nach dem Kauf.',
+    guide_cta_title:'Bereit f\u00fcr Ihr <em>Marbella-Zuhause?</em>',guide_cta_sub:'Vereinbaren Sie ein kostenloses Gespr\u00e4ch.',guide_cta_btn:'Beratungsgespr\u00e4ch buchen \u2192',
+    contact_tag:'Kontakt',contact_title:'Finden wir Ihr <em>perfektes Zuhause</em>',contact_sub:'Wir antworten innerhalb eines Werktages.',
+    form_name:'Name',form_email:'E-Mail',form_phone:'Telefon',form_budget:'Budget',form_message:'Nachricht',form_send:'Anfrage senden \u2192',
+    beds:'SZ',baths:'BZ',sqm:'m\u00b2',view_details:'Details ansehen',enquire:'Diese Immobilie anfragen'
   },
   sv: {
-    nav_home:'Hem', nav_properties:'Fastigheter', nav_portfolio:'Portfölj', nav_buyers:'Köpguide', nav_about:'Om oss', nav_contact:'Kontakt', nav_cta:'Kontakta oss',
-    hero_tag:'Lyxfastigheter · Marbella',
-    hero_title:'Ditt <em>extraordinära</em><br>hem i<br>Marbella',
-    hero_sub:'Vi väljer ut de finaste fastigheterna på Costa del Sol — för dig som väljer att leva utan kompromisser.',
-    hero_btn_props:'Se fastigheter', hero_btn_guide:'Köpguide',
-    search_title:'Hitta din fastighet', search_type:'Typ', search_location:'Område', search_beds:'Sovrum', search_price:'Max. pris', search_btn:'Se fastigheter →',
-    all_types:'Alla typer', all_locations:'Alla områden',
-    featured_tag:'Vårt urval', featured_title:'Utvalda <em>Fastigheter</em>',
-    featured_sub:'Handplockade bostäder som förkroppsligar Luxxo Homes standard.',
-    loading:'Laddar fastigheter', view_all:'Se alla fastigheter',
-    about_tag:'Luxxo Homes', about_title:'En annan typ av <em>fastighetsmäklare</em>',
-    about_p1:'Vi listar inte bara fastigheter. Vi matchar exceptionella hem med rätt personer.',
-    about_p2:'Baserade i Marbella, betjänar vi internationella köpare från hela Europa. Svenska, engelska, holländska, spanska, tyska och polska talas.',
-    about_cta:'Vår historia',
-    guide_teaser_tag:'Köpa i Spanien', guide_teaser_title:'Vi guidar dig genom <em>varje steg</em>',
-    guide_teaser_sub:'Från fastighetssökning till nycklarna i handen — vi hanterar komplexiteten.',
-    guide_teaser_btn:'Läs om vår tjänst',
-    listings_tag:'Portfölj', listings_title:'Alla <em>Fastigheter</em>',
-    portfolio_tag:'Meritförteckning', portfolio_title:'Vår <em>Portfölj</em>',
-    portfolio_sub:'Ett urval fastigheter vi framgångsrikt sålt.',
-    portfolio_sold:'Såld', beds:'sovrum', sqm_built:'byggt', sold_price:'försäljningspris',
-    portfolio_desc_1:'Fantastisk villa med panoramautsikt över havet, såld till en belgisk familj.',
-    portfolio_desc_2:'Strandnära penthouse på Golden Mile. Såld utanför marknaden inom två veckor.',
-    portfolio_desc_3:'Samtida villa i golfdalen, såld till ett holländskt par via vårt partnernätverk.',
-    portfolio_cta_text:'Vill du lista din fastighet hos oss?',
-    portfolio_cta_btn:'Prata med Edwin',
-    buyers_tag:'Köpguide', buyers_title:'Köpa fastighet i Spanien — <em>guidad av experter</em>',
-    buyers_intro:'Att köpa en bostad i Spanien som utländsk köpare innebär fler steg än du kanske förväntar dig. Vi tar hand om varje detalj.',
-    step1_title:'Personlig intervju & önskelista', step1_desc:'Vi börjar med ett djupgående samtal om din livsstil och budget och skapar ett skräddarsytt urval.',
-    step2_title:'Visningar & rådgivning om område', step2_desc:'Vi följer dig personligen på visningar och ger ärliga, oberoende råd om varje fastighet och läge.',
-    step3_title:'Juridisk & finansiell due diligence', step3_desc:'Vi kopplar dig till betrodda oberoende advokater som kontrollerar fastighetens rättsliga status och ansöker om ditt NIE-nummer.',
-    step4_title:'Förhandling & bud', step4_desc:'Vi förhandlar å dina vägnar med marknadskännedom och i rätt tid för bästa pris.',
-    step5_title:'Underskrift & tillträde', step5_desc:'Vi guidar dig genom notarieprocessen och är närvarande vid tillträdet.',
-    step6_title:'Stöd efter köpet', step6_desc:'Vår relation slutar inte vid notarien. Vi hjälper med el och vatten, samfällighetsregistrering och mer.',
-    guide_cta_title:'Redo att hitta ditt <em>Marbella-hem?</em>', guide_cta_sub:'Boka ett gratis, förutsättningslöst samtal med Edwin.',
-    guide_cta_btn:'Boka ett samtal →',
-    contact_tag:'Kontakta oss', contact_title:'Låt oss hitta ditt <em>perfekta hem</em>',
-    contact_sub:'Vi svarar inom en arbetsdag. Din förfrågan är helt konfidentiell.',
-    form_name:'Namn', form_email:'E-post', form_phone:'Telefon', form_budget:'Budget', form_message:'Meddelande', form_send:'Skicka förfrågan →',
-    beds:'sovrum', baths:'badrum', sqm:'m²', view_details:'Se detaljer', enquire:'Förfrågan om denna fastighet',
+    nav_home:'Hem',nav_properties:'Fastigheter',nav_portfolio:'Portf\u00f6lj',nav_buyers:'K\u00f6pguide',nav_about:'Om oss',nav_contact:'Kontakt',nav_cta:'Kontakta oss',
+    hero_tag:'Lyxfastigheter \u00b7 Marbella',hero_title:'Ditt <em>extraordin\u00e4ra</em><br>hem i<br>Marbella',
+    hero_sub:'Vi v\u00e4ljer ut de finaste fastigheterna p\u00e5 Costa del Sol.',
+    hero_btn_props:'Se fastigheter',hero_btn_guide:'K\u00f6pguide',
+    search_title:'Hitta din fastighet',search_type:'Typ',search_location:'Omr\u00e5de',search_beds:'Sovrum',search_price:'Max. pris',search_btn:'Se fastigheter \u2192',
+    all_types:'Alla typer',all_locations:'Alla omr\u00e5den',
+    featured_tag:'V\u00e5rt urval',featured_title:'Utvalda <em>Fastigheter</em>',featured_sub:'Handplockade bost\u00e4der.',
+    loading:'Laddar fastigheter',view_all:'Se alla fastigheter',
+    about_tag:'Luxxo Homes',about_title:'En annan typ av <em>fastighetsbyr\u00e5</em>',
+    about_p1:'Vi matchar exceptionella hem med r\u00e4tt personer.',
+    about_p2:'Baserade i Marbella, betj\u00e4nar k\u00f6pare fr\u00e5n hela Europa.',
+    about_cta:'V\u00e5r historia',
+    guide_teaser_tag:'K\u00f6pa i Spanien',guide_teaser_title:'Vi guidar dig genom <em>varje steg</em>',
+    guide_teaser_sub:'Fr\u00e5n s\u00f6kning till nycklar.',guide_teaser_btn:'L\u00e4s om v\u00e5r tj\u00e4nst',
+    listings_tag:'Portf\u00f6lj',listings_title:'Alla <em>Fastigheter</em>',
+    portfolio_tag:'Meritf\u00f6rteckning',portfolio_title:'V\u00e5r <em>Portf\u00f6lj</em>',
+    portfolio_sub:'Fastigheter vi framg\u00e5ngsrikt s\u00e5lt.',
+    portfolio_sold:'S\u00e5ld',beds:'sovrum',sqm_built:'byggt',sold_price:'f\u00f6rs\u00e4ljningspris',
+    portfolio_desc_1:'Villa med panoramautsikt, s\u00e5ld till en belgisk familj.',
+    portfolio_desc_2:'Strandnara penthouse s\u00e5ld inom tv\u00e5 veckor.',
+    portfolio_desc_3:'Samtida villa s\u00e5ld till ett holl\u00e4ndskt par.',
+    portfolio_cta_text:'Vill du lista din fastighet hos oss?',portfolio_cta_btn:'Prata med Edwin',
+    buyers_tag:'K\u00f6pguide',buyers_title:'K\u00f6pa i Spanien \u2014 <em>guidad av experter</em>',
+    buyers_intro:'Att k\u00f6pa i Spanien inneb\u00e4r fler steg \u00e4n f\u00f6rv\u00e4ntat.',
+    step1_title:'Personlig intervju',step1_desc:'Vi b\u00f6rjar med ett djupg\u00e5ende samtal.',
+    step2_title:'Visningar',step2_desc:'Vi f\u00f6ljer dig p\u00e5 visningar.',
+    step3_title:'Juridisk pr\u00f6vning',step3_desc:'Vi kopplar dig till betrodda advokater.',
+    step4_title:'F\u00f6rhandling',step4_desc:'Vi f\u00f6rhandlar f\u00f6r b\u00e4sta pris.',
+    step5_title:'Underskrift',step5_desc:'Vi guidar dig genom notarieprocessen.',
+    step6_title:'St\u00f6d efter k\u00f6pet',step6_desc:'Vi hj\u00e4lper dig att s\u00e4tta dig till r\u00e4tta.',
+    guide_cta_title:'Redo att hitta ditt <em>Marbella-hem?</em>',guide_cta_sub:'Boka ett gratis samtal med Edwin.',guide_cta_btn:'Boka ett samtal \u2192',
+    contact_tag:'Kontakta oss',contact_title:'L\u00e5t oss hitta ditt <em>perfekta hem</em>',contact_sub:'Vi svarar inom en arbetsdag.',
+    form_name:'Namn',form_email:'E-post',form_phone:'Telefon',form_budget:'Budget',form_message:'Meddelande',form_send:'Skicka f\u00f6rfr\u00e5gan \u2192',
+    beds:'sovrum',baths:'badrum',sqm:'m\u00b2',view_details:'Se detaljer',enquire:'F\u00f6rfr\u00e5gan om fastighet'
   },
   pl: {
-    nav_home:'Strona główna', nav_properties:'Nieruchomości', nav_portfolio:'Portfolio', nav_buyers:'Przewodnik kupującego', nav_about:'O nas', nav_contact:'Kontakt', nav_cta:'Skontaktuj się',
-    hero_tag:'Luksusowe Nieruchomości · Marbella',
-    hero_title:'Twój <em>wyjątkowy</em><br>dom w<br>Marbella',
-    hero_sub:'Wybieramy najlepsze nieruchomości na Costa del Sol — dla tych, którzy wybierają życie bez kompromisów.',
-    hero_btn_props:'Zobacz nieruchomości', hero_btn_guide:'Przewodnik kupującego',
-    search_title:'Znajdź swoją nieruchomość', search_type:'Typ', search_location:'Lokalizacja', search_beds:'Sypialnie', search_price:'Maks. cena', search_btn:'Zobacz nieruchomości →',
-    all_types:'Wszystkie typy', all_locations:'Wszystkie obszary',
-    featured_tag:'Nasz wybór', featured_title:'Wyróżnione <em>Nieruchomości</em>',
-    featured_sub:'Starannie wybrane rezydencje uosabiające standard Luxxo Homes.',
-    loading:'Ładowanie nieruchomości', view_all:'Zobacz wszystkie nieruchomości',
-    about_tag:'Luxxo Homes', about_title:'Inna agencja <em>nieruchomości</em>',
-    about_p1:'Nie tylko wystawiamy nieruchomości. Łączymy wyjątkowe domy z właściwymi ludźmi.',
-    about_p2:'Z siedzibą w Marbelli, obsługujemy międzynarodowych nabywców z całej Europy. Język angielski, niderlandzki, niemiecki, hiszpański, szwedzki i polski.',
+    nav_home:'Strona g\u0142\u00f3wna',nav_properties:'Nieruchomo\u015bci',nav_portfolio:'Portfolio',nav_buyers:'Przewodnik kupuj\u0105cego',nav_about:'O nas',nav_contact:'Kontakt',nav_cta:'Skontaktuj si\u0119',
+    hero_tag:'Luksusowe Nieruchomo\u015bci \u00b7 Marbella',hero_title:'Tw\u00f3j <em>wyj\u0105tkowy</em><br>dom w<br>Marbella',
+    hero_sub:'Wybieramy najlepsze nieruchomo\u015bci na Costa del Sol.',
+    hero_btn_props:'Zobacz nieruchomo\u015bci',hero_btn_guide:'Przewodnik kupuj\u0105cego',
+    search_title:'Znajd\u017a swoj\u0105 nieruchomo\u015b\u0107',search_type:'Typ',search_location:'Lokalizacja',search_beds:'Sypialnie',search_price:'Maks. cena',search_btn:'Zobacz nieruchomo\u015bci \u2192',
+    all_types:'Wszystkie typy',all_locations:'Wszystkie obszary',
+    featured_tag:'Nasz wyb\u00f3r',featured_title:'Wyr\u00f3\u017bnione <em>Nieruchomo\u015bci</em>',featured_sub:'Starannie wybrane rezydencje.',
+    loading:'\u0141adowanie nieruchomo\u015bci',view_all:'Zobacz wszystkie nieruchomo\u015bci',
+    about_tag:'Luxxo Homes',about_title:'Inna agencja <em>nieruchomo\u015bci</em>',
+    about_p1:'\u0141\u0105czymy wyj\u0105tkowe domy z w\u0142a\u015bciwymi lud\u017ami.',
+    about_p2:'Z siedzib\u0105 w Marbelli obs\u0142ugujemy kupuj\u0105cych z ca\u0142ej Europy.',
     about_cta:'Nasza historia',
-    guide_teaser_tag:'Kupno w Hiszpanii', guide_teaser_title:'Prowadzimy Cię przez <em>każdy krok</em>',
-    guide_teaser_sub:'Od poszukiwań do kluczy w Twojej dłoni — zajmujemy się złożonością.',
-    guide_teaser_btn:'Dowiedz się o naszej usłudze',
-    listings_tag:'Portfolio', listings_title:'Wszystkie <em>Nieruchomości</em>',
-    portfolio_tag:'Referencje', portfolio_title:'Nasze <em>Portfolio</em>',
-    portfolio_sub:'Wybór nieruchomości, które sprzedaliśmy z sukcesem.',
-    portfolio_sold:'Sprzedana', beds:'sypialnie', sqm_built:'pow. użytkowa', sold_price:'cena sprzedaży',
-    portfolio_desc_1:'Imponująca willa z panoramicznym widokiem na morze, sprzedana belgijskiej rodzinie przeprowadzającej się na Costa del Sol.',
-    portfolio_desc_2:'Penthouse przy plaży na Golden Mile. Sprzedany poza rynkiem w ciągu dwóch tygodni.',
-    portfolio_desc_3:'Nowoczesna willa w dolinie golfowej, sprzedana holenderskiej parze przez naszą sieć partnerów.',
-    portfolio_cta_text:'Chcesz wystawić swoją nieruchomość u nas?',
-    portfolio_cta_btn:'Porozmawiaj z Edwinem',
-    buyers_tag:'Przewodnik kupującego', buyers_title:'Zakup nieruchomości w Hiszpanii — <em>z pomocą ekspertów</em>',
-    buyers_intro:'Zakup nieruchomości w Hiszpanii jako obcokrajowiec wiąże się z większą liczbą kroków niż można się spodziewać. Dbamy o każdy szczegół.',
-    step1_title:'Osobiste spotkanie i lista życzeń', step1_desc:'Zaczynamy od pogłębionej rozmowy o Twoim stylu życia, priorytetach i budżecie, a następnie przygotowujemy spersonalizowany wybór.',
-    step2_title:'Oglądanie i doradztwo dotyczące okolicy', step2_desc:'Towarzyszymy Ci osobiście podczas oglądania i udzielamy uczciwych, niezależnych porad.',
-    step3_title:'Due diligence prawne i finansowe', step3_desc:'Łączymy Cię z zaufanymi prawnikami, którzy sprawdzają status prawny nieruchomości i pomagają uzyskać numer NIE.',
-    step4_title:'Negocjacje i oferta', step4_desc:'Negocjujemy w Twoim imieniu, korzystając z wiedzy o rynku i odpowiedniego wyczucia czasu.',
-    step5_title:'Podpisanie i finalizacja', step5_desc:'Przeprowadzamy Cię przez proces notarialny i jesteśmy obecni przy podpisaniu.',
-    step6_title:'Wsparcie po zakupie', step6_desc:'Nasza relacja nie kończy się u notariusza. Pomagamy w mediach, rejestracji wspólnoty i wszystkim, czego potrzebujesz.',
-    guide_cta_title:'Gotowy na swój <em>dom w Marbelli?</em>', guide_cta_sub:'Umów bezpłatną, niezobowiązującą konsultację z Edwinem.',
-    guide_cta_btn:'Umów konsultację →',
-    contact_tag:'Skontaktuj się', contact_title:'Znajdźmy Twój <em>wymarzony dom</em>',
-    contact_sub:'Odpowiadamy w ciągu jednego dnia roboczego. Twoje zapytanie jest w pełni poufne.',
-    form_name:'Imię i nazwisko', form_email:'E-mail', form_phone:'Telefon', form_budget:'Budżet', form_message:'Wiadomość', form_send:'Wyślij zapytanie →',
-    beds:'sypialnie', baths:'łazienki', sqm:'m²', view_details:'Zobacz szczegóły', enquire:'Zapytaj o tę nieruchomość',
+    guide_teaser_tag:'Kupno w Hiszpanii',guide_teaser_title:'Prowadzimy Ci\u0119 przez <em>ka\u017cdy krok</em>',
+    guide_teaser_sub:'Od poszukiwa\u0144 do kluczy.',guide_teaser_btn:'Dowiedz si\u0119 o naszej us\u0142udze',
+    listings_tag:'Portfolio',listings_title:'Wszystkie <em>Nieruchomo\u015bci</em>',
+    portfolio_tag:'Referencje',portfolio_title:'Nasze <em>Portfolio</em>',
+    portfolio_sub:'Nieruchomo\u015bci, kt\u00f3re sprzedali\u015bmy z sukcesem.',
+    portfolio_sold:'Sprzedana',beds:'sypialnie',sqm_built:'pow. u\u017cytkowa',sold_price:'cena sprzeda\u017cy',
+    portfolio_desc_1:'Willa z panoramicznym widokiem na morze sprzedana belgijskiej rodzinie.',
+    portfolio_desc_2:'Penthouse przy pla\u017cy sprzedany w ci\u0105gu dw\u00f3ch tygodni.',
+    portfolio_desc_3:'Nowoczesna willa sprzedana holenderskiej parze.',
+    portfolio_cta_text:'Chcesz wystawi\u0107 swoj\u0105 nieruchomo\u015b\u0107 u nas?',portfolio_cta_btn:'Porozmawiaj z Edwinem',
+    buyers_tag:'Przewodnik kupuj\u0105cego',buyers_title:'Zakup w Hiszpanii \u2014 <em>z pomoc\u0105 ekspert\u00f3w</em>',
+    buyers_intro:'Zakup w Hiszpanii wi\u0105\u017ce si\u0119 z wi\u0119ksz\u0105 liczb\u0105 krok\u00f3w.',
+    step1_title:'Osobiste spotkanie',step1_desc:'Zaczynamy od rozmowy o Twoim stylu \u017cycia.',
+    step2_title:'Ogl\u0105danie',step2_desc:'Towarzyszymy Ci podczas ogl\u0105dania.',
+    step3_title:'Due diligence prawne',step3_desc:'\u0141\u0105czymy Ci\u0119 z zaufanymi prawnikami.',
+    step4_title:'Negocjacje',step4_desc:'Negocjujemy w Twoim imieniu.',
+    step5_title:'Podpisanie',step5_desc:'Przeprowadzamy Ci\u0119 przez proces notarialny.',
+    step6_title:'Wsparcie po zakupie',step6_desc:'Pomagamy po zakupie.',
+    guide_cta_title:'Gotowy na sw\u00f3j <em>dom w Marbelli?</em>',guide_cta_sub:'Um\u00f3w bezp\u0142atn\u0105 konsultacj\u0119.',guide_cta_btn:'Um\u00f3w konsultacj\u0119 \u2192',
+    contact_tag:'Skontaktuj si\u0119',contact_title:'Znajd\u017amy Tw\u00f3j <em>wymarzony dom</em>',contact_sub:'Odpowiadamy w ci\u0105gu jednego dnia roboczego.',
+    form_name:'Imi\u0119 i nazwisko',form_email:'E-mail',form_phone:'Telefon',form_budget:'Bud\u017cet',form_message:'Wiadomo\u015b\u0107',form_send:'Wy\u015blij zapytanie \u2192',
+    beds:'sypialnie',baths:'\u0142azienki',sqm:'m\u00b2',view_details:'Zobacz szczeg\u00f3\u0142y',enquire:'Zapytaj o t\u0119 nieruchomo\u015b\u0107'
   }
 };
 
-let currentLang = 'en';
-let allProperties = [];
-let activeFilters = {};
+var currentLang = 'en';
+var allProperties = [];
+var activeFilters = {};
 
-function t(key) { return lang[currentLang]?.[key] || lang.en[key] || key; }
+function t(key) { return (lang[currentLang] && lang[currentLang][key]) ? lang[currentLang][key] : (lang.en[key] || key); }
 
 function setLang(l) {
   currentLang = l;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.innerHTML = t(el.getAttribute('data-i18n'));
-  });
+  document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.toggle('active', b.textContent === l.toUpperCase()); });
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ el.innerHTML = t(el.getAttribute('data-i18n')); });
   renderFeatured();
   renderListings();
 }
 
 function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
-  window.scrollTo(0, 0);
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  var pg = document.getElementById('page-' + name);
+  if (pg) pg.classList.add('active');
+  window.scrollTo(0,0);
   if (name === 'listings') renderListings();
 }
 
 function applyFiltersAndShow() {
   activeFilters = {
-    type: document.getElementById('filter-type').value,
-    location: document.getElementById('filter-location').value,
-    beds: document.getElementById('filter-beds').value,
-    price: document.getElementById('filter-price').value,
+    type: (document.getElementById('filter-type')||{}).value || '',
+    location: (document.getElementById('filter-location')||{}).value || '',
+    beds: (document.getElementById('filter-beds')||{}).value || '',
+    price: (document.getElementById('filter-price')||{}).value || ''
   };
   showPage('listings');
 }
 
-// ── FEED ──
 async function loadFeed() {
   try {
-    const res = await fetch('/.netlify/functions/ego-feed');
+    var res = await fetch('/.netlify/functions/ego-feed');
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    if (!Array.isArray(data) || !data.length) throw new Error('empty');
+    var data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) throw new Error('empty');
     allProperties = data;
     populateLocationFilters();
     renderFeatured();
   } catch(e) {
-    const el = document.getElementById('featured-grid');
+    var el = document.getElementById('featured-grid');
     if (el) el.innerHTML = '<div class="loading" style="animation:none;">Unable to load live properties. Please check back shortly.</div>';
   }
 }
 
 function populateLocationFilters() {
-  const locations = [...new Set(allProperties.map(p => p.location_detail || p.town).filter(Boolean))].sort();
-  ['filter-location','list-location'].forEach(id => {
-    const sel = document.getElementById(id);
+  var seen = {};
+  var locations = [];
+  allProperties.forEach(function(p){
+    var l = p.location_detail || p.town;
+    if (l && !seen[l]) { seen[l]=1; locations.push(l); }
+  });
+  locations.sort();
+  ['filter-location','list-location'].forEach(function(id){
+    var sel = document.getElementById(id);
     if (!sel) return;
     sel.innerHTML = '<option value="">' + t('all_locations') + '</option>';
-    locations.forEach(l => sel.innerHTML += '<option value="' + l + '">' + l + '</option>');
+    locations.forEach(function(l){ sel.innerHTML += '<option value="' + l + '">' + l + '</option>'; });
   });
 }
 
 function getDesc(p) {
-  const map = { en: p.desc_en, nl: p.desc_nl, es: p.desc_es, de: p.desc_de, sv: p.desc_en, pl: p.desc_en };
+  var map = { en: p.desc_en, nl: p.desc_nl, es: p.desc_es, de: p.desc_de, sv: p.desc_en, pl: p.desc_en };
   return map[currentLang] || p.desc_en || '';
 }
 
-function fmtPrice(n) { return '€' + Number(n).toLocaleString('nl-NL'); }
+function fmtPrice(n) { return '\u20ac' + Number(n).toLocaleString('nl-NL'); }
 
 function propCard(p, delay) {
   delay = delay || 0;
-  const img = (p.photos && p.photos[0]) ? p.photos[0] : 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=70';
-  const loc = [p.location_detail, p.town].filter(Boolean).join(', ');
-  return '<div class="prop-card" style="animation-delay:' + delay + 'ms" onclick="openModal('' + p.id + '')">'
+  var img = (p.photos && p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=70';
+  var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+  return '<div class="prop-card" style="animation-delay:' + delay + 'ms" data-propid="' + p.id + '" onclick="openModal(this.dataset.propid)">'
     + '<div class="prop-img-wrap">'
-    + '<img class="prop-img" src="' + img + '" alt="' + p.ref + '" loading="lazy">'
+    + '<img class="prop-img" src="' + img + '" alt="" loading="lazy">'
     + '<div class="prop-overlay"></div>'
-    + '<div class="prop-badge">' + p.type + '</div>'
+    + '<div class="prop-badge">' + (p.type||'') + '</div>'
     + '</div>'
     + '<div class="prop-info">'
     + '<div class="prop-price">' + fmtPrice(p.price) + '</div>'
-    + '<div class="prop-name">' + p.ref + '</div>'
+    + '<div class="prop-name">' + (p.ref||'') + '</div>'
     + '<div class="prop-location">' + loc + '</div>'
     + '</div>'
     + '<div class="prop-specs">'
-    + '<div class="spec"><span class="spec-val">' + (p.beds||'—') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
-    + '<div class="spec"><span class="spec-val">' + (p.baths||'—') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
-    + '<div class="spec"><span class="spec-val">' + (p.built||'—') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + (p.beds||'\u2014') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + (p.built||'\u2014') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
     + '</div>'
     + '<div class="prop-footer">'
-    + '<span class="prop-type">' + (p.location_detail || p.town) + '</span>'
+    + '<span class="prop-type">' + (p.location_detail||p.town||'') + '</span>'
     + '<button class="prop-link">' + t('view_details') + '</button>'
     + '</div></div>';
 }
 
 function renderFeatured() {
-  const el = document.getElementById('featured-grid');
+  var el = document.getElementById('featured-grid');
   if (!el || !allProperties.length) return;
   el.innerHTML = allProperties.slice(0,3).map(function(p,i){ return propCard(p, i*80); }).join('');
 }
 
 function filterProperties() {
-  const type = (document.getElementById('list-type') || {}).value || activeFilters.type || '';
-  const loc  = (document.getElementById('list-location') || {}).value || activeFilters.location || '';
-  const beds = parseInt((document.getElementById('list-beds') || {}).value || activeFilters.beds || 0);
-  const maxP = parseInt(((document.getElementById('filter-price') || {}).value) || 0);
-  const sort = ((document.getElementById('list-sort') || {}).value) || 'price_desc';
-  let props = allProperties.slice();
+  var type = ((document.getElementById('list-type')||{}).value) || activeFilters.type || '';
+  var loc  = ((document.getElementById('list-location')||{}).value) || activeFilters.location || '';
+  var beds = parseInt(((document.getElementById('list-beds')||{}).value) || activeFilters.beds || 0);
+  var maxP = parseInt(((document.getElementById('filter-price')||{}).value) || 0);
+  var sort = ((document.getElementById('list-sort')||{}).value) || 'price_desc';
+  var props = allProperties.slice();
   if (type) props = props.filter(function(p){ return p.type && p.type.toLowerCase().indexOf(type.toLowerCase()) !== -1; });
-  if (loc)  props = props.filter(function(p){ return (p.location_detail||'').indexOf(loc) !== -1 || p.town.indexOf(loc) !== -1; });
-  if (beds) props = props.filter(function(p){ return parseInt(p.beds) >= beds; });
+  if (loc)  props = props.filter(function(p){ return (p.location_detail||'').indexOf(loc) !== -1 || (p.town||'').indexOf(loc) !== -1; });
+  if (beds) props = props.filter(function(p){ return parseInt(p.beds||0) >= beds; });
   if (maxP) props = props.filter(function(p){ return p.price <= maxP; });
   if (sort === 'price_desc') props.sort(function(a,b){ return b.price - a.price; });
   if (sort === 'price_asc')  props.sort(function(a,b){ return a.price - b.price; });
@@ -955,10 +919,10 @@ function filterProperties() {
 }
 
 function renderListings() {
-  const grid = document.getElementById('listings-grid');
+  var grid = document.getElementById('listings-grid');
   if (!grid) return;
-  const props = filterProperties();
-  const count = document.getElementById('results-count');
+  var props = filterProperties();
+  var count = document.getElementById('results-count');
   if (count) count.textContent = props.length + ' properties';
   if (!props.length) { grid.innerHTML = '<div class="loading" style="animation:none;">No properties match your filters.</div>'; return; }
   grid.innerHTML = props.map(function(p,i){ return propCard(p, i*40); }).join('');
@@ -966,37 +930,40 @@ function renderListings() {
 }
 
 function openModal(id) {
-  const p = allProperties.filter(function(x){ return x.id === id; })[0];
+  var p = null;
+  for (var i=0; i<allProperties.length; i++) { if (allProperties[i].id === id) { p = allProperties[i]; break; } }
   if (!p) return;
-  const imgs = (p.photos || []).slice(0,4);
-  const gallery = document.getElementById('modal-gallery');
+  var imgs = (p.photos||[]).slice(0,4);
+  var gallery = document.getElementById('modal-gallery');
+  var galleryHtml = '';
   if (imgs.length >= 2) {
-    gallery.innerHTML = imgs.map(function(u){ return '<img src="' + u + '" alt="' + p.ref + '" style="width:100%;height:' + Math.floor(100/imgs.length) + '%;object-fit:cover;display:block;">'; }).join('');
+    var pct = Math.floor(100/imgs.length);
+    imgs.forEach(function(u){ galleryHtml += '<img src="' + u + '" style="width:100%;height:' + pct + '%;object-fit:cover;display:block;">'; });
   } else if (imgs.length === 1) {
-    gallery.innerHTML = '<img src="' + imgs[0] + '" alt="' + p.ref + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
+    galleryHtml = '<img src="' + imgs[0] + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
   } else {
-    gallery.innerHTML = '<div style="height:100%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;color:var(--light);">Luxxo</div>';
+    galleryHtml = '<div style="height:100%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;color:var(--light);">Luxxo</div>';
   }
-  const desc = getDesc(p);
-  const feats = (p.features||[]).slice(0,12).map(function(f){ return '<span class="feature-tag">' + f + '</span>'; }).join('');
-  const loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+  gallery.innerHTML = galleryHtml;
+  var desc = getDesc(p);
+  var feats = (p.features||[]).slice(0,12).map(function(f){ return '<span class="feature-tag">' + f + '</span>'; }).join('');
+  var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
   document.getElementById('modal-body').innerHTML =
     '<div class="modal-price">' + fmtPrice(p.price) + '</div>'
-    + '<div class="modal-ref">' + p.ref + ' · ' + loc + '</div>'
+    + '<div class="modal-ref">' + (p.ref||'') + ' \u00b7 ' + loc + '</div>'
     + '<div class="modal-specs">'
-    + '<div class="modal-spec"><span class="spec-val">' + (p.beds||'—') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
-    + '<div class="modal-spec"><span class="spec-val">' + (p.baths||'—') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
-    + '<div class="modal-spec"><span class="spec-val">' + (p.built||'—') + ' m²</span><span class="spec-lbl">Built</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.beds||'\u2014') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.built||'\u2014') + ' m\u00b2</span><span class="spec-lbl">Built</span></div>'
     + '</div>'
-    + (desc ? '<div class="modal-desc">' + desc.replace(/
-/g,'<br>').substring(0,600) + (desc.length>600?'…':'') + '</div>' : '')
+    + (desc ? '<div class="modal-desc">' + desc.replace(/\n/g,'<br>').substring(0,600) + (desc.length>600?'\u2026':'') + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
-    + '<button class="modal-cta" onclick="showPage('contact')">' + t('enquire') + '</button>';
+    + '<button class="modal-cta" onclick="showPage(\'contact\')">' + t('enquire') + '</button>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal(e) { if (e.target.id === 'modal') closeModalDirect(); }
+function closeModal(e) { if (e.target && e.target.id === 'modal') closeModalDirect(); }
 function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
 
 loadFeed();

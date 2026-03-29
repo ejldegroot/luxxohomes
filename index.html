@@ -811,8 +811,8 @@
   <div class="footer-col">
     <h4>Contact</h4>
     <ul>
-      <li style="display:flex;justify-content:space-between;max-width:260px;"><span style="color:rgba(250,248,244,.3);font-size:12px;">Gijs</span><a href="tel:+34681294029" style="font-size:13px;">+34 681 294 029</a></li>
-      <li style="display:flex;justify-content:space-between;max-width:260px;"><span style="color:rgba(250,248,244,.3);font-size:12px;">Edwin</span><a href="tel:+34633925630" style="font-size:13px;">+34 633 925 630</a></li>
+      <li style="display:flex;justify-content:space-between;max-width:260px;"><span style="color:rgba(250,248,244,.5);font-size:13px;">Gijs</span><a href="tel:+34681294029" style="font-size:13px;">+34 681 294 029</a></li>
+      <li style="display:flex;justify-content:space-between;max-width:260px;"><span style="color:rgba(250,248,244,.5);font-size:13px;">Edwin</span><a href="tel:+34633925630" style="font-size:13px;">+34 633 925 630</a></li>
       <li style="margin-top:8px;"><a href="mailto:info@luxxohomes.com">info@luxxohomes.com</a></li>
     </ul>
   </div>
@@ -1613,7 +1613,36 @@ function openModal(id) {
   }
   gallery.innerHTML = galleryHtml;
   var desc = getDesc(p);
-  var feats = (p.features||[]).map(function(f){ return '<span class="feature-tag">' + f + '</span>'; }).join('');
+  // Only show key features
+  var keyFeatures = [];
+  var featureList = p.features || [];
+  // Bedrooms/bathrooms already shown in specs, skip those
+  // Key things to show:
+  var wantedPatterns = [
+    {re: /sea.*view|view.*sea|ocean|panoramic/i, label: 'Sea view'},
+    {re: /pool|swimming/i, label: 'Swimming pool'},
+    {re: /garage|parking/i, label: 'Parking'},
+    {re: /storage|storeroom|trastero|berging/i, label: 'Storage room'},
+    {re: /terrace|terraza|terras/i, label: 'Terrace'},
+    {re: /garden|jardín|tuin/i, label: 'Garden'},
+    {re: /golf/i, label: 'Golf nearby'},
+    {re: /beach|playa|strand/i, label: 'Beach nearby'},
+    {re: /lift|elevator/i, label: 'Lift'},
+    {re: /air.*condition|airco/i, label: 'Air conditioning'},
+    {re: /furnished|amueblado|gemeubileerd/i, label: 'Furnished'},
+    {re: /jacuzzi/i, label: 'Jacuzzi'},
+    {re: /barbecue|bbq/i, label: 'BBQ'},
+  ];
+  var shown = {};
+  featureList.forEach(function(f) {
+    wantedPatterns.forEach(function(wp) {
+      if (!shown[wp.label] && wp.re.test(f)) {
+        keyFeatures.push(wp.label);
+        shown[wp.label] = true;
+      }
+    });
+  });
+  var feats = keyFeatures.map(function(f){ return '<span class="feature-tag">' + f + '</span>'; }).join('');
   var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
   document.getElementById('modal-body').innerHTML =
     '<div class="modal-price">' + fmtPrice(p.price) + '</div>'
@@ -1626,16 +1655,33 @@ function openModal(id) {
     + (desc ? '<div class="modal-desc">' + desc.replace(/\n/g,'<br>') + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
     + (function() {
-        var mapQuery = encodeURIComponent((p.location_detail || p.town || 'Marbella') + ', Málaga, Spain');
-        var mapSrc = (p.lat && p.lon && p.lat !== 0 && p.lon !== 0)
-          ? 'https://www.openstreetmap.org/export/embed.html?bbox=' + (p.lon-0.008) + '%2C' + (p.lat-0.005) + '%2C' + (p.lon+0.008) + '%2C' + (p.lat+0.005) + '&layer=mapnik&marker=' + p.lat + '%2C' + p.lon
-          : 'https://www.openstreetmap.org/export/embed.html?bbox=-5.1%2C36.4%2C-4.8%2C36.6&layer=mapnik';
+        // Approximate coords for known areas
+        var areaCoords = {
+          'la quinta': [36.504, -5.007], 'nueva andaluc': [36.489, -5.000],
+          'marbella': [36.510, -4.882], 'benahavis': [36.526, -5.044],
+          'benahav': [36.526, -5.044], 'golden mile': [36.508, -4.932],
+          'milla de oro': [36.508, -4.932], 'los arqueros': [36.504, -5.007],
+          'la zagaleta': [36.526, -5.044], 'rio real': [36.510, -4.862],
+          'r\u00edo real': [36.510, -4.862], 'puerto ban': [36.485, -4.975],
+          'puerto banus': [36.485, -4.975], 'estepona': [36.427, -5.146],
+          'aloha': [36.489, -5.000], 'san pedro': [36.487, -4.993]
+        };
+        var lat = p.lat && p.lat !== 0 ? p.lat : 0;
+        var lon = p.lon && p.lon !== 0 ? p.lon : 0;
+        if (!lat) {
+          var locLower = (p.location_detail || p.town || '').toLowerCase();
+          for (var key in areaCoords) {
+            if (locLower.indexOf(key) !== -1) { lat = areaCoords[key][0]; lon = areaCoords[key][1]; break; }
+          }
+          if (!lat) { lat = 36.510; lon = -4.882; }
+        }
+        var bbox = (lon-0.012) + '%2C' + (lat-0.008) + '%2C' + (lon+0.012) + '%2C' + (lat+0.008);
+        var mapSrc = 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox + '&layer=mapnik&marker=' + lat + '%2C' + lon;
         return '<div style="margin:24px 0 0;">'
-          + '<div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:10px;">Location — ' + (p.location_detail || p.town || '') + '</div>'
+          + '<div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:10px;">Location — ' + (p.location_detail || p.town || 'Marbella') + '</div>'
           + '<div style="height:200px;overflow:hidden;border:1px solid var(--border);">'
           + '<iframe width="100%" height="200" frameborder="0" scrolling="no" '
-          + 'src="' + mapSrc + '" '
-          + 'style="border:0;width:100%;height:200px;" loading="lazy"></iframe>'
+          + 'src="' + mapSrc + '" style="border:0;width:100%;height:200px;" loading="lazy"></iframe>'
           + '</div></div>';
       })()
     + '<button class="modal-cta" onclick="showPage(\'contact\')">' + t('enquire') + '</button>';

@@ -137,7 +137,7 @@
 
   /* ── ABOUT STRIP ── */
   .about-strip { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
-  .about-img { background: url('https://feedmedia.egorealestate.com/Zfeed/S5/C40096/P27967004/Tphoto/ID1cbeaa01-0000-0500-0000-000016f2dc53.jpg') center/cover; min-height: 400px; }
+  .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; min-height: 400px; }
   .about-content { background: var(--charcoal); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
   .about-content h2 { font-family: var(--serif); font-size: 38px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 24px; }
@@ -463,8 +463,8 @@
   <!-- CONTACT STRIP -->
   <section class="contact-strip">
     <div>
-      <h2>Ready to find your <em>Marbella home?</em></h2>
-      <p>Gijs, Jacco &amp; Edwin are ready to help. No obligations, just an honest conversation.</p>
+      <h2 data-i18n="contact_strip_h2">Ready to find your <em>Marbella home?</em></h2>
+      <p data-i18n="contact_strip_p">Gijs, Jacco &amp; Edwin are ready to help. No obligations, just an honest conversation.</p>
     </div>
     <div class="contact-details">
       <div class="contact-item">
@@ -601,7 +601,7 @@
 <!-- ══ BUYER'S GUIDE ══ -->
 <div id="page-buyers" class="page">
   <div class="guide-hero-photo">
-    <img src="/casahillside.jpg" alt="Marbella Sea View">
+    <img src="/buyersguide.jpg" alt="Marbella Sea View">
     <div class="guide-hero-text">
       <span class="section-tag" data-i18n="buyers_tag">Buyer's Guide</span>
       <h1 data-i18n="buyers_title">Buying property in Spain — <em>guided by experts</em></h1>
@@ -662,9 +662,13 @@
 <!-- ══ ABOUT ══ -->
 <div id="page-about" class="page">
 
-  <!-- HERO STRIP -->
-  <section class="about-strip" style="margin-top:72px;">
-    <div class="about-img"></div>
+  <!-- VIDEO HERO STRIP -->
+  <section style="display:grid;grid-template-columns:1fr 1fr;min-height:540px;margin-top:72px;" class="about-strip">
+    <div style="overflow:hidden;position:relative;background:var(--charcoal);display:flex;align-items:center;justify-content:center;">
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        <source src="/casarenovo.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="about-content">
       <span class="section-tag" data-i18n="about_tag2">About Luxxo Homes</span>
       <h2 data-i18n="about_h2">More than a real estate<br><em>agency.</em></h2>
@@ -692,19 +696,12 @@
       </div>
     </div>
 
-    <!-- CASA RENOVO VIDEO + NL BRIDGE -->
-    <div class="cr-video-block" style="margin-bottom:64px;margin-left:-48px;margin-right:-48px;">
-      <div class="cr-video-wrap">
-        <video autoplay muted loop playsinline style="min-height:400px;">
-          <source src="/casarenovo.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="cr-text-wrap">
-        <div class="cr-badge" data-i18n="bridge_tag">The bridge between the Netherlands and Spain</div>
-        <h2 class="cr-h2" data-i18n="bridge_h2">Two brands.<br><em>One standard.</em></h2>
-        <p class="cr-p" data-i18n="bridge_p3">We advise clients in the Netherlands who are considering a purchase in Spain, and guide them all the way to the keys in their hand. One team, from start to finish.</p>
-        <p class="cr-p" style="font-size:13px;color:var(--light);">Kitchens, bathrooms and flooring come directly from the Netherlands — that's how we guarantee quality on every project.</p>
-      </div>
+    <!-- NL/ES BRIDGE TEXT -->
+    <div style="margin-bottom:64px;">
+      <div class="cr-badge" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;" data-i18n="bridge_tag">The bridge between the Netherlands and Spain</div>
+      <h2 class="section-title" style="text-align:left;margin-bottom:24px;" data-i18n="bridge_h2">Two brands.<br><em>One standard.</em></h2>
+      <p style="font-size:15px;color:var(--mid);line-height:1.9;margin-bottom:12px;" data-i18n="bridge_p3">We advise clients in the Netherlands who are considering a purchase in Spain, and guide them all the way to the keys in their hand. One team, from start to finish.</p>
+      <p style="font-size:14px;color:var(--light);line-height:1.9;">Kitchens, bathrooms and flooring come directly from the Netherlands — that's how we guarantee quality on every project.</p>
     </div>
 
     <!-- TEAM PHOTO -->
@@ -805,42 +802,24 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
+<footer style="background:#2A2A28;grid-template-columns:1fr 1fr;">
   <div class="footer-brand">
     <span class="footer-logo">Luxxo <span>Homes</span></span>
-    <p>Luxury real estate on the Costa del Sol. Marbella's most personal property service.</p>
-  </div>
-  <div class="footer-col">
-    <h4>Navigation</h4>
-    <ul>
-      <li><a onclick="showPage('listings')">Properties</a></li>
-      <li><a onclick="showPage('portfolio')">Portfolio</a></li>
-      <li><a onclick="showPage('buyers')">Buyer's Guide</a></li>
-      <li><a onclick="showPage('about')">About us</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Areas</h4>
-    <ul>
-      <li><a>Marbella</a></li>
-      <li><a>Puerto Banús</a></li>
-      <li><a>Nueva Andalucía</a></li>
-      <li><a>Benahavís</a></li>
-    </ul>
+    <p>Luxury real estate on the Costa del Sol.<br>Marbella's most personal property service.</p>
+    <p style="margin-top:16px;font-size:12px;color:rgba(250,248,244,.3);">© 2026 Luxxo Homes — Casa Marbella Group</p>
   </div>
   <div class="footer-col">
     <h4>Contact</h4>
     <ul>
-      <li><a href="tel:+34681294029">Gijs &nbsp;+34 681 294 029</a></li>
-      <li><a href="tel:+34633925630">Edwin &nbsp;+34 633 925 630</a></li>
-      <li><a href="mailto:info@luxxohomes.com">info@luxxohomes.com</a></li>
-      <li><a>luxxohomes.com</a></li>
+      <li style="display:flex;justify-content:space-between;max-width:260px;"><span style="color:rgba(250,248,244,.3);font-size:12px;">Gijs</span><a href="tel:+34681294029" style="font-size:13px;">+34 681 294 029</a></li>
+      <li style="display:flex;justify-content:space-between;max-width:260px;"><span style="color:rgba(250,248,244,.3);font-size:12px;">Edwin</span><a href="tel:+34633925630" style="font-size:13px;">+34 633 925 630</a></li>
+      <li style="margin-top:8px;"><a href="mailto:info@luxxohomes.com">info@luxxohomes.com</a></li>
     </ul>
   </div>
 </footer>
-<div class="footer-bottom">
-  <p>© 2026 Luxxo Homes — Casa Marbella Group</p>
+<div class="footer-bottom" style="background:#2A2A28;border-top:1px solid rgba(255,255,255,.05);">
   <p>Privacy · Cookies</p>
+  <p>luxxohomes.com</p>
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
@@ -930,6 +909,9 @@ const lang = {
     guide_cta_title:'Plan a free consultation with <em>Gijs, Jacco or Edwin.</em>',
     guide_cta_sub:'No obligations. We listen first, advise second. Your journey to Marbella starts with one conversation.',
     guide_cta_btn:'Plan a free conversation →',
+        contact_strip_h2:'Ready to find your <em>Marbella home?</em>',
+    contact_strip_p:'Gijs, Jacco &amp; Edwin are ready to help. No obligations, just an honest conversation.',
+    contact_strip_btn:'Get in touch →',
     beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
@@ -1017,6 +999,9 @@ const lang = {
     guide_cta_title:'Plan een gratis gesprek met <em>Gijs, Jacco of Edwin.</em>',
     guide_cta_sub:'Geen verplichtingen. Wij luisteren eerst, adviseren daarna. Uw reis naar Marbella begint met één gesprek.',
     guide_cta_btn:'Plan een gratis gesprek →',
+        contact_strip_h2:'Klaar om uw <em>Marbella thuis</em> te vinden?',
+    contact_strip_p:'Gijs, Jacco &amp; Edwin staan klaar. Geen verplichtingen, gewoon een eerlijk gesprek.',
+    contact_strip_btn:'Neem contact op →',
     beds:'slaapk.',baths:'badk.',sqm:'m\u00b2',view_details:'Bekijk details',enquire:'Informatie aanvragen'
   },
   es: {
@@ -1104,6 +1089,9 @@ const lang = {
     guide_cta_title:'Planifica una consulta gratuita con <em>Gijs, Jacco o Edwin.</em>',
     guide_cta_sub:'Sin compromisos. Escuchamos primero, asesoramos después.',
     guide_cta_btn:'Planificar una consulta gratuita →',
+        contact_strip_h2:'¿Listo para encontrar su <em>hogar en Marbella?</em>',
+    contact_strip_p:'Gijs, Jacco &amp; Edwin están listos para ayudar. Sin compromisos, solo una conversación honesta.',
+    contact_strip_btn:'Contáctanos →',
     beds:'dorm.',baths:'ba\u00f1os',sqm:'m\u00b2',view_details:'Ver detalles',enquire:'Solicitar informaci\u00f3n'
   },
   de: {
@@ -1191,6 +1179,9 @@ const lang = {
     guide_cta_title:'Planen Sie ein kostenloses Gespräch mit <em>Gijs, Jacco oder Edwin.</em>',
     guide_cta_sub:'Keine Verpflichtungen. Wir hören zuerst zu, beraten dann.',
     guide_cta_btn:'Kostenloses Gespräch planen →',
+        contact_strip_h2:'Bereit, Ihr <em>Marbella Zuhause</em> zu finden?',
+    contact_strip_p:'Gijs, Jacco &amp; Edwin stehen bereit. Keine Verpflichtungen, nur ein ehrliches Gespräch.',
+    contact_strip_btn:'Kontakt aufnehmen →',
     beds:'SZ',baths:'BZ',sqm:'m\u00b2',view_details:'Details ansehen',enquire:'Diese Immobilie anfragen'
   },
   sv: {
@@ -1278,6 +1269,9 @@ const lang = {
     guide_cta_title:'Planera ett gratis samtal med <em>Gijs, Jacco eller Edwin.</em>',
     guide_cta_sub:'Inga förpliktelser. Vi lyssnar först, rådger sedan.',
     guide_cta_btn:'Planera ett gratis samtal →',
+        contact_strip_h2:'Redo att hitta ditt <em>Marbella hem?</em>',
+    contact_strip_p:'Gijs, Jacco &amp; Edwin är redo att hjälpa. Inga förpliktelser.',
+    contact_strip_btn:'Kontakta oss →',
     beds:'sovrum',baths:'badrum',sqm:'m\u00b2',view_details:'Se detaljer',enquire:'F\u00f6rfr\u00e5gan om fastighet'
   },
   pl: {
@@ -1365,6 +1359,9 @@ const lang = {
     guide_cta_title:'Zaplanuj bezpłatną rozmowę z <em>Gijsem, Jackiem lub Edwinem.</em>',
     guide_cta_sub:'Bez zobowiązań. Najpierw słuchamy, potem doradzimy.',
     guide_cta_btn:'Zaplanuj bezpłatną rozmowę →',
+        contact_strip_h2:'Gotowy znaleźć swój <em>dom w Marbelli?</em>',
+    contact_strip_p:'Gijs, Jacco &amp; Edwin są gotowi pomóc. Bez zobowiązań.',
+    contact_strip_btn:'Skontaktuj się →',
     beds:'sypialnie',baths:'\u0142azienki',sqm:'m\u00b2',view_details:'Zobacz szczeg\u00f3\u0142y',enquire:'Zapytaj o t\u0119 nieruchomo\u015b\u0107'
   }
 };

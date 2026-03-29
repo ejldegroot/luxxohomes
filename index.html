@@ -570,7 +570,7 @@
     <h4>Contact</h4>
     <ul>
       <li><a href="tel:+34681294029">+34 681 294 029</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#4d28293a24230d2138353522252220283e632e2220"><span class="__cf_email__" data-cfemail="51343526383f113d2429293e393e3c34227f323e3c">[email&#160;protected]</span></a></li>
+      <li><a href="/cdn-cgi/l/email-protection#d3b6b7a4babd93bfa6ababbcbbbcbeb6a0fdb0bcbe"><span class="__cf_email__" data-cfemail="10757467797e507c6568687f787f7d75633e737f7d">[email&#160;protected]</span></a></li>
       <li><a>luxxohomes.com</a></li>
     </ul>
   </div>
@@ -877,30 +877,28 @@ function applyFiltersAndShow() {
 async function loadFeed() {
   try {
     const res = await fetch('/.netlify/functions/ego-feed');
-    const text = await res.text();
-    const xml = new DOMParser().parseFromString(text, 'text/xml');
-    const props = [...xml.querySelectorAll('property')];
-    if (!props.length) throw new Error('empty');
-    allProperties = props.map(p => {
-      const g = s => p.querySelector(s)?.textContent?.trim() || '';
-      const photos = [...p.querySelectorAll('image url')].map(i => i.textContent.trim()).filter(Boolean);
-      const features = [...p.querySelectorAll('feature')].map(f => f.textContent.trim()).filter(Boolean);
-      return {
-        id: g('id'), ref: g('ref'), price: parseInt(g('price'))||0,
-        type: g('type'), town: g('town'), location_detail: g('location_detail'),
-        beds: g('beds'), baths: g('baths'),
-        built: parseInt(p.querySelector('surface_area built')?.textContent)||0,
-        desc_en: g('desc en'), desc_nl: g('desc nl'), desc_es: g('desc es'), desc_de: g('desc de'),
-        photos, features
-      };
-    });
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    if (!data || !Array.isArray(data) || !data.length) throw new Error('empty');
+    allProperties = data;
+    populateLocationFilters();
+    renderFeatured();
+    return;
   } catch(e) {
-    // Feed could not be reached — show a friendly message instead of fake data
     document.getElementById('featured-grid').innerHTML = '<div class="loading" style="animation:none;">Unable to load live properties. Please check back shortly.</div>';
     return;
   }
-  populateLocationFilters();
-  renderFeatured();
+}
+// placeholder to avoid duplicate
+async function _unused() {
+    const xml = new DOMParser();
+    const props = [];
+    if (!props.length) throw new Error('empty');
+    const data = {contents:''};
+    const props = [...xml.querySelectorAll('property')];
+    if (!props.length) throw new Error('empty');
+    allProperties = [];
+  } catch(e2) { /* ignore */ }
 }
 
 function populateLocationFilters() {
@@ -1006,3 +1004,11 @@ function openModal(id) {
     <button class="modal-cta" onclick="showPage('contact')">${t('enquire')}</button>`;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden'
+}
+function closeModal(e) { if (e.target.id === 'modal') closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
+
+loadFeed();
+</script>
+</body>
+</html>

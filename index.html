@@ -877,28 +877,16 @@ function applyFiltersAndShow() {
 async function loadFeed() {
   try {
     const res = await fetch('/.netlify/functions/ego-feed');
-    if (!res.ok) throw new Error('fetch failed');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    if (!data || !Array.isArray(data) || !data.length) throw new Error('empty');
+    if (!Array.isArray(data) || !data.length) throw new Error('empty');
     allProperties = data;
     populateLocationFilters();
     renderFeatured();
-    return;
   } catch(e) {
-    document.getElementById('featured-grid').innerHTML = '<div class="loading" style="animation:none;">Unable to load live properties. Please check back shortly.</div>';
-    return;
+    const el = document.getElementById('featured-grid');
+    if (el) el.innerHTML = '<div class="loading" style="animation:none;">Unable to load live properties. Please check back shortly.</div>';
   }
-}
-// placeholder to avoid duplicate
-async function _unused() {
-    const xml = new DOMParser();
-    const props = [];
-    if (!props.length) throw new Error('empty');
-    const data = {contents:''};
-    const props = [...xml.querySelectorAll('property')];
-    if (!props.length) throw new Error('empty');
-    allProperties = [];
-  } catch(e2) { /* ignore */ }
 }
 
 function populateLocationFilters() {
@@ -906,8 +894,8 @@ function populateLocationFilters() {
   ['filter-location','list-location'].forEach(id => {
     const sel = document.getElementById(id);
     if (!sel) return;
-    sel.innerHTML = `<option value="">${t('all_locations')}</option>`;
-    locations.forEach(l => sel.innerHTML += `<option value="${l}">${l}</option>`);
+    sel.innerHTML = '<option value="">' + t('all_locations') + '</option>';
+    locations.forEach(l => sel.innerHTML += '<option value="' + l + '">' + l + '</option>');
   });
 }
 
@@ -918,51 +906,51 @@ function getDesc(p) {
 
 function fmtPrice(n) { return '€' + Number(n).toLocaleString('nl-NL'); }
 
-function propCard(p, delay=0) {
-  const img = p.photos?.[0] || 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=70';
+function propCard(p, delay) {
+  delay = delay || 0;
+  const img = (p.photos && p.photos[0]) ? p.photos[0] : 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=70';
   const loc = [p.location_detail, p.town].filter(Boolean).join(', ');
-  return `<div class="prop-card" style="animation-delay:${delay}ms" onclick="openModal('${p.id}')">
-    <div class="prop-img-wrap">
-      <img class="prop-img" src="${img}" alt="${p.ref}" loading="lazy">
-      <div class="prop-overlay"></div>
-      <div class="prop-badge">${p.type}</div>
-    </div>
-    <div class="prop-info">
-      <div class="prop-price">${fmtPrice(p.price)}</div>
-      <div class="prop-name">${p.ref}</div>
-      <div class="prop-location">${loc}</div>
-    </div>
-    <div class="prop-specs">
-      <div class="spec"><span class="spec-val">${p.beds||'—'}</span><span class="spec-lbl">${t('beds')}</span></div>
-      <div class="spec"><span class="spec-val">${p.baths||'—'}</span><span class="spec-lbl">${t('baths')}</span></div>
-      <div class="spec"><span class="spec-val">${p.built||'—'}</span><span class="spec-lbl">${t('sqm')}</span></div>
-    </div>
-    <div class="prop-footer">
-      <span class="prop-type">${p.location_detail || p.town}</span>
-      <button class="prop-link">${t('view_details')}</button>
-    </div>
-  </div>`;
+  return '<div class="prop-card" style="animation-delay:' + delay + 'ms" onclick="openModal('' + p.id + '')">'
+    + '<div class="prop-img-wrap">'
+    + '<img class="prop-img" src="' + img + '" alt="' + p.ref + '" loading="lazy">'
+    + '<div class="prop-overlay"></div>'
+    + '<div class="prop-badge">' + p.type + '</div>'
+    + '</div>'
+    + '<div class="prop-info">'
+    + '<div class="prop-price">' + fmtPrice(p.price) + '</div>'
+    + '<div class="prop-name">' + p.ref + '</div>'
+    + '<div class="prop-location">' + loc + '</div>'
+    + '</div>'
+    + '<div class="prop-specs">'
+    + '<div class="spec"><span class="spec-val">' + (p.beds||'—') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + (p.baths||'—') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + (p.built||'—') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
+    + '</div>'
+    + '<div class="prop-footer">'
+    + '<span class="prop-type">' + (p.location_detail || p.town) + '</span>'
+    + '<button class="prop-link">' + t('view_details') + '</button>'
+    + '</div></div>';
 }
 
 function renderFeatured() {
   const el = document.getElementById('featured-grid');
   if (!el || !allProperties.length) return;
-  el.innerHTML = allProperties.slice(0,3).map((p,i) => propCard(p, i*80)).join('');
+  el.innerHTML = allProperties.slice(0,3).map(function(p,i){ return propCard(p, i*80); }).join('');
 }
 
 function filterProperties() {
-  const type = document.getElementById('list-type')?.value || activeFilters.type || '';
-  const loc  = document.getElementById('list-location')?.value || activeFilters.location || '';
-  const beds = parseInt(document.getElementById('list-beds')?.value || activeFilters.beds || 0);
-  const maxP = parseInt(document.getElementById('filter-price')?.value || 0);
-  const sort = document.getElementById('list-sort')?.value || 'price_desc';
-  let props = [...allProperties];
-  if (type) props = props.filter(p => p.type?.toLowerCase().includes(type.toLowerCase()));
-  if (loc)  props = props.filter(p => (p.location_detail||'').includes(loc) || p.town.includes(loc));
-  if (beds) props = props.filter(p => parseInt(p.beds) >= beds);
-  if (maxP) props = props.filter(p => p.price <= maxP);
-  if (sort === 'price_desc') props.sort((a,b) => b.price - a.price);
-  if (sort === 'price_asc')  props.sort((a,b) => a.price - b.price);
+  const type = (document.getElementById('list-type') || {}).value || activeFilters.type || '';
+  const loc  = (document.getElementById('list-location') || {}).value || activeFilters.location || '';
+  const beds = parseInt((document.getElementById('list-beds') || {}).value || activeFilters.beds || 0);
+  const maxP = parseInt(((document.getElementById('filter-price') || {}).value) || 0);
+  const sort = ((document.getElementById('list-sort') || {}).value) || 'price_desc';
+  let props = allProperties.slice();
+  if (type) props = props.filter(function(p){ return p.type && p.type.toLowerCase().indexOf(type.toLowerCase()) !== -1; });
+  if (loc)  props = props.filter(function(p){ return (p.location_detail||'').indexOf(loc) !== -1 || p.town.indexOf(loc) !== -1; });
+  if (beds) props = props.filter(function(p){ return parseInt(p.beds) >= beds; });
+  if (maxP) props = props.filter(function(p){ return p.price <= maxP; });
+  if (sort === 'price_desc') props.sort(function(a,b){ return b.price - a.price; });
+  if (sort === 'price_asc')  props.sort(function(a,b){ return a.price - b.price; });
   return props;
 }
 
@@ -973,38 +961,41 @@ function renderListings() {
   const count = document.getElementById('results-count');
   if (count) count.textContent = props.length + ' properties';
   if (!props.length) { grid.innerHTML = '<div class="loading" style="animation:none;">No properties match your filters.</div>'; return; }
-  grid.innerHTML = props.map((p,i) => propCard(p, i*40)).join('');
+  grid.innerHTML = props.map(function(p,i){ return propCard(p, i*40); }).join('');
   activeFilters = {};
 }
 
 function openModal(id) {
-  const p = allProperties.find(x => x.id === id);
+  const p = allProperties.filter(function(x){ return x.id === id; })[0];
   if (!p) return;
-  const imgs = p.photos?.slice(0,4) || [];
+  const imgs = (p.photos || []).slice(0,4);
   const gallery = document.getElementById('modal-gallery');
   if (imgs.length >= 2) {
-    gallery.innerHTML = imgs.map(u => `<img src="${u}" alt="${p.ref}" style="width:100%;height:${100/imgs.length}%;object-fit:cover;display:block;">`).join('');
+    gallery.innerHTML = imgs.map(function(u){ return '<img src="' + u + '" alt="' + p.ref + '" style="width:100%;height:' + Math.floor(100/imgs.length) + '%;object-fit:cover;display:block;">'; }).join('');
   } else if (imgs.length === 1) {
-    gallery.innerHTML = `<img src="${imgs[0]}" alt="${p.ref}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+    gallery.innerHTML = '<img src="' + imgs[0] + '" alt="' + p.ref + '" style="width:100%;height:100%;object-fit:cover;display:block;">';
   } else {
-    gallery.innerHTML = `<div style="height:100%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;color:var(--light);">Luxxo</div>`;
+    gallery.innerHTML = '<div style="height:100%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;color:var(--light);">Luxxo</div>';
   }
   const desc = getDesc(p);
-  const feats = (p.features||[]).slice(0,12).map(f => `<span class="feature-tag">${f}</span>`).join('');
-  document.getElementById('modal-body').innerHTML = `
-    <div class="modal-price">${fmtPrice(p.price)}</div>
-    <div class="modal-ref">${p.ref} · ${[p.location_detail, p.town].filter(Boolean).join(', ')}</div>
-    <div class="modal-specs">
-      <div class="modal-spec"><span class="spec-val">${p.beds||'—'}</span><span class="spec-lbl">${t('beds')}</span></div>
-      <div class="modal-spec"><span class="spec-val">${p.baths||'—'}</span><span class="spec-lbl">${t('baths')}</span></div>
-      <div class="modal-spec"><span class="spec-val">${p.built||'—'} m²</span><span class="spec-lbl">Built</span></div>
-    </div>
-    ${desc ? `<div class="modal-desc">${desc.replace(/\n/g,'<br>').substring(0,600)}${desc.length>600?'…':''}</div>` : ''}
-    ${feats ? `<div class="modal-features">${feats}</div>` : ''}
-    <button class="modal-cta" onclick="showPage('contact')">${t('enquire')}</button>`;
+  const feats = (p.features||[]).slice(0,12).map(function(f){ return '<span class="feature-tag">' + f + '</span>'; }).join('');
+  const loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+  document.getElementById('modal-body').innerHTML =
+    '<div class="modal-price">' + fmtPrice(p.price) + '</div>'
+    + '<div class="modal-ref">' + p.ref + ' · ' + loc + '</div>'
+    + '<div class="modal-specs">'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.beds||'—') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.baths||'—') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.built||'—') + ' m²</span><span class="spec-lbl">Built</span></div>'
+    + '</div>'
+    + (desc ? '<div class="modal-desc">' + desc.replace(/
+/g,'<br>').substring(0,600) + (desc.length>600?'…':'') + '</div>' : '')
+    + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
+    + '<button class="modal-cta" onclick="showPage('contact')">' + t('enquire') + '</button>';
   document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden'
+  document.body.style.overflow = 'hidden';
 }
+
 function closeModal(e) { if (e.target.id === 'modal') closeModalDirect(); }
 function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
 

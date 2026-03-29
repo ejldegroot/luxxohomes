@@ -125,10 +125,10 @@
   .guide-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,64px); font-weight: 300; color: var(--warm-white); line-height: 1.1; max-width: 700px; }
   .guide-hero h1 em { font-style: italic; color: var(--gold-light); }
   .guide-hero p { font-size: 15px; color: rgba(250,248,244,.6); max-width: 560px; line-height: 1.85; margin-top: 24px; }
-  .guide-steps { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
+  .guide-steps { padding: 64px 64px 40px; max-width: 900px; margin: 0 auto; }
   .step { display: grid; grid-template-columns: 80px 1fr; gap: 32px; margin-bottom: 56px; align-items: start; }
   .step-num { font-family: var(--serif); font-size: 64px; font-weight: 300; color: var(--gold-light); line-height: 1; }
-  .step-body h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; margin-bottom: 10px; }
+  .step-body h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; margin-bottom: 8px; }
   .step-body p { font-size: 14px; color: var(--mid); line-height: 1.85; }
   .guide-cta-box { background: var(--cream); padding: 64px; text-align: center; margin: 0 48px 80px; }
   .guide-cta-box h2 { font-family: var(--serif); font-size: 36px; font-weight: 300; margin-bottom: 16px; }
@@ -138,7 +138,7 @@
   /* ── ABOUT STRIP ── */
   .about-strip { display: grid; grid-template-columns: 1fr 1fr; }
   .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; min-height: 400px; }
-  .about-content { background: #2A2A28; padding: 40px 48px; display: flex; flex-direction: column; justify-content: center; }
+  .about-content { background: #2A2A28; padding: 40px 48px; display: flex; flex-direction: column; justify-content: center; max-height: 360px; overflow: hidden; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
   .about-content h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 20px; }
   .about-content h2 em { font-style: italic; color: var(--gold-light); }
@@ -607,6 +607,28 @@
       <p data-i18n="buyers_intro">Purchasing a home in Spain as a foreign buyer involves more steps than you might expect. We take care of every detail — so your path from search to keys is clear, safe, and enjoyable.</p>
     </div>
   </div>
+  <!-- WHY LUXXO BLOCK -->
+  <div style="background:var(--cream);padding:60px 64px 48px;margin-top:2px;">
+    <div style="max-width:900px;margin:0 auto;">
+      <span class="section-tag" style="text-align:left;display:block;margin-bottom:12px;" data-i18n="buyers_why_tag">Why choose Luxxo Homes?</span>
+      <h2 style="font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:32px;" data-i18n="buyers_why_h2">We know Marbella. <em>Inside out.</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;" class="stats-3col">
+        <div>
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;" data-i18n="buyers_why1_h">Local market knowledge</div>
+          <p style="font-size:13px;color:var(--mid);line-height:1.85;" data-i18n="buyers_why1_p">Gijs has lived and worked in Marbella for years. He knows the neighbourhoods, the realistic prices, and which properties are genuinely good value.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;" data-i18n="buyers_why2_h">Independent advice</div>
+          <p style="font-size:13px;color:var(--mid);line-height:1.85;" data-i18n="buyers_why2_p">We represent you — not the seller. Our advice is honest, even when that means telling you to walk away from a property.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;" data-i18n="buyers_why3_h">Dutch-Spanish network</div>
+          <p style="font-size:13px;color:var(--mid);line-height:1.85;" data-i18n="buyers_why3_p">We are fluent in both worlds. From Dutch due diligence mindset to Spanish notary processes — we bridge the gap and protect your interests at every step.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="guide-steps">
     <div class="step">
       <div class="step-num">01</div>
@@ -662,8 +684,8 @@
 <div id="page-about" class="page">
 
   <!-- VIDEO HERO STRIP -->
-  <section style="display:grid;grid-template-columns:1fr 1fr;margin-top:72px;" class="about-strip">
-    <div style="overflow:hidden;position:relative;background:#2A2A28;display:flex;align-items:stretch;">
+  <section style="display:grid;grid-template-columns:1fr 1fr;max-height:360px;margin-top:72px;overflow:hidden;" class="about-strip">
+    <div style="overflow:hidden;position:relative;background:#2A2A28;display:flex;align-items:stretch;max-height:360px;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
         <source src="/casarenovo.mp4" type="video/mp4">
       </video>
@@ -699,7 +721,7 @@
 
     <!-- TEAM PHOTO -->
     <div style="margin-bottom:72px;">
-      <img src="/team.jpg" alt="Het team van Luxxo Homes" style="width:100%;max-height:380px;object-fit:cover;object-position:center top;display:block;">
+      <img src="/team.jpg" alt="Het team van Luxxo Homes" style="width:100%;max-height:420px;object-fit:cover;object-position:center 20%;display:block;">
       <p style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-top:12px;text-align:center;">Gijs Hoeve &nbsp;·&nbsp; Jacco Hamstra &nbsp;·&nbsp; Edwin de Groot &nbsp;·&nbsp; Djoni Granneman &nbsp;·&nbsp; And a very important team member</p>
     </div>
 
@@ -803,17 +825,26 @@
   </div>
   <div>
     <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500;">Contact</h4>
-    <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="display:flex;align-items:baseline;gap:20px;">
-        <span style="color:rgba(250,248,244,.45);font-size:12px;min-width:44px;">Gijs</span>
+        <span style="color:rgba(250,248,244,.5);font-size:12px;min-width:44px;">Gijs</span>
         <a href="tel:+34681294029" style="font-size:15px;color:var(--warm-white);text-decoration:none;font-weight:300;">+34 681 294 029</a>
       </div>
       <div style="display:flex;align-items:baseline;gap:20px;">
-        <span style="color:rgba(250,248,244,.45);font-size:12px;min-width:44px;">Edwin</span>
+        <span style="color:rgba(250,248,244,.5);font-size:12px;min-width:44px;">Edwin</span>
         <a href="tel:+34633925630" style="font-size:15px;color:var(--warm-white);text-decoration:none;font-weight:300;">+34 633 925 630</a>
       </div>
-      <div style="margin-top:4px;">
-        <a href="mailto:info@luxxohomes.com" style="font-size:13px;color:rgba(250,248,244,.55);text-decoration:none;">info@luxxohomes.com</a>
+      <div>
+        <a href="mailto:info@luxxohomes.com" style="font-size:14px;color:var(--warm-white);text-decoration:none;font-weight:300;">info@luxxohomes.com</a>
+      </div>
+      <div style="margin-top:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);">
+        <p style="font-size:11px;color:rgba(250,248,244,.35);line-height:1.9;">
+          Luxxo Homes SL<br>
+          Bulevar Alfonso de Hohenlohe<br>
+          Edificio Milla de Oro, Oficina 3<br>
+          29602 Marbella<br>
+          <span style="margin-top:4px;display:block;">B23848534</span>
+        </p>
       </div>
     </div>
   </div>
@@ -869,7 +900,6 @@ const lang = {
     bridge_p1:'Buying in Spain sounds attractive. And it is — if you know what you’re doing. The market works differently, the regulations are different, and local contractors don’t always deliver what they promise. We know these pitfalls inside and out.',
     bridge_p2:'Our greatest advantage: we operate on both sides of the border. Jacco runs a company in the Netherlands from which we supply kitchens, bathrooms and flooring for every renovation project. Not because it’s easy — but because it means we keep full control over quality. No surprises on site. No compromises on materials.',
     bridge_p3:'We advise clients in the Netherlands who are considering a purchase, and guide them all the way through to the keys in their hand in Spain. One team, from start to finish.',
-    team_caption:'<span data-i18n="team_caption">Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  And a very important team member</span>',
     team_tag:'The team',
     team_h2:'Stronger together.<br><em>Better for you.</em>',
     team_intro:'Four people. Each with their own strength. Together they cover every aspect of the process \u2014 from construction site to notary, from interior to investment. That\u2019s what makes the difference.',
@@ -913,6 +943,14 @@ const lang = {
         contact_strip_h2:'Ready to find your <em>Marbella home?</em>',
     contact_strip_p:'Gijs, Jacco &amp; Edwin are ready to help. No obligations, just an honest conversation.',
     contact_strip_btn:'Get in touch →',
+        buyers_why_tag:'Why choose Luxxo Homes?',
+    buyers_why_h2:'We know Marbella. <em>Inside out.</em>',
+    buyers_why1_h:'Local market knowledge',
+    buyers_why1_p:'Gijs has lived and worked in Marbella for years. He knows every neighbourhood, the realistic prices, and which properties are genuinely good value.',
+    buyers_why2_h:'Independent advice',
+    buyers_why2_p:'We represent you — not the seller. Our advice is honest, even when that means telling you to walk away from a property.',
+    buyers_why3_h:'Dutch-Spanish network',
+    buyers_why3_p:'We are fluent in both worlds. From Dutch due diligence mindset to Spanish notary processes — we bridge the gap and protect your interests at every step.',
     beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
@@ -959,7 +997,6 @@ const lang = {
     bridge_p1:'Kopen in Spanje klinkt aantrekkelijk. En dat is het ook — als je weet wat je doet. De markt werkt anders, de regelgeving is anders, en lokale aannemers leveren lang niet altijd wat ze beloven. Wij kennen die valkuilen van binnen en van buiten.',
     bridge_p2:'Ons grote voordeel: we opereren aan beide kanten van de grens. Jacco heeft in Nederland een bedrijf van waaruit we keukens, badkamers en vloeren leveren voor elk renovatieproject. Niet omdat het makkelijk is — maar omdat we zo de kwaliteit volledig in eigen hand hebben. Geen verrassingen op de bouwplaats. Geen compromissen over materialen.',
     bridge_p3:'Wij adviseren klanten in Nederland die een aankoop overwegen, en begeleiden hen helemaal tot aan de sleutel in hun hand in Spanje. Één team, van begin tot einde.',
-    team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  En een zeer belangrijk teamlid',
     team_tag:'Het team',
     team_h2:'Samen sterker.<br><em>Beter voor jou.</em>',
     team_intro:'Vier mensen. Elk met zijn eigen kracht. Samen dekken ze elk onderdeel van het proces — van bouwplaats tot notaris, van interieur tot investering.',
@@ -1003,6 +1040,14 @@ const lang = {
         contact_strip_h2:'Klaar om uw <em>Marbella thuis</em> te vinden?',
     contact_strip_p:'Gijs, Jacco &amp; Edwin staan klaar. Geen verplichtingen, gewoon een eerlijk gesprek.',
     contact_strip_btn:'Neem contact op →',
+        buyers_why_tag:'Waarom kiezen voor Luxxo Homes?',
+    buyers_why_h2:'Wij kennen Marbella. <em>Van binnen en buiten.</em>',
+    buyers_why1_h:'Lokale marktkennis',
+    buyers_why1_p:'Gijs woont en werkt al jaren in Marbella. Hij kent de wijken, de reële prijzen en welke woningen werkelijk goede waarde bieden.',
+    buyers_why2_h:'Onafhankelijk advies',
+    buyers_why2_p:'Wij vertegenwoordigen u — niet de verkoper. Ons advies is eerlijk, ook als dat betekent dat we u adviseren een woning te laten lopen.',
+    buyers_why3_h:'Nederlands-Spaans netwerk',
+    buyers_why3_p:'We zijn thuis in beide werelden. Van Nederlandse due diligence mentaliteit tot Spaanse notarisprocessen — wij slaan de brug en beschermen uw belangen.',
     beds:'slaapk.',baths:'badk.',sqm:'m\u00b2',view_details:'Bekijk details',enquire:'Informatie aanvragen'
   },
   es: {
@@ -1049,7 +1094,6 @@ const lang = {
     bridge_p1:'Comprar en España suena atractivo. Y lo es — si sabe lo que hace. El mercado funciona diferente, la regulación es distinta y los contratistas locales no siempre cumplen sus promesas. Conocemos estos problemas por dentro y por fuera.',
     bridge_p2:'Nuestra gran ventaja: operamos en ambos lados de la frontera. Jacco tiene una empresa en Países Bajos desde la que suministramos cocinas, baños y suelos para cada proyecto de renovación. No porque sea fácil — sino para mantener el control total sobre la calidad.',
     bridge_p3:'Asesoramos a clientes en Países Bajos que consideran una compra y los acompañamos hasta tener las llaves en mano en España. Un equipo, de principio a fin.',
-    team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  Y un miembro muy importante del equipo',
     team_tag:'El equipo',
     team_h2:'M\u00e1s fuertes juntos.<br><em>Mejor para ti.</em>',
     team_intro:'Cuatro personas. Cada una con su propia fortaleza. Juntos cubren cada aspecto del proceso \u2014 desde la obra hasta el notario, del interiorismo a la inversi\u00f3n.',
@@ -1139,7 +1183,6 @@ const lang = {
     bridge_p1:'In Spanien zu kaufen klingt attraktiv. Und das ist es auch — wenn man weiß, was man tut. Der Markt funktioniert anders, die Vorschriften sind anders, und lokale Auftragnehmer liefern nicht immer, was sie versprechen.',
     bridge_p2:'Unser größter Vorteil: Wir arbeiten auf beiden Seiten der Grenze. Jacco führt in den Niederlanden ein Unternehmen, von dem aus wir Küchen, Bäder und Böden für jedes Renovierungsprojekt liefern. Nicht weil es einfach ist — sondern weil wir so die Qualität vollständig in der Hand behalten.',
     bridge_p3:'Wir beraten Kunden in den Niederlanden, die einen Kauf erwagen, und begleiten sie bis zum Schlüssel in der Hand in Spanien. Ein Team, von Anfang bis Ende.',
-    team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  Und ein sehr wichtiges Teammitglied',
     team_tag:'Das Team',
     team_h2:'Gemeinsam st\u00e4rker.<br><em>Besser f\u00fcr Sie.</em>',
     team_intro:'Vier Menschen. Jeder mit seiner eigenen St\u00e4rke. Gemeinsam decken sie jeden Aspekt des Prozesses ab \u2014 von der Baustelle bis zum Notar, vom Interieur bis zur Investition.',
@@ -1229,7 +1272,6 @@ const lang = {
     bridge_p1:'Att köpa i Spanien låter lockande. Och det är det — om du vet vad du gör. Marknaden fungerar annorlunda, regelverket är annorlunda och lokala entreprenörer lever inte alltid upp till sina löften.',
     bridge_p2:'Vår stora fördel: vi verkar på båda sidor gränsen. Jacco driver ett företag i Nederländerna från vilket vi levererar kök, badrum och golv till varje renoveringsprojekt. Inte för att det är enkelt — utan för att vi då behåller full kontroll över kvaliteten.',
     bridge_p3:'Vi rådger kunder i Nederländerna som överväger ett köp och följer dem hela vägen till nycklarna i handen i Spanien. Ett team, från början till slut.',
-    team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  Och en mycket viktig teammedlem',
     team_tag:'Teamet',
     team_h2:'Starkare tillsammans.<br><em>Bättre för dig.</em>',
     team_intro:'Fyra människor. Var och en med sin egen styrka. Tillsammans täcker de varje aspekt av processen — från byggarbetsplats till notarius.',
@@ -1319,7 +1361,6 @@ const lang = {
     bridge_p1:'Kupowanie w Hiszpanii brzmi atrakcyjnie. I tak jest — jeśli wiesz, co robisz. Rynek działa inaczej, przepisy są inne, a lokalni wykonawcy nie zawsze dostarczają tego, co obiecują.',
     bridge_p2:'Nasza największa zaleta: działamy po obu stronach granicy. Jacco prowadzi firmę w Holandii, z której dostarczamy kuchnie, łazienki i podłogi do każdego projektu renowacyjnego. Nie dlatego, że to łatwe — ale dlatego, że zachowujemy pełną kontrolę nad jakością.',
     bridge_p3:'Doradzamy klientom w Holandii rozważającym zakup i prowadzimy ich aż do kluczy w ręku w Hiszpanii. Jeden zespół, od początku do końca.',
-    team_caption:'Gijs Hoeve  ·  Jacco Hamstra  ·  Edwin de Groot  ·  Djoni Granneman  ·  I bardzo ważny członek zespołu',
     team_tag:'Zespół',
     team_h2:'Silniejsi razem.<br><em>Lepiej dla Ciebie.</em>',
     team_intro:'Cztery osoby. Ka\u017cda z w\u0142asn\u0105 si\u0142\u0105. Razem obejmuj\u0105 ka\u017cdy aspekt procesu \u2014 od placu budowy po notariusza, od wn\u0119trz po inwestycje.',

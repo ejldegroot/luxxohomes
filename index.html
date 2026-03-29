@@ -274,9 +274,9 @@
     .hero-left { min-height: 60vh; padding: 48px 24px; }
     .hero-title { font-size: clamp(34px, 8vw, 52px); }
     .hero-right { padding: 36px 24px; }
-    .about-strip { grid-template-columns: 1fr; }
-    .about-img { min-height: 260px; }
-    .about-content { padding: 40px 24px; }
+    .about-strip { grid-template-columns: 1fr; height: auto !important; }
+    .about-img { height: 280px !important; min-height: 0; }
+    .about-content { padding: 36px 24px; height: auto !important; overflow: visible; }
     .modal { grid-template-columns: 1fr; max-height: 95vh; }
     .modal-gallery { max-height: 50vw; min-height: 200px; }
     .modal-gallery img { aspect-ratio: 16/9; }
@@ -311,7 +311,11 @@
   }
 
   @media (max-width: 480px) {
-    .prop-img { aspect-ratio: 3/2; }
+    .guide-hero-photo { height: 140px !important; }
+    .about-video-strip { grid-template-columns: 1fr !important; height: auto !important; }
+    .about-video-strip > div:first-child { height: 240px !important; }
+    .about-content { height: auto !important; padding: 32px 24px; }
+    .prop-img { aspect-ratio: 16/11; }
     .hero-left { padding: 36px 20px; min-height: 55vh; }
     .hero-title { font-size: clamp(30px, 9vw, 42px); }
     footer { grid-template-columns: 1fr; }
@@ -835,12 +839,12 @@
     <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500;">Contact</h4>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="display:flex;align-items:baseline;gap:20px;">
-        <span style="color:var(--warm-white);font-size:13px;min-width:44px;font-weight:300;">Gijs</span>
-        <a href="tel:+34681294029" style="font-size:15px;color:var(--warm-white);text-decoration:none;font-weight:300;">+34 681 294 029</a>
+        <span style="color:rgba(250,248,244,.75);font-size:13px;min-width:44px;font-weight:300;font-family:var(--sans);">Gijs</span>
+        <a href="tel:+34681294029" style="font-size:15px;color:rgba(250,248,244,.75);text-decoration:none;font-weight:300;font-family:var(--sans);">+34 681 294 029</a>
       </div>
       <div style="display:flex;align-items:baseline;gap:20px;">
-        <span style="color:var(--warm-white);font-size:13px;min-width:44px;font-weight:300;">Edwin</span>
-        <a href="tel:+34633925630" style="font-size:15px;color:var(--warm-white);text-decoration:none;font-weight:300;">+34 633 925 630</a>
+        <span style="color:rgba(250,248,244,.75);font-size:13px;min-width:44px;font-weight:300;font-family:var(--sans);">Edwin</span>
+        <a href="tel:+34633925630" style="font-size:15px;color:rgba(250,248,244,.75);text-decoration:none;font-weight:300;font-family:var(--sans);">+34 633 925 630</a>
       </div>
       <div>
         <a href="mailto:info@luxxohomes.com" style="font-size:14px;color:var(--warm-white);text-decoration:none;font-weight:300;">info@luxxohomes.com</a>

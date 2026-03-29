@@ -138,9 +138,9 @@
   /* ── ABOUT STRIP ── */
   .about-strip { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
   .about-img { background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80') center/cover; min-height: 400px; }
-  .about-content { background: var(--charcoal); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
+  .about-content { background: var(--charcoal); padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; }
   .about-content .section-tag { text-align: left; margin-bottom: 16px; }
-  .about-content h2 { font-family: var(--serif); font-size: 38px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 24px; }
+  .about-content h2 { font-family: var(--serif); font-size: 32px; font-weight: 300; color: var(--warm-white); line-height: 1.2; margin-bottom: 20px; }
   .about-content h2 em { font-style: italic; color: var(--gold-light); }
   .about-content p { font-size: 14px; color: rgba(250,248,244,.6); line-height: 1.9; margin-bottom: 14px; }
   .about-link { margin-top: 16px; display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); cursor: pointer; font-weight: 400; background: none; border: none; font-family: var(--sans); }
@@ -223,7 +223,7 @@
   .search-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 12px; max-width: 1000px; margin: 0 auto; align-items: end; }
 
   /* ── CONTACT STRIP ── */
-  .contact-strip { background: var(--charcoal); padding: 56px 48px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+  .contact-strip { background: #2A2A28; padding: 56px 48px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
   .contact-strip h2 { font-family: var(--serif); font-size: 32px; font-weight: 300; color: var(--warm-white); margin-bottom: 8px; }
   .contact-strip h2 em { font-style: italic; color: var(--gold-light); }
   .contact-strip p { font-size: 14px; color: rgba(250,248,244,.55); }
@@ -593,7 +593,7 @@
   </div>
   <div style="background:var(--cream);padding:60px 48px;text-align:center;margin-top:2px;">
     <h2 style="font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:14px;" data-i18n="portfolio_cta_title">Inspired by what we create?</h2>
-    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8;" data-i18n="portfolio_cta_text">Let's talk about what's possible — whether you're looking to buy, sell or invest on the Costa del Sol.</p>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8;" data-i18n="portfolio_cta_text">Let's talk about what's possible — whether you're looking to buy, sell or invest in and around Marbella.</p>
     <button onclick="showPage('contact')" style="background:var(--charcoal);color:var(--warm-white);border:none;padding:14px 40px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='var(--charcoal)';this.style.color='var(--warm-white)'" data-i18n="portfolio_cta_btn">Get in touch</button>
   </div>
 </div>
@@ -663,7 +663,7 @@
 <div id="page-about" class="page">
 
   <!-- VIDEO HERO STRIP -->
-  <section style="display:grid;grid-template-columns:1fr 1fr;min-height:540px;margin-top:72px;" class="about-strip">
+  <section style="display:grid;grid-template-columns:1fr 1fr;min-height:380px;margin-top:72px;" class="about-strip">
     <div style="overflow:hidden;position:relative;background:var(--charcoal);display:flex;align-items:center;justify-content:center;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
         <source src="/casarenovo.mp4" type="video/mp4">
@@ -672,7 +672,7 @@
     <div class="about-content">
       <span class="section-tag" data-i18n="about_tag2">About Luxxo Homes</span>
       <h2 data-i18n="about_h2">More than a real estate<br><em>agency.</em></h2>
-      <p data-i18n="about_p1">We don't just sell homes. We create them. Luxxo Homes is part of <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — together with <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, our own renovation company on the Costa del Sol.</p>
+      <p data-i18n="about_p1">We don't just sell homes. We create them.<br><strong style="color:var(--gold-light);">Luxxo Homes</strong> is part of <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — together with <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, our own renovation company on the Costa del Sol.</p>
       <p data-i18n="about_p2">We buy properties, renovate them to an exceptional standard, and bring them to market through Luxxo Homes. We also guide buyers in finding other properties — but only those that genuinely meet our standard.</p>
     </div>
   </section>
@@ -900,11 +900,11 @@ const lang = {
     soon_cta_btn:'Get in touch',
     soon_empty:'New projects will be announced here soon. Keep an eye on this page.',
     listings_badge1:'Casa Renovo Projects',
-    listings_badge1_text:'Renovated by our own team',
+    listings_badge1_text:'Renovated to the highest standard. High-end materials, bespoke styling.',
     listings_badge2:'Luxxo Selection',
-    listings_badge2_text:'Handpicked for quality & location',
+    listings_badge2_text:'Selected for exceptional quality and the Luxxo Homes standard.',
         portfolio_cta_title:'Inspired by what we create?',
-    portfolio_cta_text:'Let\'s talk about what\'s possible — whether you\'re looking to buy, sell or invest on the Costa del Sol.',
+    portfolio_cta_text:'Let\'s talk about what\'s possible — whether you\'re looking to buy, sell or invest in and around Marbella.',
     portfolio_cta_btn:'Get in touch',
     guide_cta_title:'Plan a free consultation with <em>Gijs, Jacco or Edwin.</em>',
     guide_cta_sub:'No obligations. We listen first, advise second. Your journey to Marbella starts with one conversation.',
@@ -951,7 +951,7 @@ const lang = {
     listings_intro:'Een zorgvuldig samengestelde selectie woningen die voldoen aan de Luxxo Homes standaard. Niet zomaar aangeboden — geselecteerd.',
     about_tag2:'Over Luxxo Homes',
     about_h2:'Meer dan een <em>makelaar.</em>',
-    about_p1:'Wij verkopen niet zomaar woningen. Wij creëren ze. Luxxo Homes is onderdeel van <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — samen met <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, ons eigen renovatiebedrijf op de Costa del Sol.',
+    about_p1:'Wij verkopen niet zomaar woningen. Wij creëren ze.<br><strong style="color:var(--gold-light);">Luxxo Homes</strong> is onderdeel van <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — samen met <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, ons eigen renovatiebedrijf op de Costa del Sol.',
     about_p2:'Wij kopen woningen, renoveren ze naar een uitzonderlijk niveau en brengen ze via Luxxo Homes op de markt. Daarnaast begeleiden we kopers bij het vinden van andere woningen — maar alleen als die woning echt aan onze standaard voldoet.',
     bridge_tag:'De brug tussen Nederland en Spanje',
     bridge_h2:'Twee merken.<br><em>\u00c9\u00e9n standaard.</em>',
@@ -990,11 +990,11 @@ const lang = {
     soon_cta_btn:'Neem contact op',
     soon_empty:'Binnenkort worden hier nieuwe projecten aangekondigd. Houd deze pagina in de gaten.',
     listings_badge1:'Casa Renovo Projecten',
-    listings_badge1_text:'Gerenoveerd door ons eigen team',
+    listings_badge1_text:'Gerenoveerd op het hoogste niveau. High-end materialen, bespoke styling.',
     listings_badge2:'Luxxo Selectie',
-    listings_badge2_text:'Geselecteerd op kwaliteit & locatie',
+    listings_badge2_text:'Geselecteerd op uitzonderlijke kwaliteit en de Luxxo Homes standaard.',
         portfolio_cta_title:'Geïnspireerd geraakt?',
-    portfolio_cta_text:'Laten we bespreken wat mogelijk is — of u nu wilt kopen, verkopen of investeren op de Costa del Sol.',
+    portfolio_cta_text:'Laten we bespreken wat mogelijk is — of u nu wilt kopen, verkopen of investeren in en rond Marbella.',
     portfolio_cta_btn:'Neem contact op',
     guide_cta_title:'Plan een gratis gesprek met <em>Gijs, Jacco of Edwin.</em>',
     guide_cta_sub:'Geen verplichtingen. Wij luisteren eerst, adviseren daarna. Uw reis naar Marbella begint met één gesprek.',
@@ -1084,7 +1084,7 @@ const lang = {
     listings_badge2:'Selección Luxxo',
     listings_badge2_text:'Elegido por calidad y ubicación',
         portfolio_cta_title:'¿Inspiración encontrada?',
-    portfolio_cta_text:'Hablemos de lo que es posible, ya sea que quieras comprar, vender o invertir en la Costa del Sol.',
+    portfolio_cta_text:'Hablemos de lo que es posible, ya sea que quieras comprar, vender o invertir en Marbella y alrededores.',
     portfolio_cta_btn:'Contáctanos',
     guide_cta_title:'Planifica una consulta gratuita con <em>Gijs, Jacco o Edwin.</em>',
     guide_cta_sub:'Sin compromisos. Escuchamos primero, asesoramos después.',
@@ -1174,7 +1174,7 @@ const lang = {
     listings_badge2:'Luxxo Auswahl',
     listings_badge2_text:'Handverlesen nach Qualität & Lage',
         portfolio_cta_title:'Inspiriert?',
-    portfolio_cta_text:'Lassen Sie uns besprechen, was möglich ist — ob Sie kaufen, verkaufen oder investieren möchten.',
+    portfolio_cta_text:'Lassen Sie uns besprechen, was möglich ist — ob Sie kaufen, verkaufen oder in der Region Marbella investieren möchten.',
     portfolio_cta_btn:'Kontakt aufnehmen',
     guide_cta_title:'Planen Sie ein kostenloses Gespräch mit <em>Gijs, Jacco oder Edwin.</em>',
     guide_cta_sub:'Keine Verpflichtungen. Wir hören zuerst zu, beraten dann.',
@@ -1264,7 +1264,7 @@ const lang = {
     listings_badge2:'Luxxo Urval',
     listings_badge2_text:'Handplockat för kvalitet & läge',
         portfolio_cta_title:'Inspirerad?',
-    portfolio_cta_text:'Låt oss prata om vad som är möjligt — oavsett om du vill köpa, sälja eller investera.',
+    portfolio_cta_text:'Låt oss prata om vad som är möjligt — oavsett om du vill köpa, sälja eller investera kring Marbella.',
     portfolio_cta_btn:'Kontakta oss',
     guide_cta_title:'Planera ett gratis samtal med <em>Gijs, Jacco eller Edwin.</em>',
     guide_cta_sub:'Inga förpliktelser. Vi lyssnar först, rådger sedan.',
@@ -1354,7 +1354,7 @@ const lang = {
     listings_badge2:'Selekcja Luxxo',
     listings_badge2_text:'Wybrane za jakość i lokalizację',
         portfolio_cta_title:'Zainspirowany?',
-    portfolio_cta_text:'Porozmawiajmy o możliwościach — czy chcesz kupować, sprzedawać czy inwestować.',
+    portfolio_cta_text:'Porozmawiajmy o możliwościach — czy chcesz kupować, sprzedawać czy inwestować w okolicach Marbelli.',
     portfolio_cta_btn:'Skontaktuj się',
     guide_cta_title:'Zaplanuj bezpłatną rozmowę z <em>Gijsem, Jackiem lub Edwinem.</em>',
     guide_cta_sub:'Bez zobowiązań. Najpierw słuchamy, potem doradzimy.',
@@ -1625,13 +1625,19 @@ function openModal(id) {
     + '</div>'
     + (desc ? '<div class="modal-desc">' + desc.replace(/\n/g,'<br>') + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
-    + ((p.lat && p.lon && p.lat !== 0 && p.lon !== 0) ? '<div style="margin:24px 0 0;">'
-        + '<div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:10px;">Location</div>'
-        + '<div style="height:220px;overflow:hidden;border:1px solid var(--border);">'
-        + '<iframe width="100%" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" '
-        + 'src="https://www.openstreetmap.org/export/embed.html?bbox=' + (p.lon-0.008) + '%2C' + (p.lat-0.005) + '%2C' + (p.lon+0.008) + '%2C' + (p.lat+0.005) + '&layer=mapnik&marker=' + p.lat + '%2C' + p.lon + '" '
-        + 'style="border:0;width:100%;height:220px;" loading="lazy"></iframe>'
-        + '</div></div>' : '')
+    + (function() {
+        var mapQuery = encodeURIComponent((p.location_detail || p.town || 'Marbella') + ', Málaga, Spain');
+        var mapSrc = (p.lat && p.lon && p.lat !== 0 && p.lon !== 0)
+          ? 'https://www.openstreetmap.org/export/embed.html?bbox=' + (p.lon-0.008) + '%2C' + (p.lat-0.005) + '%2C' + (p.lon+0.008) + '%2C' + (p.lat+0.005) + '&layer=mapnik&marker=' + p.lat + '%2C' + p.lon
+          : 'https://www.openstreetmap.org/export/embed.html?bbox=-5.1%2C36.4%2C-4.8%2C36.6&layer=mapnik';
+        return '<div style="margin:24px 0 0;">'
+          + '<div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:10px;">Location — ' + (p.location_detail || p.town || '') + '</div>'
+          + '<div style="height:200px;overflow:hidden;border:1px solid var(--border);">'
+          + '<iframe width="100%" height="200" frameborder="0" scrolling="no" '
+          + 'src="' + mapSrc + '" '
+          + 'style="border:0;width:100%;height:200px;" loading="lazy"></iframe>'
+          + '</div></div>';
+      })()
     + '<button class="modal-cta" onclick="showPage(\'contact\')">' + t('enquire') + '</button>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';

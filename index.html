@@ -1650,8 +1650,7 @@ function openPortfolioModal(id) {
   document.getElementById('modal-body').innerHTML =
     '<div style="font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:4px;">' + (p.ref||'') + '</div>'
     + '<div style="font-size:12px;color:var(--light);letter-spacing:.1em;margin-bottom:24px;">' + loc + '</div>'
-    + (desc ? '<div class="modal-desc">' + desc.replace(/
-/g,'<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
+        + (desc ? '<div class="modal-desc">' + desc.split('\n').join('<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
     + '<button class="modal-cta" onclick="showPage(\'contact\')" style="margin-bottom:8px;">' + t('enquire') + '</button>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1725,7 +1724,7 @@ function openModal(id) {
     + '<div class="modal-spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
     + '<div class="modal-spec"><span class="spec-val">' + (p.built||'\u2014') + ' m\u00b2</span><span class="spec-lbl">Built</span></div>'
     + '</div>'
-    + (desc ? '<div class="modal-desc">' + desc.replace(/\n/g,'<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
+    + (desc ? '<div class="modal-desc">' + desc.replace(/\r?\n/g,'<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
     + (function() {
         // Approximate coords for known areas

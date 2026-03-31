@@ -281,11 +281,11 @@
     .about-strip { grid-template-columns: 1fr; height: auto !important; }
     .about-img { height: 280px !important; min-height: 0; }
     .about-content { padding: 36px 24px; height: auto !important; overflow: visible; }
-    .modal { grid-template-columns: 1fr; max-height: 95vh; }
-    .modal-gallery { max-height: 50vw; min-height: 200px; }
+    .modal-backdrop { padding: 0; align-items: flex-end; }
+    .modal { grid-template-columns: 1fr; max-height: 92vh; display: flex; flex-direction: column; width: 100%; border-radius: 0; }
+    .modal-gallery { max-height: 38vh; min-height: 180px; flex-shrink: 0; overflow-y: auto; }
     .modal-gallery img { aspect-ratio: 16/9; }
-    .modal-body { padding: 20px 16px 60px; max-height: 50vh; }
-    .modal-gallery { max-height: 42vw; min-height: 200px; }
+    .modal-body { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; max-height: none; padding: 20px 16px 80px; }
     footer { grid-template-columns: 1fr 1fr; gap: 24px; padding: 40px 24px 24px; }
     .footer-bottom { padding: 14px 24px; flex-direction: column; gap: 6px; }
     .property-grid, .portfolio-grid { grid-template-columns: 1fr; padding: 0 0 2px; }
@@ -530,17 +530,7 @@
   <div class="listings-header">
     <span class="section-tag" data-i18n="portfolio_tag">Track record</span>
     <h1 class="section-title" data-i18n="portfolio_title">Our <em>Portfolio</em></h1>
-    <p style="margin-top:12px;font-size:14px;color:var(--mid);max-width:620px;line-height:1.9;">A selection of properties we have successfully created and sold — built to the Luxxo Homes standard by our own team.</p>
-    <div style="margin-top:40px;padding-top:40px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:720px;" class="portfolio-header-grid">
-      <div>
-        <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;" data-i18n="portfolio_renovo_tag">Casa Renovo Marbella</div>
-        <p style="font-size:13px;color:var(--mid);line-height:1.85;" data-i18n="portfolio_renovo_text">Our own renovation company on the Costa del Sol.</p>
-      </div>
-      <div>
-        <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500;" data-i18n="portfolio_standard_tag">Our standard</div>
-        <p style="font-size:13px;color:var(--mid);line-height:1.85;" data-i18n="portfolio_standard_text">Kitchens, bathrooms and flooring sourced directly from the Netherlands.</p>
-      </div>
-    </div>
+    <p style="margin-top:16px;font-size:15px;color:var(--mid);max-width:680px;line-height:1.9;" data-i18n="portfolio_intro">Every project in our portfolio tells the same story: a property that was good, transformed into something exceptional. Through Casa Renovo Marbella — our own renovation company — we buy, redesign and sell properties to the highest standard. Kitchens from the Netherlands, finishing by Djoni Granneman, supervised by our own team from start to finish. Below you will also find properties that we have successfully sold on behalf of third parties, meeting every standard we set.</p>
   </div>
   <!-- DYNAMIC from eGO feed -->
   <div id="portfolio-dynamic" style="margin-top:2px;"></div>
@@ -860,6 +850,7 @@ const lang = {
     guide_teaser_sub:'From property search to the keys in your hand.',guide_teaser_btn:'Learn about our service',
     listings_tag:'Portfolio',listings_title:'All <em>Properties</em>',
     portfolio_tag:'Track record',portfolio_title:'Our <em>Portfolio</em>',
+    portfolio_intro:'Every project in our portfolio tells the same story: a property that was good, transformed into something exceptional. Through Casa Renovo Marbella we buy, redesign and sell properties to the highest standard — kitchens from the Netherlands, finishing by Djoni Granneman, supervised by our own team from start to finish.',
     portfolio_sub:'A selection of properties we have successfully sold.',
     portfolio_sold:'Sold',beds:'beds',sqm_built:'built',sold_price:'sold',
     portfolio_desc_1:'Hillside villa with panoramic sea views, sold to a Belgian family.',
@@ -960,6 +951,7 @@ const lang = {
     guide_teaser_sub:'Van zoeken naar de sleutel in uw hand.',guide_teaser_btn:'Meer over onze dienst',
     listings_tag:'Aanbod',listings_title:'Alle <em>Woningen</em>',
     portfolio_tag:'Referenties',portfolio_title:'Ons <em>Portfolio</em>',
+    portfolio_intro:'Elk project in ons portfolio vertelt hetzelfde verhaal: een woning die goed was, getransformeerd tot iets uitzonderlijks. Via Casa Renovo Marbella kopen, herontwerpen en verkopen wij woningen naar de hoogste standaard — keukens uit Nederland, afwerking door Djoni Granneman, begeleid door ons eigen team van begin tot eind. Daarnaast vind je hier ook woningen die wij succesvol hebben verkocht namens derden, die voldoen aan elke standaard die wij stellen.',
     portfolio_sub:'Een selectie van woningen die wij succesvol hebben verkocht.',
     portfolio_sold:'Verkocht',beds:'slaapk.',sqm_built:'gebouwd',sold_price:'verkoopprijs',
     portfolio_desc_1:'Heuvelwoning met panoramisch zeezicht, verkocht aan een Belgisch gezin.',
@@ -1060,6 +1052,7 @@ const lang = {
     guide_teaser_sub:'Desde la b\u00fasqueda hasta las llaves.',guide_teaser_btn:'Conocer nuestro servicio',
     listings_tag:'Cartera',listings_title:'Todas las <em>Propiedades</em>',
     portfolio_tag:'Trayectoria',portfolio_title:'Nuestro <em>Portafolio</em>',
+    portfolio_intro:'Cada proyecto en nuestro portfolio cuenta la misma historia: una propiedad que era buena, transformada en algo excepcional. A través de Casa Renovo Marbella compramos, redise\u00f1amos y vendemos propiedades al m\u00e1s alto nivel.',
     portfolio_sub:'Propiedades que hemos vendido con \u00e9xito.',
     portfolio_sold:'Vendido',beds:'dorm.',sqm_built:'construido',sold_price:'precio venta',
     portfolio_desc_1:'Villa con vistas panor\u00e1micas al mar, vendida a una familia belga.',
@@ -1151,6 +1144,7 @@ const lang = {
     guide_teaser_sub:'Von der Suche bis zum Schl\u00fcssel.',guide_teaser_btn:'Mehr \u00fcber unseren Service',
     listings_tag:'Portfolio',listings_title:'Alle <em>Immobilien</em>',
     portfolio_tag:'Referenzen',portfolio_title:'Unser <em>Portfolio</em>',
+    portfolio_intro:'Jedes Projekt in unserem Portfolio erz\u00e4hlt dieselbe Geschichte: eine Immobilie, die aus dem Guten au\u00dfergew\u00f6hnlich gemacht wurde. \u00dcber Casa Renovo Marbella kaufen, gestalten und verkaufen wir Immobilien nach h\u00f6chstem Standard.',
     portfolio_sub:'Erfolgreich verkaufte Immobilien.',
     portfolio_sold:'Verkauft',beds:'SZ',sqm_built:'Wohnfl\u00e4che',sold_price:'Verkaufspreis',
     portfolio_desc_1:'Villa mit Panoramablick auf das Meer, verkauft an eine belgische Familie.',
@@ -1242,6 +1236,7 @@ const lang = {
     guide_teaser_sub:'Fr\u00e5n s\u00f6kning till nycklar.',guide_teaser_btn:'L\u00e4s om v\u00e5r tj\u00e4nst',
     listings_tag:'Portf\u00f6lj',listings_title:'Alla <em>Fastigheter</em>',
     portfolio_tag:'Meritf\u00f6rteckning',portfolio_title:'V\u00e5r <em>Portf\u00f6lj</em>',
+    portfolio_intro:'Varje projekt i v\u00e5rt portfolio ber\u00e4ttar samma historia: en fastighet som var bra, omvandlad till n\u00e5got exceptionellt. Via Casa Renovo Marbella k\u00f6per, omdesignar och s\u00e4ljer vi fastigheter till h\u00f6gsta standard.',
     portfolio_sub:'Fastigheter vi framg\u00e5ngsrikt s\u00e5lt.',
     portfolio_sold:'S\u00e5ld',beds:'sovrum',sqm_built:'byggt',sold_price:'f\u00f6rs\u00e4ljningspris',
     portfolio_desc_1:'Villa med panoramautsikt, s\u00e5ld till en belgisk familj.',
@@ -1333,6 +1328,7 @@ const lang = {
     guide_teaser_sub:'Od poszukiwa\u0144 do kluczy.',guide_teaser_btn:'Dowiedz si\u0119 o naszej us\u0142udze',
     listings_tag:'Portfolio',listings_title:'Wszystkie <em>Nieruchomo\u015bci</em>',
     portfolio_tag:'Referencje',portfolio_title:'Nasze <em>Portfolio</em>',
+    portfolio_intro:'Ka\u017cdy projekt w naszym portfolio opowiada t\u0105 sam\u0105 histori\u0119: nieruchomo\u015b\u0107, kt\u00f3ra by\u0142a dobra, przekszta\u0142cona w co\u015b wyj\u0105tkowego. Poprzez Casa Renovo Marbella kupujemy, przeprojektowujemy i sprzedajemy nieruchomo\u015bci wed\u0142ug najwy\u017cszego standardu.',
     portfolio_sub:'Nieruchomo\u015bci, kt\u00f3re sprzedali\u015bmy z sukcesem.',
     portfolio_sold:'Sprzedana',beds:'sypialnie',sqm_built:'pow. u\u017cytkowa',sold_price:'cena sprzeda\u017cy',
     portfolio_desc_1:'Willa z panoramicznym widokiem na morze sprzedana belgijskiej rodzinie.',
@@ -1571,11 +1567,7 @@ function renderPortfolio() {
             + '<div class="portfolio-name">' + (p.ref||'') + '</div>'
             + '<div class="portfolio-location">' + loc + '</div>'
             + (desc ? '<div class="portfolio-desc">' + desc.replace(/\n/g,' ').substring(0,180) + (desc.length>180?'\u2026':'') + '</div>' : '')
-            + '<div class="portfolio-specs">'
-            + '<div class="portfolio-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
-            + '<div class="portfolio-spec"><strong>' + (p.built||'\u2014') + ' m\u00b2</strong>built</div>'
-            + '<div class="portfolio-spec"><strong>' + (p.type||'') + '</strong></div>'
-            + '</div></div></div>';
+            + '</div></div>';
         }).join('')
       + '</div></div>';
   }
@@ -1595,11 +1587,7 @@ function renderPortfolio() {
             + '<div class="portfolio-name">' + (p.ref||'') + '</div>'
             + '<div class="portfolio-location">' + loc + '</div>'
             + (desc ? '<div class="portfolio-desc">' + desc.replace(/\n/g,' ').substring(0,180) + (desc.length>180?'\u2026':'') + '</div>' : '')
-            + '<div class="portfolio-specs">'
-            + '<div class="portfolio-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
-            + '<div class="portfolio-spec"><strong>' + (p.built||'\u2014') + ' m\u00b2</strong>built</div>'
-            + '<div class="portfolio-spec"><strong>' + (p.type||'') + '</strong></div>'
-            + '</div></div></div>';
+            + '</div></div>';
         }).join('')
       + '</div></div>';
   }
@@ -1636,6 +1624,39 @@ function renderSoon() {
       + '</div>'
       + '</div></div>';
   }).join('');
+}
+
+function openPortfolioModal(id) {
+  var p = null;
+  for (var i=0; i<allProperties.length; i++) { if (allProperties[i].id === id) { p = allProperties[i]; break; } }
+  if (!p) return;
+  var imgs = p.photos || [];
+  var gallery = document.getElementById('modal-gallery');
+  var galleryHtml = '';
+  if (p.video_url) {
+    var isYT = p.video_url.indexOf('youtube') !== -1 || p.video_url.indexOf('youtu.be') !== -1;
+    var isVimeo = p.video_url.indexOf('vimeo') !== -1;
+    if (isYT || isVimeo) {
+      galleryHtml += '<div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;"><iframe src="' + p.video_url + '" frameborder="0" allowfullscreen style="width:100%;height:100%;position:absolute;inset:0;"></iframe></div>';
+    } else {
+      galleryHtml += '<video controls autoplay muted loop playsinline style="width:100%;display:block;aspect-ratio:16/9;background:#000;"><source src="' + p.video_url + '" type="video/mp4"></video>';
+    }
+  }
+  if (imgs.length) { imgs.forEach(function(u){ galleryHtml += '<img src="' + u + '" loading="lazy">'; }); }
+  else { galleryHtml = '<div style="height:300px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:32px;color:var(--light);">Luxxo</div>'; }
+  gallery.innerHTML = galleryHtml;
+  var desc = getDesc(p);
+  var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+  document.getElementById('modal-body').innerHTML =
+    '<div style="font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:4px;">' + (p.ref||'') + '</div>'
+    + '<div style="font-size:12px;color:var(--light);letter-spacing:.1em;margin-bottom:24px;">' + loc + '</div>'
+    + (desc ? '<div class="modal-desc">' + desc.replace(/
+/g,'<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
+    + '<button class="modal-cta" onclick="showPage('contact')" style="margin-bottom:8px;">' + t('enquire') + '</button>';
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  gallery.scrollTop = 0;
+  document.getElementById('modal-body').scrollTop = 0;
 }
 
 function openModal(id) {

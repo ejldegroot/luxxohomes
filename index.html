@@ -193,6 +193,7 @@
 
   /* ── PAGE VIEWS ── */
   .page { display: none; }
+  .page.active { overflow-y: auto; -webkit-overflow-scrolling: touch; }
   .page.active { display: block; }
 
   /* ── LISTINGS PAGE HEADER ── */
@@ -318,7 +319,7 @@
     .about-video-strip { grid-template-columns: 1fr !important; height: auto !important; }
     .about-video-strip > div:first-child { height: 240px !important; }
     .about-content { height: auto !important; padding: 32px 24px; }
-    .prop-img { aspect-ratio: 16/11; }
+    .prop-img { aspect-ratio: 4/3; }
     .hero-left { padding: 36px 20px; min-height: 55vh; }
     .hero-title { font-size: clamp(30px, 9vw, 42px); }
     footer { grid-template-columns: 1fr; }
@@ -496,16 +497,7 @@
   <div class="listings-header">
     <span class="section-tag" data-i18n="listings_tag">Portfolio</span>
     <h1 class="section-title" data-i18n="listings_title">All <em>Properties</em></h1>
-    <p style="margin-top:12px;font-size:14px;color:var(--mid);max-width:560px;line-height:1.8;"><div style="margin-top:16px;display:flex;gap:40px;flex-wrap:wrap;max-width:700px;">
-      <div style="border-left:2px solid var(--gold);padding-left:20px;">
-        <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500;" data-i18n="listings_badge1">Casa Renovo Projects</div>
-        <p style="font-size:13px;color:var(--mid);line-height:1.75;" data-i18n="listings_badge1_text">Renovated by our own team</p>
-      </div>
-      <div style="border-left:2px solid var(--border);padding-left:20px;">
-        <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--light);margin-bottom:6px;font-weight:500;" data-i18n="listings_badge2">Luxxo Selection</div>
-        <p style="font-size:13px;color:var(--mid);line-height:1.75;" data-i18n="listings_badge2_text">Handpicked for quality & location</p>
-      </div>
-    </div></p>
+    <p style="margin-top:16px;font-size:15px;color:var(--mid);max-width:620px;line-height:1.9;" data-i18n="listings_intro_new">These homes are specially selected for you. Each one meets the high quality standards of Luxxo Homes — fully renovated and styled by Casa Renovo Marbella, or independently verified to meet everything we stand for. No compromise. Just homes worth living in.</p></p>
   </div>
   <div class="listings-filters">
     <select class="filter-select" id="list-type" onchange="renderListings()">
@@ -924,6 +916,7 @@ const lang = {
     soon_cta_sub:'Register for exclusive updates from Luxxo Homes.',
     soon_cta_btn:'Get in touch',
     soon_empty:'New projects will be announced here soon. Keep an eye on this page.',
+    listings_intro_new:'These homes are specially selected for you. Each one meets the high quality standards of Luxxo Homes — fully renovated and styled by Casa Renovo Marbella, or independently verified to meet everything we stand for. No compromise. Just homes worth living in.',
     listings_badge1:'Casa Renovo Projects',
     listings_badge1_text:'Renovated to the highest standard. High-end materials, bespoke styling.',
     listings_badge2:'Luxxo Selection',
@@ -1023,6 +1016,7 @@ const lang = {
     soon_cta_sub:'Meld u aan voor exclusieve updates van Luxxo Homes.',
     soon_cta_btn:'Neem contact op',
     soon_empty:'Binnenkort worden hier nieuwe projecten aangekondigd. Houd deze pagina in de gaten.',
+    listings_intro_new:'Deze woningen zijn speciaal voor u geselecteerd. Elk voldoet aan de hoge kwaliteitscriteria van Luxxo Homes — volledig gerenoveerd en gestyled door Casa Renovo Marbella, of onafhankelijk geselecteerd op alles wat wij belangrijk vinden. Geen compromissen. Gewoon woningen die het waard zijn.',
     listings_badge1:'Casa Renovo Projecten',
     listings_badge1_text:'Gerenoveerd op het hoogste niveau. High-end materialen, bespoke styling.',
     listings_badge2:'Luxxo Selectie',
@@ -1650,6 +1644,11 @@ function openModal(id) {
   var imgs = p.photos || [];
   var gallery = document.getElementById('modal-gallery');
   var galleryHtml = '';
+  if (p.video_url) {
+    galleryHtml += '<div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;">'
+      + '<iframe src="' + p.video_url.replace('watch?v=','embed/') + '" frameborder="0" allowfullscreen style="width:100%;height:100%;position:absolute;inset:0;"></iframe>'
+      + '</div>';
+  }
   if (imgs.length) {
     imgs.forEach(function(u){ galleryHtml += '<img src="' + u + '" loading="lazy">'; });
   } else {
@@ -1728,7 +1727,10 @@ function openModal(id) {
           + 'src="' + mapSrc + '" style="border:0;width:100%;height:200px;" loading="lazy"></iframe>'
           + '</div></div>';
       })()
-    + '<button class="modal-cta" onclick="showPage(\'contact\')">' + t('enquire') + '</button>';
+    + '<button class="modal-cta" onclick="showPage(\'contact\')";style="margin-bottom:8px;">' + t('enquire') + '</button>'
+    + '<a href="https://wa.me/34681294029?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:#25D166;color:#fff;text-decoration:none;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-top:0;">'
+    + '<svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>'
+    + 'WhatsApp</a>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
   gallery.scrollTop = 0;

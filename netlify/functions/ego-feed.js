@@ -37,6 +37,14 @@ function getLangDesc(propText, lang) {
   return getTag(descBlock[1], lang);
 }
 
+function getVideoUrl(propText) {
+  // Try common eGO video fields
+  const videoMatch = propText.match(/<video_url[^>]*>([^<]+)<\/video_url>/i)
+    || propText.match(/<virtual_tour[^>]*>([^<]+)<\/virtual_tour>/i)
+    || propText.match(/<tour[^>]*>([^<]+)<\/tour>/i);
+  return videoMatch ? videoMatch[1].trim() : null;
+}
+
 function getImageUrls(propText) {
   const imagesBlock = propText.match(/<images>([\s\S]*?)<\/images>/i);
   if (!imagesBlock) return [];
@@ -94,6 +102,7 @@ exports.handler = async function() {
         desc_es: getLangDesc(p, 'es'),
         desc_de: getLangDesc(p, 'de'),
         photos: getImageUrls(p),
+        video_url: getVideoUrl(p),
         features: getAllTags((p.match(/<features>([\s\S]*?)<\/features>/i) || ['',''])[1], 'feature'),
       });
     }

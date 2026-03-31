@@ -338,6 +338,24 @@
   .soon-hero h1 { font-family: var(--serif); font-size: clamp(32px,5vw,56px); font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 20px; }
   .soon-hero h1 em { font-style: italic; color: var(--gold-light); }
   .soon-hero p { font-size: 15px; color: rgba(250,248,244,.6); line-height: 1.85; max-width: 560px; margin: 0 auto; }
+
+  /* ── MAGAZINE MODAL ── */
+  .magazine-modal { background: #0e0e0e; width: 100%; max-width: 1200px; max-height: 96vh; position: relative; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .magazine-modal-header { padding: 80px 64px 48px; position: relative; }
+  .magazine-modal-tag { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; display: block; }
+  .magazine-modal-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 72px); font-weight: 300; color: var(--warm-white); line-height: 1.05; margin-bottom: 8px; }
+  .magazine-modal-loc { font-size: 13px; color: rgba(250,248,244,.4); letter-spacing: .12em; text-transform: uppercase; }
+  .magazine-grid { display: grid; gap: 3px; padding: 0 3px 3px; }
+  .magazine-grid img { width: 100%; display: block; object-fit: cover; }
+  .magazine-grid-2 { grid-template-columns: 1fr 1fr; }
+  .magazine-grid-1 { grid-template-columns: 1fr; }
+  .magazine-modal-footer { padding: 40px 64px; display: flex; gap: 12px; }
+  .magazine-modal-close { position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,.1); color: var(--warm-white); border: none; width: 40px; height: 40px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  @media (max-width: 600px) {
+    .magazine-modal-header { padding: 48px 24px 32px; }
+    .magazine-grid-2 { grid-template-columns: 1fr; }
+    .magazine-modal-footer { padding: 24px; flex-direction: column; }
+  }
 </style>
 </head>
 <body>
@@ -757,6 +775,27 @@
   </div>
 </div>
 
+<!-- MAGAZINE MODAL -->
+<div id="magazine-modal" class="modal-backdrop" onclick="if(event.target===this)closeMagazineModal()">
+  <div class="magazine-modal" id="magazine-inner">
+    <button class="magazine-modal-close" onclick="closeMagazineModal()">✕</button>
+    <div class="magazine-modal-header">
+      <span class="magazine-modal-tag" id="mag-tag">Casa Renovo Marbella</span>
+      <h1 class="magazine-modal-title" id="mag-title"></h1>
+      <div class="magazine-modal-loc" id="mag-loc"></div>
+    </div>
+    <div id="mag-desc" style="padding:0 64px 32px;font-size:15px;color:rgba(250,248,244,.6);line-height:1.9;max-width:680px;"></div>
+    <div id="mag-gallery"></div>
+    <div class="magazine-modal-footer">
+      <button onclick="showPage('contact');closeMagazineModal()" style="flex:1;background:var(--gold);color:var(--charcoal);border:none;padding:16px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;font-weight:500;">Informatie aanvragen</button>
+      <a id="mag-wa" href="" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D166;color:#fff;text-decoration:none;padding:16px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div id="modal" class="modal-backdrop" onclick="closeModal(event)">
   <div class="modal" id="modal-inner">
@@ -951,7 +990,7 @@ const lang = {
     guide_teaser_sub:'Van zoeken naar de sleutel in uw hand.',guide_teaser_btn:'Meer over onze dienst',
     listings_tag:'Aanbod',listings_title:'Alle <em>Woningen</em>',
     portfolio_tag:'Referenties',portfolio_title:'Ons <em>Portfolio</em>',
-    portfolio_intro:'Elk project in ons portfolio vertelt hetzelfde verhaal: een woning die goed was, getransformeerd tot iets uitzonderlijks. Via Casa Renovo Marbella kopen, herontwerpen en verkopen wij woningen naar de hoogste standaard — keukens uit Nederland, afwerking door Djoni Granneman, begeleid door ons eigen team van begin tot eind. Daarnaast vind je hier ook woningen die wij succesvol hebben verkocht namens derden, die voldoen aan elke standaard die wij stellen.',
+    portfolio_intro:'Elk project in ons portfolio vertelt hetzelfde verhaal: een woning die goed was, getransformeerd tot iets uitzonderlijks. Via Casa Renovo Marbella kopen, herontwerpen en verkopen wij woningen naar de hoogste standaard — keukens, badkamers en vloeren uit Nederland, styling op het hoogste niveau, begeleid door ons eigen team van begin tot eind. Daarnaast vind je hier ook woningen die wij succesvol hebben verkocht namens derden, die voldoen aan elke standaard die wij stellen.',
     portfolio_sub:'Een selectie van woningen die wij succesvol hebben verkocht.',
     portfolio_sold:'Verkocht',beds:'slaapk.',sqm_built:'gebouwd',sold_price:'verkoopprijs',
     portfolio_desc_1:'Heuvelwoning met panoramisch zeezicht, verkocht aan een Belgisch gezin.',

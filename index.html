@@ -203,11 +203,10 @@
 
   /* ── RESPONSIVE ── */
   /* ── VIDEO HERO ── */
-  .video-hero { position: relative; width: 100%; height: 100vh; min-height: 560px; overflow: hidden; margin-top: 72px; display: flex; align-items: center; justify-content: center; }
+  .video-hero { position: relative; width: 100%; height: 100vh; min-height: 560px; overflow: hidden; margin-top: 72px; display: flex; align-items: center; justify-content: center; background: var(--warm-white); }
   .video-hero video {
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(3.2);
+    top: 0; left: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     object-position: center center;
@@ -817,7 +816,7 @@
     </p>
   </div>
   <div style="display:flex;flex-direction:column;justify-content:flex-start;gap:20px;">
-    <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;font-weight:500;">Volg ons</h4>
+    <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;font-weight:500;" data-i18n="footer_follow">Volg ons</h4>
     <a href="https://www.instagram.com/luxxohomesmarbella" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--warm-white);font-size:14px;font-family:var(--sans);font-weight:300;transition:opacity .2s;"
        onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">

@@ -38,11 +38,19 @@ function getLangDesc(propText, lang) {
 }
 
 function getVideoUrl(propText) {
-  // Try common eGO video fields
-  const videoMatch = propText.match(/<video_url[^>]*>([^<]+)<\/video_url>/i)
-    || propText.match(/<virtual_tour[^>]*>([^<]+)<\/virtual_tour>/i)
-    || propText.match(/<tour[^>]*>([^<]+)<\/tour>/i);
-  return videoMatch ? videoMatch[1].trim() : null;
+  // Try all known eGO video field names
+  const fields = ['video_url','virtual_tour','tour','video','media_url','youtube','vimeo','tour_url','virtualvisit'];
+  for (const f of fields) {
+    const m = propText.match(new RegExp('<' + f + '[^>]*>([^<]+)<\\/' + f + '>', 'i'));
+    if (m && m[1].trim()) return m[1].trim();
+  }
+  // Also look for YouTube/Vimeo URLs in description text
+  const allText = propText.replace(/<!\[CDATA\[|\]\]>/g, '');
+  const ytMatch = allText.match(/https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  if (ytMatch) return 'https://www.youtube.com/embed/' + ytMatch[1];
+  const vmMatch = allText.match(/https?:\/\/(?:www\.)?vimeo\.com\/(\d+)/);
+  if (vmMatch) return 'https://player.vimeo.com/video/' + vmMatch[1];
+  return null;
 }
 
 function getImageUrls(propText) {
@@ -63,20 +71,17 @@ exports.handler = async function() {
       var tag = '';
       var sortOrder = 999;
       var cleanRef = ref;
-      // Parse sort number: e.g. "Casa Hillside portfolio #1" → order=1
       var orderMatch = ref.match(/#(\d+)\s*$/);
       if (orderMatch) {
         sortOrder = parseInt(orderMatch[1]);
         ref = ref.replace(/#\d+\s*$/, '').trim();
         cleanRef = ref;
       }
-      // Parse tag: soon / portfolio / sold
       var tagMatch = ref.match(/\s+(soon|portfolio|sold)$/i);
       if (tagMatch) {
         tag = tagMatch[1].toLowerCase();
         cleanRef = ref.replace(/\s+(soon|portfolio|sold)$/i, '').trim();
       }
-      // Parse lat/lon from location block
       var lat = 0, lon = 0;
       var locBlock = p.match(/<location>([\s\S]*?)<\/location>/i);
       if (locBlock) {

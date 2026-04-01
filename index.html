@@ -1599,7 +1599,7 @@ function renderPortfolio() {
           var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80';
           var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
           var desc = getDesc(p);
-          return '<div class="portfolio-card" style="animation-delay:' + (i*80) + 'ms" data-propid="' + p.id + '" onclick="openModal(this.dataset.propid)">'
+          return '<div class="portfolio-card" style="animation-delay:' + (i*80) + 'ms" data-propid="' + p.id + '" onclick="openMagazineModal(this.dataset.propid)">'
             + '<img src="' + img + '" alt="' + (p.ref||'') + '" loading="lazy">'
             + '<div class="portfolio-info">'
             + '<span class="portfolio-sold" style="background:var(--gold);color:var(--charcoal);">Casa Renovo</span>'
@@ -1619,7 +1619,7 @@ function renderPortfolio() {
           var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80';
           var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
           var desc = getDesc(p);
-          return '<div class="portfolio-card" style="animation-delay:' + (i*80) + 'ms" data-propid="' + p.id + '" onclick="openModal(this.dataset.propid)">'
+          return '<div class="portfolio-card" style="animation-delay:' + (i*80) + 'ms" data-propid="' + p.id + '" onclick="openMagazineModal(this.dataset.propid)">'
             + '<img src="' + img + '" alt="' + (p.ref||'') + '" loading="lazy" style="filter:grayscale(20%)">'
             + '<div class="portfolio-info">'
             + '<span class="portfolio-sold">Sold</span>'
@@ -1807,6 +1807,57 @@ function openModal(id) {
 
 function closeModal(e) { if (e.target && e.target.id === 'modal') closeModalDirect(); }
 function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
+
+function openMagazineModal(id) {
+  var p = null;
+  for (var i=0; i<allProperties.length; i++) { if (allProperties[i].id === id) { p = allProperties[i]; break; } }
+  if (!p) return;
+  var tag = 'Luxxo Homes';
+  if (p.notes === 'portfolio' || (p.ref && /jacaranda|la quinta|hillside/i.test(p.ref))) tag = 'Casa Renovo Marbella';
+  document.getElementById('mag-tag').textContent = tag;
+  document.getElementById('mag-title').textContent = p.ref || '';
+  var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
+  document.getElementById('mag-loc').textContent = loc;
+  document.getElementById('mag-desc').innerHTML = '';
+  var imgs = p.photos || [];
+  var galleryHtml = '';
+  if (p.video_url) {
+    var isYT = p.video_url.indexOf('youtube') !== -1 || p.video_url.indexOf('youtu.be') !== -1;
+    var isVimeo = p.video_url.indexOf('vimeo') !== -1;
+    if (isYT || isVimeo) {
+      galleryHtml += '<div class="magazine-grid-1 magazine-grid"><div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;">'
+        + '<iframe src="' + p.video_url + '" frameborder="0" allowfullscreen style="width:100%;height:100%;position:absolute;inset:0;"></iframe>'
+        + '</div></div>';
+    } else {
+      galleryHtml += '<div class="magazine-grid-1 magazine-grid"><video controls autoplay muted loop playsinline style="width:100%;display:block;aspect-ratio:16/9;background:#000;">'
+        + '<source src="' + p.video_url + '" type="video/mp4">'
+        + '</video></div>';
+    }
+  }
+  if (imgs.length) {
+    for (var j = 0; j < imgs.length; j++) {
+      if (j === 0) {
+        galleryHtml += '<div class="magazine-grid magazine-grid-1"><img src="' + imgs[j] + '" loading="lazy"></div>';
+      } else if (j + 1 < imgs.length) {
+        galleryHtml += '<div class="magazine-grid magazine-grid-2"><img src="' + imgs[j] + '" loading="lazy"><img src="' + imgs[j+1] + '" loading="lazy"></div>';
+        j++;
+      } else {
+        galleryHtml += '<div class="magazine-grid magazine-grid-1"><img src="' + imgs[j] + '" loading="lazy"></div>';
+      }
+    }
+  }
+  document.getElementById('mag-gallery').innerHTML = galleryHtml;
+  var waMsg = encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + '. Kunt u mij meer informatie sturen?');
+  document.getElementById('mag-wa').href = 'https://wa.me/34633925630?text=' + waMsg;
+  document.getElementById('magazine-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('magazine-inner').scrollTop = 0;
+}
+
+function closeMagazineModal() {
+  document.getElementById('magazine-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 function toggleMobileMenu() {
   var menu = document.getElementById('mobile-menu');

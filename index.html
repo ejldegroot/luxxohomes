@@ -284,10 +284,11 @@
     .about-img { height: 280px !important; min-height: 0; }
     .about-content { padding: 36px 24px; height: auto !important; overflow: visible; }
     .modal-backdrop { padding: 0; align-items: flex-start; }
-    .modal { grid-template-columns: 1fr; max-height: 100vh; display: flex; flex-direction: column; width: 100%; border-radius: 0; }
-    .modal-gallery { max-height: 50vh; min-height: 240px; flex-shrink: 0; overflow-y: auto; }
-    .modal-gallery img { aspect-ratio: 16/9; }
-    .modal-body { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; max-height: none; padding: 20px 16px 80px; }
+    .modal { grid-template-columns: 1fr; max-height: 100vh; display: flex; flex-direction: column; width: 100%; border-radius: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    .modal-gallery { flex-shrink: 0; overflow-y: visible; max-height: none; }
+    .modal-gallery img { aspect-ratio: 4/3; }
+    .modal-close { position: sticky; top: 12px; float: right; margin: 12px 12px -46px 0; z-index: 10; }
+    .modal-body { flex-shrink: 0; overflow-y: visible; max-height: none; padding: 20px 16px 80px; }
     footer { grid-template-columns: 1fr 1fr; gap: 24px; padding: 40px 24px 24px; }
     .footer-bottom { padding: 14px 24px; flex-direction: column; gap: 6px; }
     .property-grid, .portfolio-grid { grid-template-columns: 1fr; padding: 0 0 2px; }
@@ -328,7 +329,8 @@
     .hero-left { padding: 36px 20px; min-height: 55vh; }
     .hero-title { font-size: clamp(30px, 9vw, 42px); }
     footer { grid-template-columns: 1fr; }
-    .modal-gallery { max-height: 60vw; min-height: 240px; }
+    .modal-gallery { max-height: none; }
+    .modal-gallery img { aspect-ratio: 4/3; }
     .listings-filters { flex-direction: column; align-items: stretch; }
     .filter-select { width: 100%; }
     .results-count { margin-left: 0; }

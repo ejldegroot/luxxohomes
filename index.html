@@ -125,6 +125,8 @@
   .guide-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,64px); font-weight: 300; color: var(--warm-white); line-height: 1.1; max-width: 700px; }
   .guide-hero h1 em { font-style: italic; color: var(--gold-light); }
   .guide-hero p { font-size: 15px; color: rgba(250,248,244,.6); max-width: 560px; line-height: 1.85; margin-top: 24px; }
+  .guide-hero-photo { height: 340px; overflow: hidden; margin-top: 72px; }
+  .guide-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .guide-steps { padding: 64px 64px 40px; max-width: 900px; margin: 0 auto; }
   .step { display: grid; grid-template-columns: 80px 1fr; gap: 32px; margin-bottom: 56px; align-items: start; }
   .step-num { font-family: var(--serif); font-size: 64px; font-weight: 300; color: var(--gold-light); line-height: 1; }
@@ -281,9 +283,9 @@
     .about-strip { grid-template-columns: 1fr; height: auto !important; }
     .about-img { height: 280px !important; min-height: 0; }
     .about-content { padding: 36px 24px; height: auto !important; overflow: visible; }
-    .modal-backdrop { padding: 0; align-items: flex-end; }
-    .modal { grid-template-columns: 1fr; max-height: 92vh; display: flex; flex-direction: column; width: 100%; border-radius: 0; }
-    .modal-gallery { max-height: 38vh; min-height: 180px; flex-shrink: 0; overflow-y: auto; }
+    .modal-backdrop { padding: 0; align-items: flex-start; }
+    .modal { grid-template-columns: 1fr; max-height: 100vh; display: flex; flex-direction: column; width: 100%; border-radius: 0; }
+    .modal-gallery { max-height: 50vh; min-height: 240px; flex-shrink: 0; overflow-y: auto; }
     .modal-gallery img { aspect-ratio: 16/9; }
     .modal-body { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; max-height: none; padding: 20px 16px 80px; }
     footer { grid-template-columns: 1fr 1fr; gap: 24px; padding: 40px 24px 24px; }
@@ -301,6 +303,7 @@
     .about-strip.about-strip-top { margin-top: 72px; }
     /* Team grid 1 col on mobile */
     .team-grid-2col { grid-template-columns: 1fr !important; }
+    .team-grid-2col > div { aspect-ratio: auto !important; padding: 28px 24px !important; }
     /* Stats 1 col on small screens */
     .stats-3col { grid-template-columns: 1fr !important; }
     /* Portfolio header grid */
@@ -311,12 +314,13 @@
     /* Listings intro text */
     .listings-header p { max-width: 100% !important; }
     /* About bridge section */
-    .about-inner { padding: 48px 24px 0 !important; }
+    .about-inner { padding: 48px 20px 0 !important; }
     .about-inner .bridge-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
   }
 
   @media (max-width: 480px) {
-    .guide-hero-photo { height: 140px !important; }
+    .guide-hero-photo { height: 220px !important; }
+    .buyers-intro-wrap { padding: 32px 24px 0 !important; }
     .about-video-strip { grid-template-columns: 1fr !important; height: auto !important; }
     .about-video-strip > div:first-child { height: 240px !important; }
     .about-content { height: auto !important; padding: 32px 24px; }
@@ -324,7 +328,7 @@
     .hero-left { padding: 36px 20px; min-height: 55vh; }
     .hero-title { font-size: clamp(30px, 9vw, 42px); }
     footer { grid-template-columns: 1fr; }
-    .modal-gallery { max-height: 56vw; }
+    .modal-gallery { max-height: 60vw; min-height: 240px; }
     .listings-filters { flex-direction: column; align-items: stretch; }
     .filter-select { width: 100%; }
     .results-count { margin-left: 0; }
@@ -593,7 +597,7 @@
   <div class="guide-hero-photo">
     <img src="/buyersguide.jpg" alt="Marbella Sea View">
   </div>
-  <div style="padding:48px 64px 0;">
+  <div class="buyers-intro-wrap" style="padding:48px 64px 0;">
     <span class="section-tag" data-i18n="buyers_tag">Buyer's Guide</span>
     <h1 style="font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:300;line-height:1.1;margin:12px 0 16px;" data-i18n="buyers_title">Buying in Marbella — <em>with people who built it themselves.</em></h1>
     <p style="font-size:15px;color:var(--mid);max-width:620px;line-height:1.85;" data-i18n="buyers_intro">Because we buy, renovate and sell properties on the Costa del Sol ourselves, we know the market from the inside. We know which locations are truly valuable, what to look for, and what makes a property good. We put that knowledge to work for you — from first orientation to key handover.</p>
@@ -1001,7 +1005,7 @@ const lang = {
     hero_sub:'Wij selecteren de mooiste woningen aan de Costa del Sol.',hero_btn_props:'Bekijk woningen',hero_btn_guide:'Aankoopbegeleiding',
     search_title:'Vind uw woning',search_type:'Type',search_location:'Locatie',search_beds:'Slaapkamers',search_price:'Max. prijs',
     search_btn:'Bekijk woningen \u2192',all_types:'Alle types',all_locations:'Alle gebieden',featured_tag:'Onze selectie',
-    featured_title:'Uitgelichte <em>Woningen</em>',featured_sub:'Zorgvuldig geselecteerde residences.',loading:'Woningen laden',view_all:'Bekijk alle woningen',
+    featured_title:'Uitgelichte <em>Woningen</em>',featured_sub:'Zorgvuldig voor u geselecteerd.',loading:'Woningen laden',view_all:'Bekijk alle woningen',
     about_tag:'Luxxo Homes',about_title:'Een ander soort <em>makelaar</em>',about_cta:'Ons verhaal',guide_teaser_tag:'Kopen in Spanje',
     guide_teaser_title:'Wij begeleiden u door <em>elke stap</em>',guide_teaser_sub:'Van zoeken naar de sleutel in uw hand.',
     guide_teaser_btn:'Meer over onze dienst',listings_tag:'Aanbod',listings_title:'Alle <em>Woningen</em>',portfolio_tag:'Referenties',

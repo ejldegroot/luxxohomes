@@ -160,7 +160,7 @@
   .modal { background: var(--warm-white); max-width: 1100px; width: 100%; max-height: 92vh; position: relative; display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden; }
   .modal-gallery { overflow-y: auto; max-height: 92vh; }
   .modal-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-bottom: 2px solid var(--warm-white); }
-  .modal-body { padding: 32px 28px 48px; overflow-y: auto; max-height: 60vh; -webkit-overflow-scrolling: touch; }
+  .modal-body { padding: 32px 28px 48px; overflow-y: auto; max-height: 92vh; -webkit-overflow-scrolling: touch; }
   .modal-gallery::-webkit-scrollbar { width: 4px; }
   .modal-gallery::-webkit-scrollbar-track { background: var(--cream); }
   .modal-gallery::-webkit-scrollbar-thumb { background: var(--light); }
@@ -752,9 +752,9 @@
         </div>
         <div style="background:var(--cream);padding:32px;aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:flex-start;">
           <img src="/team-djoni.jpg" alt="Djoni Granneman" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:16px;border:3px solid rgba(196,146,42,.3);">
-          <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;" data-i18n="djoni_role">Style & Interior</div>
+          <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;" data-i18n="djoni_role">The Sfeermaker</div>
           <div style="font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px;color:var(--charcoal);" data-i18n="djoni_name">Djoni Granneman</div>
-          <p style="font-size:14px;color:var(--mid);line-height:1.85;" data-i18n="djoni_desc">We work closely with Djoni Granneman, our dedicated stylist and interior architect. Djoni guides every project from structural layout to full furnishing and styling. Her touch ensures a renovated property isn't just technically perfect — it breathes a quality that people feel immediately.</p>
+          <p style="font-size:14px;color:var(--mid);line-height:1.85;" data-i18n="djoni_desc">Djoni Granneman is the creative force behind every transformation. From structural layout to full interior design and styling — it's her touch that ensures a renovated property isn't just technically perfect, but also breathes an atmosphere that people feel immediately.</p>
         </div>
       </div>
     </div>
@@ -953,13 +953,13 @@ const lang = {
     team_tag:'The team',team_h2:'Stronger together.<br><em>Better for you.</em>',
     team_intro:'Four people. Each with their own strength. Together they cover every aspect of the process \u2014 from construction site to notary, from interior to investment. That\u2019s what makes the difference.',
     gijs_role:'The Local Hero',gijs_name:'Gijs Hoeve',
-    gijs_desc:'Gijs knows Marbella the way others know their own backyard. The areas, the prices, the network — and the opportunities that never appear in a brochure. He is the face on the ground: present, involved and always reachable for the people he guides.',
+    gijs_desc:'Gijs knows Marbella the way others know their own backyard. The areas, the prices, the network — and the opportunities that never appear in a brochure. He is our man in Marbella: present, involved and always reachable for the people he guides.',
     jacco_role:'The Expert',jacco_name:'Jacco Hamstra',
     jacco_desc:'Jacco steps onto a building site and immediately sees what’s working and what isn’t. He manages the entire technical process — from the first sledgehammer to the last finishing touch. Materials arrive on time, at the right quality, in the right place. Not by coincidence.',
     edwin_role:'The Control Freak',edwin_name:'Edwin de Groot',
     edwin_desc:'Every project needs someone who keeps the overview, streamlines processes and makes sure everyone is pointing in the same direction. That’s Edwin. He tracks what’s running, what needs doing, and what’s at risk of going wrong. Not the most glamorous role — but without him, the engine doesn’t run.',
-    djoni_role:'Style & Interior',djoni_name:'Djoni Granneman',
-    djoni_desc:'We work closely with Djoni Granneman, our dedicated stylist and interior architect. Djoni guides every project from structural layout to full furnishing and styling. Her touch ensures a renovated property isn’t just technically perfect — it breathes a quality that people feel immediately.',
+    djoni_role:'The Sfeermaker',djoni_name:'Djoni Granneman',
+    djoni_desc:'Djoni Granneman is the creative force behind every transformation. From structural layout to full interior design and styling — it\'s her touch that ensures a renovated property isn\'t just technically perfect, but also breathes an atmosphere that people feel immediately.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
     portfolio_renovo_text:'Our own renovation company on the Costa del Sol. Every project here has been transformed by our team — from concept to completion. Because we built it, we know exactly what went into it. And we can stand behind it fully.',
     portfolio_standard_tag:'Our standard',
@@ -1043,13 +1043,13 @@ const lang = {
     team_tag:'Het team',team_h2:'Samen sterker.<br><em>Beter voor jou.</em>',
     team_intro:'Vier mensen. Elk met zijn eigen kracht. Samen dekken ze elk onderdeel van het proces — van bouwplaats tot notaris, van interieur tot investering.',
     gijs_role:'De Local Hero',gijs_name:'Gijs Hoeve',
-    gijs_desc:'Gijs kent Marbella zoals anderen hun eigen achtertuin kennen. De gebieden, de prijzen, het netwerk — en de kansen die nooit in een brochure staan. Hij is het gezicht op de grond: aanwezig, betrokken en altijd bereikbaar voor de mensen die hij begeleidt.',
+    gijs_desc:'Gijs kent Marbella zoals anderen hun eigen achtertuin kennen. De gebieden, de prijzen, het netwerk — en de kansen die nooit in een brochure staan. Hij is onze man in Marbella: aanwezig, betrokken en altijd bereikbaar voor de mensen die hij begeleidt.',
     jacco_role:'De Expert',jacco_name:'Jacco Hamstra',
     jacco_desc:'Jacco staat op de bouwplaats en ziet in één oogopslag wat goed gaat en wat niet. Hij stuurt het volledige technische proces aan — van eerste sloophamer tot laatste afwerking. Materialen komen op tijd, in de juiste kwaliteit, op de juiste plek. Niet toevallig.',
     edwin_role:'De Controlfreak',edwin_name:'Edwin de Groot',
     edwin_desc:'Elk project heeft iemand nodig die het overzicht bewaakt, processen stroomlijnt en ervoor zorgt dat de neuzen dezelfde kant op staan. Dat is Edwin. Hij houdt bij wat loopt, wat moet en wat dreigt mis te gaan. Niet de meest glamoureuze rol — maar zonder hem draait de machine niet.',
-    djoni_role:'Stijl & Interieur',djoni_name:'Djoni Granneman',
-    djoni_desc:'We werken nauw samen met Djoni Granneman, onze vaste styliste en interieurarchitect. Djoni begeleidt elk project van bouwkundige indeling tot volledige inrichting en styling. Het is haar hand die ervoor zorgt dat een woning niet alleen technisch perfect is — maar ook een sfeer ademt die mensen direct raakt.',
+    djoni_role:'De Sfeermaker',djoni_name:'Djoni Granneman',
+    djoni_desc:'Djoni Granneman is de creatieve kracht achter elke transformatie. Van bouwkundige indeling tot volledige inrichting en styling — het is haar hand die ervoor zorgt dat een gerenoveerde woning niet alleen technisch perfect is, maar ook een sfeer ademt die mensen direct raakt.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
     portfolio_renovo_text:'Ons eigen renovatiebedrijf op de Costa del Sol. Elk project hier is door ons team getransformeerd — van concept tot oplevering. Omdat wij het gebouwd hebben, weten we precies wat erin zit. En kunnen we er volledig achter staan.',
     portfolio_standard_tag:'Onze standaard',
@@ -1126,13 +1126,13 @@ const lang = {
     team_tag:'El equipo',team_h2:'M\u00e1s fuertes juntos.<br><em>Mejor para ti.</em>',
     team_intro:'Cuatro personas. Cada una con su propia fortaleza. Juntos cubren cada aspecto del proceso \u2014 desde la obra hasta el notario, del interiorismo a la inversi\u00f3n.',
     gijs_role:'El Héroe Local',gijs_name:'Gijs Hoeve',
-    gijs_desc:'Gijs conoce Marbella como otros conocen su propio jardín. Las zonas, los precios, la red — y las oportunidades que nunca aparecen en un folleto. Es el rostro sobre el terreno: presente, involucrado y siempre accesible.',
+    gijs_desc:'Gijs conoce Marbella como otros conocen su propio jardín. Las zonas, los precios, la red — y las oportunidades que nunca aparecen en un folleto. Es nuestro hombre en Marbella: presente, involucrado y siempre accesible.',
     jacco_role:'El Experto',jacco_name:'Jacco Hamstra',
     jacco_desc:'Jacco entra en una obra y ve de inmediato qué funciona y qué no. Gestiona todo el proceso técnico — desde el primer derribo hasta el último acabado. Los materiales llegan a tiempo, con la calidad correcta, en el lugar adecuado. No es casualidad.',
     edwin_role:'El Maniaco del Control',edwin_name:'Edwin de Groot',
     edwin_desc:'Todo proyecto necesita alguien que mantenga la visión general y garantice que todos apuntan en la misma dirección. Ese es Edwin. Controla lo que avanza, lo que falta y lo que puede salir mal. No el papel más glamuroso — pero sin él, la máquina no funciona.',
-    djoni_role:'Estilo & Interiorismo',djoni_name:'Djoni Granneman',
-    djoni_desc:'Colaboramos estrechamente con Djoni Granneman, nuestra estilista y arquitecta de interiores. Djoni guía cada proyecto desde la distribución estructural hasta la decoración completa. Su toque garantiza que una propiedad renovada no solo sea técnicamente perfecta — sino que transmita una calidad que la gente siente de inmediato.',
+    djoni_role:'La Creadora de Ambientes',djoni_name:'Djoni Granneman',
+    djoni_desc:'Djoni Granneman es la fuerza creativa detrás de cada transformación. Desde la distribución estructural hasta el diseño interior completo — es su toque el que asegura que una propiedad renovada no solo sea técnicamente perfecta, sino que también respire un ambiente que la gente siente de inmediato.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
     portfolio_renovo_text:'Nuestra propia empresa de renovación en la Costa del Sol. Cada proyecto ha sido transformado por nuestro equipo — de concepto a entrega. Porque lo construimos nosotros, sabemos exactamente qué hay dentro.',
     portfolio_standard_tag:'Nuestro estándar',
@@ -1206,13 +1206,13 @@ const lang = {
     team_tag:'Das Team',team_h2:'Gemeinsam st\u00e4rker.<br><em>Besser f\u00fcr Sie.</em>',
     team_intro:'Vier Menschen. Jeder mit seiner eigenen St\u00e4rke. Gemeinsam decken sie jeden Aspekt des Prozesses ab \u2014 von der Baustelle bis zum Notar, vom Interieur bis zur Investition.',
     gijs_role:'Der Local Hero',gijs_name:'Gijs Hoeve',
-    gijs_desc:'Gijs kennt Marbella wie andere ihren eigenen Garten. Die Gebiete, die Preise, das Netzwerk — und die Chancen, die nie in einer Broühuere auftauchen. Er ist das Gesicht vor Ort: präsent, engagiert und immer erreichbar.',
+    gijs_desc:'Gijs kennt Marbella wie andere ihren eigenen Garten. Die Gebiete, die Preise, das Netzwerk — und die Chancen, die nie in einer Broühuere auftauchen. Er ist unser Mann in Marbella: präsent, engagiert und immer erreichbar.',
     jacco_role:'Der Experte',jacco_name:'Jacco Hamstra',
     jacco_desc:'Jacco betritt eine Baustelle und sieht sofort, was gut läuft und was nicht. Er leitet den gesamten technischen Prozess — vom ersten Abbruch bis zur letzten Fertigstellung. Materialien kommen pünktlich, in der richtigen Qualität, am richtigen Ort. Kein Zufall.',
     edwin_role:'Der Kontrollfreak',edwin_name:'Edwin de Groot',
     edwin_desc:'Jedes Projekt braucht jemanden, der den Überblick behält und sicherstellt, dass alle in die gleiche Richtung zeigen. Das ist Edwin. Er verfolgt, was läuft, was getan werden muss und was schiefgehen könnte. Nicht die glamouröseste Rolle — aber ohne ihn läuft die Maschine nicht.',
-    djoni_role:'Stil & Interieur',djoni_name:'Djoni Granneman',
-    djoni_desc:'Wir arbeiten eng mit Djoni Granneman zusammen, unserer festen Stylistin und Innenarchitektin. Djoni begleitet jedes Projekt von der baulichen Gestaltung bis zur vollständigen Einrichtung und Stilisierung. Ihre Hand sorgt dafür, dass eine renovierte Immobilie nicht nur technisch perfekt ist — sondern eine Qualität ausstrahlt, die die Menschen sofort spüren.',
+    djoni_role:'Die Atmosphärenmacherin',djoni_name:'Djoni Granneman',
+    djoni_desc:'Djoni Granneman ist die kreative Kraft hinter jeder Transformation. Von der baulichen Gestaltung bis zur vollständigen Einrichtung und Stilisierung — ihre Hand sorgt dafür, dass eine renovierte Immobilie nicht nur technisch perfekt ist, sondern auch eine Atmosphäre ausstrahlt, die Menschen sofort spüren.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
     portfolio_renovo_text:'Unser eigenes Renovierungsunternehmen an der Costa del Sol. Jedes Projekt wurde von unserem Team transformiert — vom Konzept bis zur Fertigstellung. Weil wir es gebaut haben, wissen wir genau, was drin steckt.',
     portfolio_standard_tag:'Unser Standard',
@@ -1285,13 +1285,13 @@ const lang = {
     team_tag:'Teamet',team_h2:'Starkare tillsammans.<br><em>Bättre för dig.</em>',
     team_intro:'Fyra människor. Var och en med sin egen styrka. Tillsammans täcker de varje aspekt av processen — från byggarbetsplats till notarius.',
     gijs_role:'Den lokala hjälten',gijs_name:'Gijs Hoeve',
-    gijs_desc:'Gijs känner Marbella som andra känner sin egen trädgård. Områdena, priserna, nätverket — och möjligheterna som aldrig dyker upp i en broschyr. Han är ansiktet på plats: närvarande, engagerad och alltid tillgänglig.',
+    gijs_desc:'Gijs känner Marbella som andra känner sin egen trädgård. Områdena, priserna, nätverket — och möjligheterna som aldrig dyker upp i en broschyr. Han är vår man i Marbella: närvarande, engagerad och alltid tillgänglig.',
     jacco_role:'Experten',jacco_name:'Jacco Hamstra',
     jacco_desc:'Jacco klänger in på en byggarbetsplats och ser omedelbart vad som fungerar och vad som inte gör det. Han leder hela den tekniska processen — från första släggan till sista efterbehandlingen. Material anländer i tid, med rätt kvalitet, på rätt plats. Inte av en slump.',
     edwin_role:'Kontrollfreaken',edwin_name:'Edwin de Groot',
     edwin_desc:'Varje projekt behöver någon som håller översikten och säkerställer att alla pekar åt samma håll. Det är Edwin. Han följer vad som pågår, vad som behöver göras och vad som riskerar att gå fel. Inte den mest glamorösa rollen — men utan honom kör inte maskinen.',
-    djoni_role:'Stil & Interieur',djoni_name:'Djoni Granneman',
-    djoni_desc:'Vi samarbetar nära med Djoni Granneman, vår fasta stylist och interiörarkitekt. Djoni vägleder varje projekt från strukturell layout till fullständig inredning och styling. Hennes touch säkerställer att en renoverad fastighet inte bara är tekniskt perfekt — utan utstrlåar en kvalitet som folk känner direkt.',
+    djoni_role:'Atmosfärskaparen',djoni_name:'Djoni Granneman',
+    djoni_desc:'Djoni Granneman är den kreativa kraften bakom varje transformation. Från strukturell layout till fullständig inredning och styling — det är hennes touch som säkerställer att en renoverad fastighet inte bara är tekniskt perfekt, utan också andas en atmosfär som människor känner direkt.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
     portfolio_renovo_text:'Vårt eget renoveringsföretag på Costa del Sol. Varje projekt har transformerats av vårt team — från koncept till leverans. Eftersom vi byggde det vet vi exakt vad som är inbyggt i det.',
     portfolio_standard_tag:'Vår standard',
@@ -1362,13 +1362,13 @@ const lang = {
     team_tag:'Zespół',team_h2:'Silniejsi razem.<br><em>Lepiej dla Ciebie.</em>',
     team_intro:'Cztery osoby. Ka\u017cda z w\u0142asn\u0105 si\u0142\u0105. Razem obejmuj\u0105 ka\u017cdy aspekt procesu \u2014 od placu budowy po notariusza, od wn\u0119trz po inwestycje.',
     gijs_role:'Lokalny Bohater',gijs_name:'Gijs Hoeve',
-    gijs_desc:'Gijs zna Marbellę tak, jak inni znają własny ogród. Obszary, ceny, sieć — i możliwości, które nigdy nie pojawiają się w broszurze. Jest twarzą na miejscu: obecny, zaangażowany i zawsze dostępny.',
+    gijs_desc:'Gijs zna Marbellę tak, jak inni znają własny ogród. Obszary, ceny, sieć — i możliwości, które nigdy nie pojawiają się w broszurze. Jest naszym człowiekiem w Marbelli: obecny, zaangażowany i zawsze dostępny.',
     jacco_role:'Ekspert',jacco_name:'Jacco Hamstra',
     jacco_desc:'Jacco wchodzi na plac budowy i od razu widzi, co działa, a co nie. Zarządza całym procesem technicznym — od pierwszego uderzenia młotem do ostatniego wykończenia. Materiały przychodzą na czas, w odpowiedniej jakości, we właściwym miejscu. Nie przypadkowo.',
     edwin_role:'Maniak Kontroli',edwin_name:'Edwin de Groot',
     edwin_desc:'Każdy projekt potrzebuje kogoś, kto utrzymuje prze gląd i dba, żeby wszyscy szli w tym samym kierunku. To Edwin. śledzi, co się dzieje, co trzeba zrobić i co może pójść nie tak. Nie najbardziej glamurowa rola — ale bez niego silnik nie działa.',
-    djoni_role:'Styl & Wnętrza',djoni_name:'Djoni Granneman',
-    djoni_desc:'Współpracujemy ściśle z Djoni Granneman, naszą stałą stylistką i architektem wnętrz. Djoni prowadzi każdy projekt od układu strukturalnego do pełnego urządzenia i stylizacji. Jej dotyk zapewnia, że wyremontowana nieruchomość nie jest tylko technicznie doskonała — ale emanuje jakością, którą ludzie czują natychmiast.',
+    djoni_role:'Twórczyni Atmosfery',djoni_name:'Djoni Granneman',
+    djoni_desc:'Djoni Granneman jest kreatywną siłą stojącą za każdą transformacją. Od układu strukturalnego po pełne projektowanie wnętrz i stylizację — to jej dotyk sprawia, że wyremontowana nieruchomość nie jest tylko technicznie doskonała, ale także emanuje atmosferą, którą ludzie czują natychmiast.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
     portfolio_renovo_text:'Nasza własna firma remontowa na Costa del Sol. Każdy projekt został przekształcony przez nasz zespół — od koncepcji do realizacji. Ponieważ my to zbudowaliśmy, wiemy dokładnie, co jest w środku.',
     portfolio_standard_tag:'Nasz standard',

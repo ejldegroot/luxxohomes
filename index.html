@@ -374,7 +374,7 @@
   .magazine-modal-footer-buttons { display: flex; gap: 12px; }
   .magazine-modal-close { position: sticky; top: 16px; float: right; z-index: 10; margin: 16px 16px 0 0; background: rgba(255,255,255,.12); color: var(--warm-white); border: none; width: 44px; height: 44px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); border-radius: 50%; transition: background .2s; }
   .magazine-modal-close:hover { background: rgba(255,255,255,.25); }
-  .magazine-sold-banner { background: linear-gradient(135deg, var(--gold), #b8860b); color: var(--charcoal); text-align: center; padding: 12px; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
+  .magazine-sold-banner { position: absolute; top: 28px; left: -40px; z-index: 5; background: linear-gradient(135deg, var(--gold), #b8860b); color: var(--charcoal); text-align: center; padding: 8px 50px; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; transform: rotate(-35deg); box-shadow: 0 2px 8px rgba(0,0,0,.3); width: 200px; }
   @media (max-width: 600px) {
     .magazine-modal-header { padding: 48px 24px 32px; }
     .magazine-grid-2 { grid-template-columns: 1fr; }
@@ -405,6 +405,7 @@
       <button class="lang-btn" onclick="setLang('de')">DE</button>
       <button class="lang-btn" onclick="setLang('sv')">SV</button>
       <button class="lang-btn" onclick="setLang('pl')">PL</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
     </div>
     <button class="nav-cta" onclick="showPage('contact')" data-i18n="nav_cta">Get in touch</button>
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -422,6 +423,7 @@
     <button class="lang-btn" onclick="setLang('de');closeMobileMenu()">DE</button>
     <button class="lang-btn" onclick="setLang('sv');closeMobileMenu()">SV</button>
     <button class="lang-btn" onclick="setLang('pl');closeMobileMenu()">PL</button>
+    <button class="lang-btn" onclick="setLang('ar');closeMobileMenu()">AR</button>
   </div>
   <a onclick="showPage('home');closeMobileMenu()" data-i18n="nav_home">Home</a>
   <a onclick="showPage('listings');closeMobileMenu()" data-i18n="nav_properties">Properties</a>
@@ -808,8 +810,8 @@
 <div id="magazine-modal" class="modal-backdrop" onclick="if(event.target===this)closeMagazineModal()">
   <div class="magazine-modal" id="magazine-inner">
     <button class="magazine-modal-close" onclick="closeMagazineModal()">✕</button>
-    <div id="mag-sold-banner" class="magazine-sold-banner" style="display:none;">Verkocht — Sold</div>
-    <div class="magazine-modal-header">
+    <div id="mag-sold-banner" class="magazine-sold-banner" style="display:none;">Sold</div>
+    <div class="magazine-modal-header" style="overflow:hidden;">
       <span class="magazine-modal-tag" id="mag-tag">Casa Renovo Marbella</span>
       <h1 class="magazine-modal-title" id="mag-title"></h1>
       <div class="magazine-modal-loc" id="mag-loc"></div>
@@ -879,14 +881,7 @@
       </span>
       <span>@luxxohomesmarbella</span>
     </a>
-    <a href="https://www.linkedin.com/company/109562257" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--warm-white);font-size:14px;font-family:var(--sans);font-weight:300;transition:opacity .2s;"
-       onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
-      <span style="width:36px;height:36px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S.02 4.881.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.93c0-2.13-.04-4.87-2.97-4.87-2.97 0-3.42 2.32-3.42 4.72V24H8V8z"/></svg>
-      </span>
-      <span>Luxxo Homes</span>
-    </a>
+
     <a href="https://wa.me/34633925630?text=Hallo%2C%20ik%20ben%20ge%C3%AFnteresseerd%20in%20een%20woning%20via%20Luxxo%20Homes." target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--warm-white);font-size:14px;font-family:var(--sans);font-weight:300;transition:opacity .2s;"
        onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
@@ -905,7 +900,7 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const lang = {
   en: {
-    nav_home:'Home',nav_properties:'Properties',nav_portfolio:'Portfolio',nav_soon:'Coming Soon',nav_buyers:"Buyer's Guide",nav_about:'About',nav_contact:'Contact',nav_cta:'Get in touch',
+    nav_home:'Home',nav_properties:'Properties',nav_portfolio:'Our Work',nav_soon:'Coming Soon',nav_buyers:"Buyer's Guide",nav_about:'About',nav_contact:'Contact',nav_cta:'Get in touch',
     hero_tag:'Luxury Real Estate \u00b7 Marbella',hero_title:'Your <em>exceptional</em><br>home in<br>Marbella',
     hero_sub:'We curate the finest properties on the Costa del Sol \u2014 for those who choose to live without compromise.',
     hero_btn_props:'View properties',hero_btn_guide:'Buying guide',
@@ -922,6 +917,8 @@ const lang = {
     listings_tag:'Portfolio',listings_title:'All <em>Properties</em>',
     portfolio_tag:'Track record',portfolio_title:'Our <em>Portfolio</em>',
     portfolio_intro:'We buy, renovate and sell properties to the highest standard. Materials from the Netherlands, top-level styling, supervised by our own team from start to finish.',
+    portfolio_renovo_header:'Casa Renovo Marbella — Our projects',
+    portfolio_sold_header:'Previously sold properties',
     portfolio_sub:'A selection of properties we have successfully sold.',
     portfolio_sold:'Sold',beds:'beds',sqm_built:'built',sold_price:'sold',
     portfolio_desc_1:'Hillside villa with panoramic sea views, sold to a Belgian family.',
@@ -1006,7 +1003,7 @@ const lang = {
     beds:'beds',baths:'baths',sqm:'m\u00b2',view_details:'View details',enquire:'Enquire about this property'
   },
   nl: {
-    nav_home:'Home',nav_properties:'Woningen',nav_portfolio:'Portfolio',nav_soon:'In ontwikkeling',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',nav_contact:'Contact',nav_cta:'Neem contact op',
+    nav_home:'Home',nav_properties:'Woningen',nav_portfolio:'Ons Werk',nav_soon:'In ontwikkeling',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',nav_contact:'Contact',nav_cta:'Neem contact op',
     hero_tag:'Luxe Vastgoed \u00b7 Marbella',hero_title:'Uw <em>uitzonderlijke</em><br>woning in<br>Marbella',
     hero_sub:'Wij selecteren de mooiste woningen aan de Costa del Sol.',
     hero_btn_props:'Bekijk woningen',hero_btn_guide:'Aankoopbegeleiding',
@@ -1023,6 +1020,8 @@ const lang = {
     listings_tag:'Aanbod',listings_title:'Alle <em>Woningen</em>',
     portfolio_tag:'Referenties',portfolio_title:'Ons <em>Portfolio</em>',
     portfolio_intro:'Wij kopen, renoveren en verkopen woningen naar de hoogste standaard. Materialen uit Nederland, styling op het hoogste niveau, begeleid door ons eigen team van begin tot eind.',
+    portfolio_renovo_header:'Casa Renovo Marbella — Onze eigen projecten',
+    portfolio_sold_header:'Overige reeds verkochte woningen',
     portfolio_sub:'Een selectie van woningen die wij succesvol hebben verkocht.',
     portfolio_sold:'Verkocht',beds:'slaapk.',sqm_built:'gebouwd',sold_price:'verkoopprijs',
     portfolio_desc_1:'Heuvelwoning met panoramisch zeezicht, verkocht aan een Belgisch gezin.',
@@ -1107,7 +1106,7 @@ const lang = {
     beds:'slaapk.',baths:'badk.',sqm:'m\u00b2',view_details:'Bekijk details',enquire:'Informatie aanvragen'
   },
   es: {
-    nav_home:'Inicio',nav_properties:'Propiedades',nav_portfolio:'Portafolio',nav_buyers:'Gu\u00eda de compra',nav_about:'Nosotros',nav_contact:'Contacto',nav_cta:'Cont\u00e1ctenos',
+    nav_home:'Inicio',nav_properties:'Propiedades',nav_portfolio:'Nuestro Trabajo',nav_buyers:'Gu\u00eda de compra',nav_about:'Nosotros',nav_contact:'Contacto',nav_cta:'Cont\u00e1ctenos',
     hero_tag:'Inmobiliaria de Lujo \u00b7 Marbella',hero_title:'Su <em>excepcional</em><br>hogar en<br>Marbella',
     hero_sub:'Seleccionamos las mejores propiedades de la Costa del Sol.',
     hero_btn_props:'Ver propiedades',hero_btn_guide:'Gu\u00eda de compra',
@@ -1124,6 +1123,8 @@ const lang = {
     listings_tag:'Cartera',listings_title:'Todas las <em>Propiedades</em>',
     portfolio_tag:'Trayectoria',portfolio_title:'Nuestro <em>Portafolio</em>',
     portfolio_intro:'Compramos, renovamos y vendemos propiedades al m\u00e1s alto nivel. Materiales de los Pa\u00edses Bajos, interiorismo de primer nivel, supervisado por nuestro propio equipo de principio a fin.',
+    portfolio_renovo_header:'Casa Renovo Marbella — Nuestros proyectos',
+    portfolio_sold_header:'Propiedades vendidas anteriormente',
     portfolio_sub:'Propiedades que hemos vendido con \u00e9xito.',
     portfolio_sold:'Vendido',beds:'dorm.',sqm_built:'construido',sold_price:'precio venta',
     portfolio_desc_1:'Villa con vistas panor\u00e1micas al mar, vendida a una familia belga.',
@@ -1199,7 +1200,7 @@ const lang = {
     beds:'dorm.',baths:'ba\u00f1os',sqm:'m\u00b2',view_details:'Ver detalles',enquire:'Solicitar informaci\u00f3n'
   },
   de: {
-    nav_home:'Start',nav_properties:'Immobilien',nav_portfolio:'Portfolio',nav_buyers:'Kaufberatung',nav_about:'\u00dcber uns',nav_contact:'Kontakt',nav_cta:'Kontakt aufnehmen',
+    nav_home:'Start',nav_properties:'Immobilien',nav_portfolio:'Unsere Arbeit',nav_buyers:'Kaufberatung',nav_about:'\u00dcber uns',nav_contact:'Kontakt',nav_cta:'Kontakt aufnehmen',
     hero_tag:'Luxusimmobilien \u00b7 Marbella',hero_title:'Ihr <em>au\u00dfergew\u00f6hnliches</em><br>Zuhause in<br>Marbella',
     hero_sub:'Wir kuratieren die sch\u00f6nsten Immobilien an der Costa del Sol.',
     hero_btn_props:'Immobilien ansehen',hero_btn_guide:'Kaufberatung',
@@ -1216,6 +1217,8 @@ const lang = {
     listings_tag:'Portfolio',listings_title:'Alle <em>Immobilien</em>',
     portfolio_tag:'Referenzen',portfolio_title:'Unser <em>Portfolio</em>',
     portfolio_intro:'Wir kaufen, renovieren und verkaufen Immobilien nach h\u00f6chstem Standard. Materialien aus den Niederlanden, Styling auf h\u00f6chstem Niveau, betreut von unserem eigenen Team von Anfang bis Ende.',
+    portfolio_renovo_header:'Casa Renovo Marbella — Unsere Projekte',
+    portfolio_sold_header:'Zuvor verkaufte Immobilien',
     portfolio_sub:'Erfolgreich verkaufte Immobilien.',
     portfolio_sold:'Verkauft',beds:'SZ',sqm_built:'Wohnfl\u00e4che',sold_price:'Verkaufspreis',
     portfolio_desc_1:'Villa mit Panoramablick auf das Meer, verkauft an eine belgische Familie.',
@@ -1291,7 +1294,7 @@ const lang = {
     beds:'SZ',baths:'BZ',sqm:'m\u00b2',view_details:'Details ansehen',enquire:'Diese Immobilie anfragen'
   },
   sv: {
-    nav_home:'Hem',nav_properties:'Fastigheter',nav_portfolio:'Portf\u00f6lj',nav_buyers:'K\u00f6pguide',nav_about:'Om oss',nav_contact:'Kontakt',nav_cta:'Kontakta oss',
+    nav_home:'Hem',nav_properties:'Fastigheter',nav_portfolio:'V\u00e5rt Arbete',nav_buyers:'K\u00f6pguide',nav_about:'Om oss',nav_contact:'Kontakt',nav_cta:'Kontakta oss',
     hero_tag:'Lyxfastigheter \u00b7 Marbella',hero_title:'Ditt <em>extraordin\u00e4ra</em><br>hem i<br>Marbella',
     hero_sub:'Vi v\u00e4ljer ut de finaste fastigheterna p\u00e5 Costa del Sol.',
     hero_btn_props:'Se fastigheter',hero_btn_guide:'K\u00f6pguide',
@@ -1308,6 +1311,8 @@ const lang = {
     listings_tag:'Portf\u00f6lj',listings_title:'Alla <em>Fastigheter</em>',
     portfolio_tag:'Meritf\u00f6rteckning',portfolio_title:'V\u00e5r <em>Portf\u00f6lj</em>',
     portfolio_intro:'Vi k\u00f6per, renoverar och s\u00e4ljer fastigheter till h\u00f6gsta standard. Material fr\u00e5n Nederl\u00e4nderna, styling p\u00e5 h\u00f6gsta niv\u00e5, under v\u00e5rt eget teams ledning fr\u00e5n b\u00f6rjan till slut.',
+    portfolio_renovo_header:'Casa Renovo Marbella — V\u00e5ra projekt',
+    portfolio_sold_header:'Tidigare s\u00e5lda fastigheter',
     portfolio_sub:'Fastigheter vi framg\u00e5ngsrikt s\u00e5lt.',
     portfolio_sold:'S\u00e5ld',beds:'sovrum',sqm_built:'byggt',sold_price:'f\u00f6rs\u00e4ljningspris',
     portfolio_desc_1:'Villa med panoramautsikt, s\u00e5ld till en belgisk familj.',
@@ -1383,7 +1388,7 @@ const lang = {
     beds:'sovrum',baths:'badrum',sqm:'m\u00b2',view_details:'Se detaljer',enquire:'F\u00f6rfr\u00e5gan om fastighet'
   },
   pl: {
-    nav_home:'Strona g\u0142\u00f3wna',nav_properties:'Nieruchomo\u015bci',nav_portfolio:'Portfolio',nav_buyers:'Przewodnik kupuj\u0105cego',nav_about:'O nas',nav_contact:'Kontakt',nav_cta:'Skontaktuj si\u0119',
+    nav_home:'Strona g\u0142\u00f3wna',nav_properties:'Nieruchomo\u015bci',nav_portfolio:'Nasze Prace',nav_buyers:'Przewodnik kupuj\u0105cego',nav_about:'O nas',nav_contact:'Kontakt',nav_cta:'Skontaktuj si\u0119',
     hero_tag:'Luksusowe Nieruchomo\u015bci \u00b7 Marbella',hero_title:'Tw\u00f3j <em>wyj\u0105tkowy</em><br>dom w<br>Marbella',
     hero_sub:'Wybieramy najlepsze nieruchomo\u015bci na Costa del Sol.',
     hero_btn_props:'Zobacz nieruchomo\u015bci',hero_btn_guide:'Przewodnik kupuj\u0105cego',
@@ -1400,6 +1405,8 @@ const lang = {
     listings_tag:'Portfolio',listings_title:'Wszystkie <em>Nieruchomo\u015bci</em>',
     portfolio_tag:'Referencje',portfolio_title:'Nasze <em>Portfolio</em>',
     portfolio_intro:'Kupujemy, odnawiamy i sprzedajemy nieruchomo\u015bci wed\u0142ug najwy\u017cszego standardu. Materia\u0142y z Holandii, stylizacja na najwy\u017cszym poziomie, pod nadzorem naszego w\u0142asnego zespo\u0142u od pocz\u0105tku do ko\u0144ca.',
+    portfolio_renovo_header:'Casa Renovo Marbella — Nasze projekty',
+    portfolio_sold_header:'Wcze\u015bniej sprzedane nieruchomo\u015bci',
     portfolio_sub:'Nieruchomo\u015bci, kt\u00f3re sprzedali\u015bmy z sukcesem.',
     portfolio_sold:'Sprzedana',beds:'sypialnie',sqm_built:'pow. u\u017cytkowa',sold_price:'cena sprzeda\u017cy',
     portfolio_desc_1:'Willa z panoramicznym widokiem na morze sprzedana belgijskiej rodzinie.',
@@ -1473,6 +1480,25 @@ const lang = {
     footer_follow:'Obserwuj nas',
     footer_office:'Dane firmy',
     beds:'sypialnie',baths:'\u0142azienki',sqm:'m\u00b2',view_details:'Zobacz szczeg\u00f3\u0142y',enquire:'Zapytaj o t\u0119 nieruchomo\u015b\u0107'
+  },
+  ar: {
+    nav_home:'\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629',nav_properties:'\u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a',nav_portfolio:'\u0623\u0639\u0645\u0627\u0644\u0646\u0627',nav_soon:'\u0642\u0631\u064a\u0628\u0627\u064b',nav_buyers:'\u062f\u0644\u064a\u0644 \u0627\u0644\u0645\u0634\u062a\u0631\u064a',nav_about:'\u0639\u0646\u0627',nav_contact:'\u0627\u062a\u0635\u0644 \u0628\u0646\u0627',nav_cta:'\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627',
+    hero_tag:'Luxxo Homes \u2014 Marbella',hero_h1:'\u062d\u064a\u062b \u064a\u0644\u062a\u0642\u064a \u0627\u0644\u0641\u062e\u0627\u0645\u0629<br><em>\u0628\u0627\u0644\u0623\u0635\u0627\u0644\u0629.</em>',hero_sub:'\u0639\u0642\u0627\u0631\u0627\u062a \u0641\u0627\u062e\u0631\u0629 \u0641\u064a \u0645\u0627\u0631\u0628\u064a\u0627 \u2014 \u0645\u0635\u0645\u0645\u0629 \u0648\u0645\u062c\u062f\u062f\u0629 \u0648\u0645\u062e\u062a\u0627\u0631\u0629 \u0628\u0639\u0646\u0627\u064a\u0629.',
+    featured_tag:'\u0627\u062e\u062a\u064a\u0627\u0631\u0646\u0627',featured_title:'\u0639\u0642\u0627\u0631\u0627\u062a <em>\u0645\u0645\u064a\u0632\u0629</em>',featured_sub:'\u0639\u0642\u0627\u0631\u0627\u062a \u0645\u062e\u062a\u0627\u0631\u0629 \u0628\u0639\u0646\u0627\u064a\u0629 \u062a\u0644\u0628\u064a \u0645\u0639\u0627\u064a\u064a\u0631 Luxxo Homes.',
+    about_tag2:'\u0639\u0646 Luxxo Homes',about_h2:'\u0623\u0643\u062b\u0631 \u0645\u0646 \u0648\u0643\u064a\u0644<br><em>\u0639\u0642\u0627\u0631\u064a.</em>',
+    about_p1:'\u0644\u0627 \u0646\u0628\u064a\u0639 \u0627\u0644\u0645\u0646\u0627\u0632\u0644 \u0641\u062d\u0633\u0628. \u0646\u062d\u0646 \u0646\u0635\u0646\u0639\u0647\u0627.<br><strong style="color:var(--gold-light);">Luxxo Homes</strong> \u062c\u0632\u0621 \u0645\u0646 <strong style="color:var(--gold-light);">Casa Marbella Group</strong>.',
+    about_p2:'\u0646\u0634\u062a\u0631\u064a \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a \u0648\u0646\u062c\u062f\u062f\u0647\u0627 \u0625\u0644\u0649 \u0623\u0639\u0644\u0649 \u0627\u0644\u0645\u0639\u0627\u064a\u064a\u0631 \u0648\u0646\u0637\u0631\u062d\u0647\u0627 \u0641\u064a \u0627\u0644\u0633\u0648\u0642 \u0639\u0628\u0631 Luxxo Homes.',
+    portfolio_intro:'\u0646\u0634\u062a\u0631\u064a \u0648\u0646\u062c\u062f\u062f \u0648\u0646\u0628\u064a\u0639 \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a \u0628\u0623\u0639\u0644\u0649 \u0627\u0644\u0645\u0639\u0627\u064a\u064a\u0631. \u0645\u0648\u0627\u062f \u0645\u0646 \u0647\u0648\u0644\u0646\u062f\u0627\u060c \u062a\u0635\u0645\u064a\u0645 \u0639\u0644\u0649 \u0623\u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649\u060c \u0628\u0625\u0634\u0631\u0627\u0641 \u0641\u0631\u064a\u0642\u0646\u0627 \u0645\u0646 \u0627\u0644\u0628\u062f\u0627\u064a\u0629 \u0625\u0644\u0649 \u0627\u0644\u0646\u0647\u0627\u064a\u0629.',
+    portfolio_renovo_header:'Casa Renovo Marbella — مشاريعنا',
+    portfolio_sold_header:'عقارات مباعة سابقاً',
+    portfolio_cta_title:'\u0645\u0644\u0647\u0645\u061f',portfolio_cta_text:'\u062f\u0639\u0646\u0627 \u0646\u062a\u062d\u062f\u062b \u0639\u0646 \u0627\u0644\u0641\u0631\u0635.',portfolio_cta_btn:'\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627',
+    soon_tag:'\u0642\u064a\u062f \u0627\u0644\u062a\u0637\u0648\u064a\u0631',soon_h1:'\u0646\u0639\u0645\u0644 \u0628\u062c\u062f.<br><em>\u0642\u0631\u064a\u0628\u0627\u064b.</em>',soon_p:'\u0641\u0631\u0642\u0646\u0627 \u062a\u062d\u0648\u0644 \u0647\u0630\u0647 \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a \u0625\u0644\u0649 \u0634\u064a\u0621 \u0627\u0633\u062a\u062b\u0646\u0627\u0626\u064a.',
+    soon_section_tag:'\u0645\u0634\u0627\u0631\u064a\u0639\u0646\u0627 \u0627\u0644\u062c\u0627\u0631\u064a\u0629',soon_sub:'\u0647\u0630\u0647 \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a \u0642\u064a\u062f \u0627\u0644\u062a\u062c\u062f\u064a\u062f. \u0643\u0646 \u0623\u0648\u0644 \u0645\u0646 \u064a\u0639\u0644\u0645.',
+    soon_cta_title:'\u0647\u0644 \u062a\u0631\u064a\u062f \u0623\u0646 \u062a\u0643\u0648\u0646 \u0623\u0648\u0644 \u0645\u0646 \u064a\u0639\u0644\u0645\u061f',soon_cta_sub:'\u0633\u062c\u0644 \u0644\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u062a\u062d\u062f\u064a\u062b\u0627\u062a \u062d\u0635\u0631\u064a\u0629.',soon_cta_btn:'\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627',soon_empty:'\u0633\u064a\u062a\u0645 \u0627\u0644\u0625\u0639\u0644\u0627\u0646 \u0639\u0646 \u0645\u0634\u0627\u0631\u064a\u0639 \u062c\u062f\u064a\u062f\u0629 \u0642\u0631\u064a\u0628\u0627\u064b.',
+    contact_strip_h2:'\u0645\u0633\u062a\u0639\u062f \u0644\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 <em>\u0645\u0646\u0632\u0644\u0643 \u0641\u064a \u0645\u0627\u0631\u0628\u064a\u0627\u061f</em>',contact_strip_p:'Gijs\u060c Jacco & Edwin \u062c\u0627\u0647\u0632\u0648\u0646 \u0644\u0644\u0645\u0633\u0627\u0639\u062f\u0629.',contact_strip_btn:'\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u2192',
+    footer_follow:'\u062a\u0627\u0628\u0639\u0646\u0627',footer_office:'\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0634\u0631\u0643\u0629',
+    all_locations:'\u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0648\u0627\u0642\u0639',
+    beds:'\u063a\u0631\u0641',baths:'\u062d\u0645\u0627\u0645\u0627\u062a',sqm:'m\u00b2',view_details:'\u0639\u0631\u0636 \u0627\u0644\u062a\u0641\u0627\u0635\u064a\u0644',enquire:'\u0627\u0633\u062a\u0641\u0633\u0631 \u0639\u0646 \u0647\u0630\u0627 \u0627\u0644\u0639\u0642\u0627\u0631'
   }
 };
 
@@ -1484,10 +1510,13 @@ function t(key) { return (lang[currentLang] && lang[currentLang][key]) ? lang[cu
 
 function setLang(l) {
   currentLang = l;
+  try { localStorage.setItem('luxxo_lang', l); } catch(e) {}
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.toggle('active', b.textContent === l.toUpperCase()); });
   document.querySelectorAll('[data-i18n]').forEach(function(el){ el.innerHTML = t(el.getAttribute('data-i18n')); });
   renderFeatured();
   renderListings();
+  renderPortfolio();
+  renderSoon();
 }
 
 function showPage(name) {
@@ -1582,8 +1611,8 @@ function propCard(p, delay) {
 function renderFeatured() {
   var el = document.getElementById('featured-grid');
   if (!el || !allProperties.length) return;
-  // Only show properties that are for sale (no notes, or empty notes) - not sold/soon/portfolio
-  var forSale = allProperties.filter(function(p){ return !p.notes || p.notes === '' || p.notes === 'sold'; });
+  var forSale = allProperties.filter(function(p){ return !p.notes || p.notes === ''; });
+  forSale.sort(function(a,b){ return a.sort_order - b.sort_order; });
   el.innerHTML = forSale.slice(0,3).map(function(p,i){ return propCard(p, i*80); }).join('') || '<div class="loading" style="animation:none;">No properties available.</div>';
 }
 
@@ -1599,8 +1628,8 @@ function filterProperties() {
   if (loc)  props = props.filter(function(p){ return (p.location_detail||'').indexOf(loc) !== -1 || (p.town||'').indexOf(loc) !== -1; });
   if (beds) props = props.filter(function(p){ return parseInt(p.beds||0) >= beds; });
   if (maxP) props = props.filter(function(p){ return p.price <= maxP; });
-  if (sort === 'price_desc') props.sort(function(a,b){ return b.price - a.price; });
-  if (sort === 'price_asc')  props.sort(function(a,b){ return a.price - b.price; });
+  if (sort === 'price_desc') props.sort(function(a,b){ var oa = a.sort_order < 999 ? 0 : 1; var ob = b.sort_order < 999 ? 0 : 1; if (oa !== ob) return oa - ob; return b.price - a.price; });
+  if (sort === 'price_asc')  props.sort(function(a,b){ var oa = a.sort_order < 999 ? 0 : 1; var ob = b.sort_order < 999 ? 0 : 1; if (oa !== ob) return oa - ob; return a.price - b.price; });
   return props;
 }
 
@@ -1625,7 +1654,7 @@ function renderPortfolio() {
 
   if (renovo.length) {
     html += '<div style="padding:0 2px 2px;">'
-      + '<div style="padding:32px 48px 16px;"><span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">Casa Renovo Marbella \u2014 Onze eigen projecten</span></div>'
+      + '<div style="padding:32px 48px 16px;"><span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">' + t('portfolio_renovo_header') + '</span></div>'
       + '<div class="portfolio-grid" style="margin-top:0;">'
       + renovo.map(function(p,i){
           var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80';
@@ -1644,7 +1673,7 @@ function renderPortfolio() {
 
   if (soldProps.length) {
     html += '<div style="padding:0 2px 2px;margin-top:2px;">'
-      + '<div style="padding:32px 48px 16px;"><span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">Verkocht via Luxxo Homes</span></div>'
+      + '<div style="padding:32px 48px 16px;"><span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">' + t('portfolio_sold_header') + '</span></div>'
       + '<div class="portfolio-grid" style="margin-top:0;">'
       + soldProps.map(function(p,i){
           var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80';
@@ -1677,7 +1706,7 @@ function renderSoon() {
     var img = (p.photos&&p.photos.length) ? p.photos[0] : 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80';
     var loc = [p.location_detail, p.town].filter(Boolean).join(', ');
     var desc = getDesc(p);
-    return '<div class="soon-card" style="animation-delay:' + (i*80) + 'ms">'
+    return '<div class="soon-card" style="animation-delay:' + (i*80) + 'ms;cursor:pointer;" data-propid="' + p.id + '" onclick="openMagazineModal(this.dataset.propid)">'
       + '<div class="soon-card-img">'
       + '<img src="' + img + '" alt="' + (p.ref||'') + '" loading="lazy">'
       + '<div class="soon-badge">Coming Soon</div>'
@@ -1858,7 +1887,8 @@ function openMagazineModal(id) {
     es: '\u00bfTe has inspirado? Cont\u00e1ctanos, estaremos encantados de contarte m\u00e1s.',
     de: 'Inspiriert? Kontaktieren Sie uns \u2014 wir erz\u00e4hlen Ihnen gerne mehr.',
     sv: 'Inspirerad? Kontakta oss \u2014 vi ber\u00e4ttar g\u00e4rna mer.',
-    pl: 'Zainspirowany? Skontaktuj si\u0119 z nami \u2014 ch\u0119tnie opowiemy wi\u0119cej.'
+    pl: 'Zainspirowany? Skontaktuj si\u0119 z nami \u2014 ch\u0119tnie opowiemy wi\u0119cej.',
+    ar: '\u0647\u0644 \u0623\u0644\u0647\u0645\u0643 \u0647\u0630\u0627\u061f \u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u2014 \u064a\u0633\u0639\u062f\u0646\u0627 \u0625\u062e\u0628\u0627\u0631\u0643 \u0627\u0644\u0645\u0632\u064a\u062f.'
   };
   document.getElementById('mag-footer-text').textContent = footerTexts[currentLang] || footerTexts.en;
   var imgs = p.photos || [];
@@ -1946,7 +1976,7 @@ function handleFormSubmit(e) {
 (function() {
   var saved = localStorage.getItem('luxxo_lang');
   var browserLang = (navigator.language || 'en').toLowerCase().slice(0, 2);
-  var supported = ['en', 'nl', 'es', 'de', 'sv', 'pl'];
+  var supported = ['en', 'nl', 'es', 'de', 'sv', 'pl', 'ar'];
   var startLang = saved || (supported.indexOf(browserLang) !== -1 ? browserLang : 'en');
   setLang(startLang);
 })();

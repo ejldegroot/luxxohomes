@@ -98,12 +98,8 @@ exports.handler = async function() {
         beds: getTag(p, 'beds'),
         baths: getTag(p, 'baths'),
         built: parseInt(getTag(p, 'built')) || 0,
-        gross: parseInt(getTag(p, 'gross_area')) || parseInt(getTag(p, 'area_gross')) || parseInt(getTag(p, 'gross')) || parseInt(getTag(p, 'area_total')) || parseInt(getTag(p, 'total_area')) || parseInt(getTag(p, 'usable_area')) || parseInt(getTag(p, 'living_area')) || parseInt(getTag(p, 'area')) || 0,
-        plot: parseInt(getTag(p, 'plot')) || parseInt(getTag(p, 'land_area')) || parseInt(getTag(p, 'area_land')) || 0,
-        _area_debug: (function() {
-          var areaBlock = p.match(/<areas?[^>]*>([\s\S]*?)<\/areas?>/i);
-          return areaBlock ? areaBlock[0].replace(/<!\[CDATA\[|\]\]>/g, '').substring(0, 500) : '';
-        })(),
+        gross: 0,
+        plot: parseInt(getTag(p, 'plot')) || 0,
         notes: tag || getTag(p, 'notes').toLowerCase().trim(),
         sort_order: sortOrder,
         lat: lat,
@@ -117,6 +113,17 @@ exports.handler = async function() {
         features: getAllTags((p.match(/<features>([\s\S]*?)<\/features>/i) || ['',''])[1], 'feature'),
       });
     }
+    // Parse gross area and land area from features (eGO puts them as "269.00 gross area")
+    properties.forEach(function(prop) {
+      prop.features.forEach(function(f) {
+        var grossMatch = f.match(/^([\d.]+)\s*gross\s*area$/i);
+        if (grossMatch) prop.gross = Math.round(parseFloat(grossMatch[1])) || 0;
+        var landMatch = f.match(/^([\d.]+)\s*land\s*area$/i);
+        if (landMatch && !prop.plot) prop.plot = Math.round(parseFloat(landMatch[1])) || 0;
+        var netMatch = f.match(/^([\d.]+)\s*net\s*area$/i);
+        if (netMatch && !prop.built) prop.built = Math.round(parseFloat(netMatch[1])) || 0;
+      });
+    });
     properties.sort(function(a,b){ return a.sort_order - b.sort_order; });
     return {
       statusCode: 200,

@@ -839,8 +839,11 @@
       <div class="magazine-modal-footer-text" id="mag-footer-text">Geïnspireerd geraakt? Neem contact met ons op.</div>
       <div class="magazine-modal-footer-buttons">
         <button onclick="showPage('contact');closeMagazineModal()" style="flex:1;background:var(--gold);color:var(--charcoal);border:none;padding:16px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Contact</button>
-        <a id="mag-wa" href="" target="_blank" style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;background:#25D166;border-radius:50%;text-decoration:none;transition:opacity .2s;flex-shrink:0;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        <a id="mag-wa" href="" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:rgba(250,248,244,.6);font-family:var(--sans);font-size:12px;letter-spacing:.06em;transition:opacity .2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+          <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:#25D166;border-radius:50%;flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          </span>
+          <span id="mag-wa-text">WhatsApp ons direct</span>
         </a>
       </div>
     </div>
@@ -1003,7 +1006,8 @@ const lang = {
     story_p5:'For the buyer, that means one thing: walk in, close the door behind you, and start enjoying immediately. No hassle, no unexpected costs. Just the life you dreamed of.',
     story_tag3:'Why Luxxo Homes',story_h3:'Why<br><em>Luxxo Homes.</em>',
     story_p6:'By now, we know the market inside out. We know where the most beautiful spots are, what to look for when buying and selling, and because we transform properties ourselves, we can explain like no one else why certain choices were made.',
-    story_p7:'Thanks to that knowledge, our strong local network and the reputation we\u2019ve built, we now also guide clients in buying and selling other properties. With one condition: every project must fit the Luxxo Homes philosophy \u2014 outstanding quality, timeless design, and a lifestyle you enjoy every single day.'
+    story_p7:'Thanks to that knowledge, our strong local network and the reputation we\u2019ve built, we now also guide clients in buying and selling other properties. With one condition: every project must fit the Luxxo Homes philosophy \u2014 outstanding quality, timeless design, and a lifestyle you enjoy every single day.',
+    wa_cta:'WhatsApp us directly'
   },
   nl: {
     nav_home:'Home',nav_properties:'Woningen',nav_portfolio:'Ons Werk',nav_soon:'In ontwikkeling',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',
@@ -1092,7 +1096,8 @@ const lang = {
     story_p5:'Voor de koper betekent dat \u00e9\u00e9n ding: binnenlopen, de deur achter je dichtdoen en direct genieten. Geen gedoe, geen onverwachte kosten. Alleen het leven waar je van droomde.',
     story_tag3:'Waarom Luxxo Homes',story_h3:'Waarom<br><em>Luxxo Homes.</em>',
     story_p6:'Inmiddels kennen we de markt door en door. We weten waar de mooiste plekken zijn, waar je op moet letten bij aan- en verkoop, en omdat we zelf woningen transformeren, kunnen we als geen ander uitleggen waarom bepaalde keuzes zijn gemaakt.',
-    story_p7:'Dankzij die kennis, ons sterke lokale netwerk en de reputatie die we hebben opgebouwd, begeleiden we nu ook klanten bij de aan- en verkoop van andere woningen. Met \u00e9\u00e9n voorwaarde: elk project moet passen bij de filosofie van Luxxo Homes \u2014 uitmuntende kwaliteit, tijdloos design en een levensstijl waar je elke dag van geniet.'
+    story_p7:'Dankzij die kennis, ons sterke lokale netwerk en de reputatie die we hebben opgebouwd, begeleiden we nu ook klanten bij de aan- en verkoop van andere woningen. Met \u00e9\u00e9n voorwaarde: elk project moet passen bij de filosofie van Luxxo Homes \u2014 uitmuntende kwaliteit, tijdloos design en een levensstijl waar je elke dag van geniet.',
+    wa_cta:'WhatsApp ons direct'
   },
   es: {
     nav_home:'Inicio',nav_properties:'Propiedades',nav_portfolio:'Nuestro Trabajo',nav_buyers:'Gu\u00eda de compra',nav_about:'Nosotros',nav_contact:'Contacto',
@@ -1172,7 +1177,8 @@ const lang = {
     buyers_why1_h:'Conocimiento pr\u00e1ctico',
     buyers_why1_p:'Construimos aqu\u00ed nosotros mismos. Por eso reconocemos la calidad y sabemos cu\u00e1ndo algo no vale el precio.',
     buyers_why2_h:'Independiente y honesto',buyers_why2_p:'Te representamos a ti \u2014 no al vendedor. Nuestro consejo es siempre honesto.',
-    buyers_why3_h:'El puente entre dos mundos',buyers_why3_p:'Hablamos el idioma \u2014 literal y figurativamente. Protegemos tus intereses en cada paso.'
+    buyers_why3_h:'El puente entre dos mundos',buyers_why3_p:'Hablamos el idioma \u2014 literal y figurativamente. Protegemos tus intereses en cada paso.',
+    wa_cta:'Env\u00edanos un WhatsApp'
   },
   de: {
     nav_home:'Start',nav_properties:'Immobilien',nav_portfolio:'Unsere Arbeit',nav_buyers:'Kaufberatung',nav_about:'\u00dcber uns',nav_contact:'Kontakt',
@@ -1252,7 +1258,8 @@ const lang = {
     buyers_why1_p:'Wir bauen hier selbst. Deshalb erkennen wir Qualit\u00e4t \u2014 und wissen genau, wann etwas den Preis nicht wert ist.',
     buyers_why2_h:'Unabh\u00e4ngig und ehrlich',buyers_why2_p:'Wir vertreten Sie \u2014 nicht den Verk\u00e4ufer. Unser Rat ist immer ehrlich.',
     buyers_why3_h:'Die Br\u00fccke zwischen zwei Welten',
-    buyers_why3_p:'Wir sprechen die Sprache \u2014 w\u00f6rtlich und im \u00fcbertragenen Sinne. Wir sch\u00fctzen Ihre Interessen bei jedem Schritt.'
+    buyers_why3_p:'Wir sprechen die Sprache \u2014 w\u00f6rtlich und im \u00fcbertragenen Sinne. Wir sch\u00fctzen Ihre Interessen bei jedem Schritt.',
+    wa_cta:'Schreiben Sie uns per WhatsApp'
   },
   sv: {
     nav_home:'Hem',nav_properties:'Fastigheter',nav_portfolio:'V\u00e5rt Arbete',nav_buyers:'K\u00f6pguide',nav_about:'Om oss',nav_contact:'Kontakt',
@@ -1329,7 +1336,8 @@ const lang = {
     buyers_why_tag:'Varf\u00f6r Luxxo Homes?',buyers_why_h2:'Inte en vanlig m\u00e4klare.<br><em>En partner som bygger med dig.</em>',
     buyers_why1_h:'Kunskap fr\u00e5n praktiken',buyers_why1_p:'Vi bygger h\u00e4r sj\u00e4lva. D\u00e4rf\u00f6r k\u00e4nner vi igen kvalitet.',
     buyers_why2_h:'Oberoende och \u00e4rlig',buyers_why2_p:'Vi representerar dig \u2014 inte s\u00e4ljaren.',buyers_why3_h:'Bron mellan tv\u00e5 v\u00e4rldar',
-    buyers_why3_p:'Vi talar spr\u00e5ket \u2014 bokstavligt och bildligt. Vi skyddar dina intressen i varje steg.'
+    buyers_why3_p:'Vi talar spr\u00e5ket \u2014 bokstavligt och bildligt. Vi skyddar dina intressen i varje steg.',
+    wa_cta:'WhatsApp:a oss direkt'
   },
   pl: {
     nav_home:'Strona g\u0142\u00f3wna',nav_properties:'Nieruchomo\u015bci',nav_portfolio:'Nasze Prace',nav_buyers:'Przewodnik kupuj\u0105cego',nav_about:'O nas',
@@ -1406,7 +1414,8 @@ const lang = {
     buyers_why_tag:'Dlaczego Luxxo Homes?',buyers_why_h2:'Nie standardowy agent.<br><em>Partner, kt\u00f3ry buduje razem z Tob\u0105.</em>',
     buyers_why1_h:'Wiedza z praktyki',buyers_why1_p:'Sami tu budujemy. Dlatego rozpoznajemy jako\u015b\u0107.',buyers_why2_h:'Niezale\u017cni i uczciwi',
     buyers_why2_p:'Reprezentujemy Ciebie \u2014 nie sprzedaj\u0105cego.',buyers_why3_h:'Most mi\u0119dzy dwoma \u015bwiatami',
-    buyers_why3_p:'M\u00f3wimy j\u0119zykiem \u2014 dos\u0142ownie i w przeno\u015bni. Chronimy Twoje interesy na ka\u017cdym kroku.'
+    buyers_why3_p:'M\u00f3wimy j\u0119zykiem \u2014 dos\u0142ownie i w przeno\u015bni. Chronimy Twoje interesy na ka\u017cdym kroku.',
+    wa_cta:'Napisz do nas na WhatsApp'
   },
   ar: {
     nav_home:'\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629',nav_properties:'\u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a',
@@ -1475,7 +1484,8 @@ const lang = {
     step5_title:'\u0627\u0644\u062a\u0648\u0642\u064a\u0639 \u0648\u0627\u0644\u0625\u062a\u0645\u0627\u0645',
     step5_desc:'\u0646\u0631\u0634\u062f\u0643 \u062e\u0644\u0627\u0644 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062a\u0648\u062b\u064a\u0642 \u062d\u062a\u0649 \u0627\u0644\u062a\u0633\u0644\u064a\u0645.',
     step6_title:'\u0628\u0639\u062f \u0627\u0644\u0634\u0631\u0627\u0621',
-    step6_desc:'\u0639\u0644\u0627\u0642\u062a\u0646\u0627 \u0644\u0627 \u062a\u0646\u062a\u0647\u064a \u0639\u0646\u062f \u0627\u0644\u0645\u0648\u062b\u0642. \u0646\u0633\u0627\u0639\u062f \u0641\u064a \u0643\u0644 \u0645\u0627 \u062a\u062d\u062a\u0627\u062c\u0647.'
+    step6_desc:'\u0639\u0644\u0627\u0642\u062a\u0646\u0627 \u0644\u0627 \u062a\u0646\u062a\u0647\u064a \u0639\u0646\u062f \u0627\u0644\u0645\u0648\u062b\u0642. \u0646\u0633\u0627\u0639\u062f \u0641\u064a \u0643\u0644 \u0645\u0627 \u062a\u062d\u062a\u0627\u062c\u0647.',
+    wa_cta:'\u0631\u0627\u0633\u0644\u0646\u0627 \u0639\u0628\u0631 \u0648\u0627\u062a\u0633\u0627\u0628'
   }
 };
 ;
@@ -1579,7 +1589,7 @@ function propCard(p, delay) {
     + '<div class="prop-specs">'
     + '<div class="spec"><span class="spec-val">' + (p.beds||'\u2014') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
     + '<div class="spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
-    + '<div class="spec"><span class="spec-val">' + ((p.built||0)+(p.terrace||0)||'\u2014') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + (p.gross||p.built||'\u2014') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
     + '</div>'
     + '<div class="prop-footer">'
     + '<span class="prop-type">' + (p.location_detail||p.town||'') + '</span>'
@@ -1697,7 +1707,7 @@ function renderSoon() {
       + '<div class="soon-card-specs">'
       + '<div class="soon-card-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
       + '<div class="soon-card-spec"><strong>' + (p.baths||'\u2014') + '</strong>' + t('baths') + '</div>'
-      + (p.built ? '<div class="soon-card-spec"><strong>' + ((p.built||0)+(p.terrace||0)) + ' m\u00b2</strong>built</div>' : '')
+      + (p.built ? '<div class="soon-card-spec"><strong>' + (p.gross||p.built) + ' m\u00b2</strong>built</div>' : '')
       + (p.plot ? '<div class="soon-card-spec"><strong>' + p.plot + ' m\u00b2</strong>plot</div>' : '')
       + '</div>'
       + '</div></div>';
@@ -1800,7 +1810,7 @@ function openModal(id) {
     + '<div class="modal-specs">'
     + '<div class="modal-spec"><span class="spec-val">' + (p.beds||'\u2014') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
     + '<div class="modal-spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
-    + '<div class="modal-spec"><span class="spec-val">' + ((p.built||0)+(p.terrace||0)||'\u2014') + ' m\u00b2</span><span class="spec-lbl">Built</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + (p.gross||p.built||'\u2014') + ' m\u00b2</span><span class="spec-lbl">Built</span></div>'
     + '</div>'
     + (desc ? '<div class="modal-desc">' + desc.replace(/\r?\n/g,'<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
@@ -1835,9 +1845,9 @@ function openModal(id) {
           + '</div></div>';
       })()
     + '<button class="modal-cta" onclick="showPage(\'contact\')";style="margin-bottom:8px;">' + t('enquire') + '</button>'
-    + '<a href="https://wa.me/34681294029?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:#25D166;border-radius:50%;text-decoration:none;margin:12px auto 0;">'
-    + '<svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>'
-    + '</a>';
+    + '<a href="https://wa.me/34681294029?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:var(--mid);font-family:var(--sans);font-size:12px;letter-spacing:.06em;margin:16px auto 0;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'">'
+    + '<span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D166;border-radius:50%;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg></span>'
+    + t('wa_cta') + '</a></div>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
   gallery.scrollTop = 0;
@@ -1910,6 +1920,7 @@ function openMagazineModal(id) {
   document.getElementById('mag-gallery').innerHTML = galleryHtml;
   var waMsg = encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + '. Kunt u mij meer informatie sturen?');
   document.getElementById('mag-wa').href = 'https://wa.me/34633925630?text=' + waMsg;
+  document.getElementById('mag-wa-text').textContent = t('wa_cta');
   document.getElementById('magazine-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
   document.getElementById('magazine-inner').scrollTop = 0;

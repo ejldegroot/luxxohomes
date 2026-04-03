@@ -98,7 +98,7 @@ exports.handler = async function() {
         beds: getTag(p, 'beds'),
         baths: getTag(p, 'baths'),
         built: parseInt(getTag(p, 'built')) || 0,
-        terrace: parseInt(getTag(p, 'terrace')) || 0,
+        gross: parseInt(getTag(p, 'gross_area')) || parseInt(getTag(p, 'area_gross')) || parseInt(getTag(p, 'gross')) || 0,
         plot: parseInt(getTag(p, 'plot')) || 0,
         notes: tag || getTag(p, 'notes').toLowerCase().trim(),
         sort_order: sortOrder,

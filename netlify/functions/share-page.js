@@ -63,8 +63,8 @@ exports.handler = async function(event) {
       + '<style>body{font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#FAF8F4;color:#2A2A28;text-align:center;}</style>'
       + '</head><body>'
       + '<div><p style="font-size:18px;">' + found.ref + '</p>'
-      + '<p>Doorverwijzen naar <a href="' + siteUrl + '#woning=' + encodeURIComponent(refSlug) + '" style="color:#B8952A;">Luxxo Homes</a>...</p></div>'
-      + '<script>window.location.replace("' + siteUrl + '#woning=' + encodeURIComponent(refSlug) + '");</script>'
+      + '<p>Doorverwijzen naar <a href="' + siteUrl + '?p=' + encodeURIComponent(refSlug) + '" style="color:#B8952A;">Luxxo Homes</a>...</p></div>'
+      + '<script>window.location.replace("' + siteUrl + '?p=' + encodeURIComponent(refSlug) + '");</script>'
       + '</body></html>';
 
     return {
@@ -73,6 +73,6 @@ exports.handler = async function(event) {
       body: html
     };
   } catch (err) {
-    return { statusCode: 302, headers: { Location: siteUrl + '#woning=' + encodeURIComponent(ref.replace(/\s+/g, '-')) }, body: '' };
+    return { statusCode: 302, headers: { Location: siteUrl + '?p=' + encodeURIComponent(ref.replace(/\s+/g, '-')) }, body: '' };
   }
 };

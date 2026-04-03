@@ -2,6 +2,11 @@
   publish = "."
   functions = "netlify/functions"
 
+[[redirects]]
+  from = "/woning/*"
+  to = "/.netlify/functions/share-page?ref=:splat"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

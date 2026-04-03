@@ -391,6 +391,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#2A2A28">
 </head>
 <body>
@@ -1545,6 +1546,24 @@ async function loadFeed() {
     renderFeatured();
     renderPortfolio();
     renderSoon();
+    // Deep link: auto-open property from ?p= parameter
+    var urlParams = new URLSearchParams(window.location.search);
+    var deepRef = urlParams.get('p');
+    if (deepRef) {
+      deepRef = decodeURIComponent(deepRef).replace(/-/g, ' ');
+      var found = allProperties.find(function(prop) {
+        return prop.ref && prop.ref.toLowerCase() === deepRef.toLowerCase();
+      });
+      if (found) {
+        setTimeout(function() {
+          if (found.notes === 'portfolio' || found.notes === 'sold' || found.notes === 'soon') {
+            openMagazineModal(found.id);
+          } else {
+            openModal(found.id);
+          }
+        }, 300);
+      }
+    }
   } catch(e) {
     var el = document.getElementById('featured-grid');
     if (el) el.innerHTML = '<div class="loading" style="animation:none;">Unable to load live properties. Please check back shortly.</div>';
@@ -1785,19 +1804,32 @@ function openModal(id) {
   // Bedrooms/bathrooms already shown in specs, skip those
   // Key things to show:
   var wantedPatterns = [
-    {re: /sea.*view|view.*sea|ocean|panoramic/i, label: 'Sea view'},
+    {re: /sea.*view|view.*sea|view.*beach|ocean|panoramic/i, label: 'Sea view'},
+    {re: /view.*mountain|mountain.*view/i, label: 'Mountain view'},
+    {re: /view.*golf|golf.*view/i, label: 'Golf view'},
+    {re: /private.*pool|pool.*private/i, label: 'Private pool'},
     {re: /pool|swimming/i, label: 'Swimming pool'},
-    {re: /garage|parking/i, label: 'Parking'},
-    {re: /storage|storeroom|trastero|berging/i, label: 'Storage room'},
-    {re: /terrace|terraza|terras/i, label: 'Terrace'},
+    {re: /garage|parking|indoor.*park/i, label: 'Parking'},
+    {re: /storage|storeroom|trastero|berging/i, label: 'Storage'},
+    {re: /terrace|terraza|terras|covered.*terrace/i, label: 'Terrace'},
     {re: /garden|jardín|tuin/i, label: 'Garden'},
-    {re: /golf/i, label: 'Golf nearby'},
-    {re: /beach|playa|strand/i, label: 'Beach nearby'},
-    {re: /lift|elevator/i, label: 'Lift'},
-    {re: /air.*condition|airco/i, label: 'Air conditioning'},
+    {re: /golf/i, label: 'Golf'},
+    {re: /beach|playa|strand/i, label: 'Beach'},
+    {re: /lift|elevator|ascensor/i, label: 'Lift'},
+    {re: /air.*condition|airco|a\/c/i, label: 'Airco'},
+    {re: /underfloor|floor.*heat|suelo.*radi/i, label: 'Underfloor heating'},
     {re: /furnished|amueblado|gemeubileerd/i, label: 'Furnished'},
-    {re: /jacuzzi/i, label: 'Jacuzzi'},
+    {re: /built.in.*wardrobe|wardrobes|armario/i, label: 'Built-in wardrobes'},
+    {re: /fireplace|haard|chimenea/i, label: 'Fireplace'},
+    {re: /wine.*cool/i, label: 'Wine cooler'},
+    {re: /jacuzzi|hot.*tub/i, label: 'Jacuzzi'},
     {re: /barbecue|bbq/i, label: 'BBQ'},
+    {re: /alarm|cctv|security|closed.*circuit/i, label: 'Security'},
+    {re: /sauna/i, label: 'Sauna'},
+    {re: /gym|fitness/i, label: 'Gym'},
+    {re: /wi-?fi/i, label: 'Wi-Fi'},
+    {re: /basement|souterrain/i, label: 'Basement'},
+    {re: /gated|closed.*condom/i, label: 'Gated community'},
   ];
   var shown = {};
   featureList.forEach(function(f) {
@@ -1851,13 +1883,14 @@ function openModal(id) {
           + '</div></div>';
       })()
     + '<button class="modal-cta" onclick="showPage(\'contact\')";style="margin-bottom:8px;">' + t('enquire') + '</button>'
-    + '<a href="https://wa.me/34681294029?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:var(--mid);font-family:var(--sans);font-size:12px;letter-spacing:.06em;margin:16px auto 0;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'">'
+    + '<a href="https://wa.me/34633925630?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:var(--mid);font-family:var(--sans);font-size:12px;letter-spacing:.06em;margin:16px auto 0;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'">'
     + '<span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D166;border-radius:50%;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg></span>'
     + t('wa_cta') + '</a></div>'
     + '<div style="display:flex;align-items:center;justify-content:center;gap:16px;margin:24px 0 8px;padding-top:20px;border-top:1px solid var(--border);">'
     + '<span style="font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--light);">' + t('share_label') + '</span>'
-    + '<a href="https://wa.me/?text=' + encodeURIComponent(p.ref + ' — €' + (p.price ? p.price.toLocaleString('nl-NL') : '') + '\n' + (p.type||'') + ' in ' + (p.location_detail||p.town||'Marbella') + '\n\nBekijk deze woning op Luxxo Homes:\nhttps://luxxohomes.com') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#25D166;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'" title="Deel via WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg></a>'
-    + '<a href="mailto:?subject=' + encodeURIComponent(p.ref + ' — Luxxo Homes') + '&body=' + encodeURIComponent(p.ref + ' — €' + (p.price ? p.price.toLocaleString('nl-NL') : '') + '\n' + (p.type||'') + ' in ' + (p.location_detail||p.town||'Marbella') + '\n\nBekijk deze woning op Luxxo Homes:\nhttps://luxxohomes.com') + '" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--charcoal);text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'" title="Deel via e-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></a>'
+    + (function() { var shareUrl = 'https://luxxohomes.com/woning/' + encodeURIComponent((p.ref||'').replace(/\s+/g,'-')); var shareText = p.ref + ' — ' + (p.price ? '€' + p.price.toLocaleString('nl-NL') : '') + '\n' + (p.type||'') + ' in ' + (p.location_detail||p.town||'Marbella') + '\n\nBekijk deze woning:\n' + shareUrl; return ''
+    + '<a href="https://wa.me/?text=' + encodeURIComponent(shareText) + '" target="_blank" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#25D166;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'" title="Deel via WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg></a>'
+    + '<a href="mailto:?subject=' + encodeURIComponent(p.ref + ' — Luxxo Homes') + '&body=' + encodeURIComponent(shareText) + '" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--charcoal);text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity=\'0.7\'" onmouseout="this.style.opacity=\'1\'" title="Deel via e-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></a>'; })()
     + '</div>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1932,7 +1965,8 @@ function openMagazineModal(id) {
   var waMsg = encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + '. Kunt u mij meer informatie sturen?');
   document.getElementById('mag-wa').href = 'https://wa.me/34633925630?text=' + waMsg;
   document.getElementById('mag-wa-text').textContent = t('wa_cta');
-  var shareText = p.ref + ' — ' + (p.price ? '€' + p.price.toLocaleString('nl-NL') : '') + '\n' + (p.type||'') + ' in ' + (p.location_detail||p.town||'Marbella') + '\n\nBekijk deze woning op Luxxo Homes:\nhttps://luxxohomes.com';
+  var shareUrl = 'https://luxxohomes.com/woning/' + encodeURIComponent((p.ref||'').replace(/\s+/g,'-'));
+  var shareText = p.ref + ' — ' + (p.price ? '€' + p.price.toLocaleString('nl-NL') : '') + '\n' + (p.type||'') + ' in ' + (p.location_detail||p.town||'Marbella') + '\n\nBekijk deze woning:\n' + shareUrl;
   document.getElementById('mag-share').innerHTML = '<span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,248,244,.35);">' + t('share_label') + '</span>'
     + '<a href="https://wa.me/?text=' + encodeURIComponent(shareText) + '" target="_blank" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#25D166;text-decoration:none;transition:opacity .2s;" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg></a>'
     + '<a href="mailto:?subject=' + encodeURIComponent(p.ref + ' — Luxxo Homes') + '&body=' + encodeURIComponent(shareText) + '" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(250,248,244,.15);text-decoration:none;transition:opacity .2s;" title="E-mail"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></a>';

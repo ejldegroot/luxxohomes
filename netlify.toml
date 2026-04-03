@@ -3,9 +3,10 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/woning/*"
-  to = "/.netlify/functions/share-page?ref=:splat"
+  from = "/woning/:ref"
+  to = "/.netlify/functions/share-page?ref=:ref"
   status = 200
+  force = true
 
 [[headers]]
   for = "/*"

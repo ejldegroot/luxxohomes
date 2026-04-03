@@ -377,7 +377,7 @@
   .magazine-grid-1 { grid-template-columns: 1fr; }
   .magazine-modal-footer { padding: 48px 64px; text-align: center; }
   .magazine-modal-footer-text { font-family: var(--serif); font-size: 22px; color: rgba(250,248,244,.7); line-height: 1.5; margin-bottom: 32px; font-weight: 300; }
-  .magazine-modal-footer-buttons { display: flex; gap: 12px; }
+  .magazine-modal-footer-buttons { display: flex; gap: 16px; align-items: center; justify-content: center; }
   .magazine-modal-close { position: sticky; top: 16px; float: right; z-index: 10; margin: 16px 16px 0 0; background: rgba(255,255,255,.12); color: var(--warm-white); border: none; width: 44px; height: 44px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); border-radius: 50%; transition: background .2s; }
   .magazine-modal-close:hover { background: rgba(255,255,255,.25); }
   .magazine-sold-banner { position: absolute; top: 28px; left: -40px; z-index: 5; background: linear-gradient(135deg, var(--gold), #b8860b); color: var(--charcoal); text-align: center; padding: 8px 50px; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; transform: rotate(-35deg); box-shadow: 0 2px 8px rgba(0,0,0,.3); width: 200px; }
@@ -385,9 +385,14 @@
     .magazine-modal-header { padding: 48px 24px 32px; }
     .magazine-grid-2 { grid-template-columns: 1fr; }
     .magazine-modal-footer { padding: 32px 24px; }
-    .magazine-modal-footer-buttons { flex-direction: column; }
+    .magazine-modal-footer-buttons { flex-direction: row; justify-content: center; }
   }
 </style>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#2A2A28">
 </head>
 <body>
 
@@ -834,9 +839,8 @@
       <div class="magazine-modal-footer-text" id="mag-footer-text">Geïnspireerd geraakt? Neem contact met ons op.</div>
       <div class="magazine-modal-footer-buttons">
         <button onclick="showPage('contact');closeMagazineModal()" style="flex:1;background:var(--gold);color:var(--charcoal);border:none;padding:16px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Contact</button>
-        <a id="mag-wa" href="" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D166;color:#fff;text-decoration:none;padding:16px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
-          WhatsApp
+        <a id="mag-wa" href="" target="_blank" style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;background:#25D166;border-radius:50%;text-decoration:none;transition:opacity .2s;flex-shrink:0;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
         </a>
       </div>
     </div>
@@ -1040,7 +1044,7 @@ const lang = {
     form_message:'Bericht',form_send:'Verstuur aanvraag \u2192',
     listings_intro:'Een zorgvuldig samengestelde selectie woningen die voldoen aan de Luxxo Homes standaard. Niet zomaar aangeboden — geselecteerd.',
     about_tag2:'Over Luxxo Homes',about_h2:'Meer dan een <em>makelaar.</em>',
-    about_p1:'Wij verkopen niet zomaar woningen. Wij creëren ze.<br><strong style="color:var(--gold-light);">Luxxo Homes</strong> is onderdeel van <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — samen met <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, ons eigen renovatiebedrijf op de Costa del Sol.',
+    about_p1:'Wij verkopen niet zomaar woningen. Wij creëren ze.<br><strong style="color:var(--gold-light);">Luxxo Homes</strong> is onderdeel van <strong style="color:var(--gold-light);">Casa Marbella Group</strong> — samen met <strong style="color:var(--gold-light);">Casa Renovo Marbella</strong>, ons eigen renovatiebedrijf aan de Costa del Sol.',
     about_p2:'Wij kopen woningen, renoveren ze naar een uitzonderlijk niveau en brengen ze via Luxxo Homes op de markt. Daarnaast begeleiden we kopers bij het vinden van andere woningen — maar alleen als die woning echt aan onze standaard voldoet.',
     bridge_tag:'De brug tussen Nederland en Spanje',bridge_h2:'Twee merken.<br><em>\u00c9\u00e9n standaard.</em>',
     bridge_p1:'Kopen in Spanje klinkt aantrekkelijk. En dat is het ook — als je weet wat je doet. De markt werkt anders, de regelgeving is anders, en lokale aannemers leveren lang niet altijd wat ze beloven. Wij kennen die valkuilen van binnen en van buiten.',
@@ -1057,11 +1061,11 @@ const lang = {
     djoni_role:'De Sfeermaker',djoni_name:'Djoni Granneman',
     djoni_desc:'Djoni Granneman is de creatieve kracht achter elke transformatie. Van bouwkundige indeling tot volledige inrichting en styling — het is haar hand die ervoor zorgt dat een gerenoveerde woning niet alleen technisch perfect is, maar ook een sfeer ademt die mensen direct raakt.',
     portfolio_renovo_tag:'Casa Renovo Marbella',
-    portfolio_renovo_text:'Ons eigen renovatiebedrijf op de Costa del Sol. Elk project hier is door ons team getransformeerd — van concept tot oplevering. Omdat wij het gebouwd hebben, weten we precies wat erin zit. En kunnen we er volledig achter staan.',
+    portfolio_renovo_text:'Ons eigen renovatiebedrijf aan de Costa del Sol. Elk project hier is door ons team getransformeerd — van concept tot oplevering. Omdat wij het gebouwd hebben, weten we precies wat erin zit. En kunnen we er volledig achter staan.',
     portfolio_standard_tag:'Onze standaard',
     portfolio_standard_text:'Keukens, badkamers en vloeren rechtstreeks uit Nederland. Bouwkundig werk aangestuurd door ons eigen team. Gestileerd en afgewerkt door Djoni Granneman. Elk project weerspiegelt wat wij vinden dat luxe wonen moet zijn.',
     buyers_insider:'Wij kennen de Spaanse markt van binnenuit — niet als buitenstaander, maar als mensen die hier zelf bouwen, investeren en leven. Dat perspectief maakt het verschil.',
-    contact_personal:'Of je nu vanuit Nederland verkent of al op de Costa del Sol bent — Gijs, Jacco en Edwin staan klaar. Geen verplichtingen, geen verkoopverhaal. Gewoon een eerlijk gesprek.',
+    contact_personal:'Of je nu vanuit Nederland verkent of al aan de Costa del Sol bent — Gijs, Jacco en Edwin staan klaar. Geen verplichtingen, geen verkoopverhaal. Gewoon een eerlijk gesprek.',
     soon_tag:'In ontwikkeling',soon_h1:'Hard aan het werk.<br><em>Binnenkort beschikbaar.</em>',
     soon_p:'Terwijl u dit leest, zijn onze teams bezig om deze woningen te transformeren tot iets bijzonders. Van ruwe steen tot instapklare luxe — Casa Renovo Marbella op zijn best.',
     soon_section_tag:'Onze projecten in uitvoering',soon_sub:'Deze woningen zijn momenteel in renovatie of ontwikkeling. Wees er vroeg bij.',
@@ -1575,7 +1579,7 @@ function propCard(p, delay) {
     + '<div class="prop-specs">'
     + '<div class="spec"><span class="spec-val">' + (p.beds||'\u2014') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
     + '<div class="spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
-    + '<div class="spec"><span class="spec-val">' + (p.built||'\u2014') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
+    + '<div class="spec"><span class="spec-val">' + ((p.built||0)+(p.terrace||0)||'\u2014') + '</span><span class="spec-lbl">' + t('sqm') + '</span></div>'
     + '</div>'
     + '<div class="prop-footer">'
     + '<span class="prop-type">' + (p.location_detail||p.town||'') + '</span>'
@@ -1693,7 +1697,7 @@ function renderSoon() {
       + '<div class="soon-card-specs">'
       + '<div class="soon-card-spec"><strong>' + (p.beds||'\u2014') + '</strong>' + t('beds') + '</div>'
       + '<div class="soon-card-spec"><strong>' + (p.baths||'\u2014') + '</strong>' + t('baths') + '</div>'
-      + (p.built ? '<div class="soon-card-spec"><strong>' + p.built + ' m\u00b2</strong>built</div>' : '')
+      + (p.built ? '<div class="soon-card-spec"><strong>' + ((p.built||0)+(p.terrace||0)) + ' m\u00b2</strong>built</div>' : '')
       + (p.plot ? '<div class="soon-card-spec"><strong>' + p.plot + ' m\u00b2</strong>plot</div>' : '')
       + '</div>'
       + '</div></div>';
@@ -1796,7 +1800,7 @@ function openModal(id) {
     + '<div class="modal-specs">'
     + '<div class="modal-spec"><span class="spec-val">' + (p.beds||'\u2014') + '</span><span class="spec-lbl">' + t('beds') + '</span></div>'
     + '<div class="modal-spec"><span class="spec-val">' + (p.baths||'\u2014') + '</span><span class="spec-lbl">' + t('baths') + '</span></div>'
-    + '<div class="modal-spec"><span class="spec-val">' + (p.built||'\u2014') + ' m\u00b2</span><span class="spec-lbl">Built</span></div>'
+    + '<div class="modal-spec"><span class="spec-val">' + ((p.built||0)+(p.terrace||0)||'\u2014') + ' m\u00b2</span><span class="spec-lbl">Built</span></div>'
     + '</div>'
     + (desc ? '<div class="modal-desc">' + desc.replace(/\r?\n/g,'<br>').replace(/#ref:[^<]*/gi,'').trim() + '</div>' : '')
     + (feats ? '<div class="modal-features">' + feats + '</div>' : '')
@@ -1831,9 +1835,9 @@ function openModal(id) {
           + '</div></div>';
       })()
     + '<button class="modal-cta" onclick="showPage(\'contact\')";style="margin-bottom:8px;">' + t('enquire') + '</button>'
-    + '<a href="https://wa.me/34681294029?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:#25D166;color:#fff;text-decoration:none;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-top:0;">'
-    + '<svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>'
-    + 'WhatsApp</a>';
+    + '<a href="https://wa.me/34681294029?text=' + encodeURIComponent('Hallo, ik heb interesse in ' + (p.ref||'een woning') + ' via Luxxo Homes.') + '" target="_blank" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:#25D166;border-radius:50%;text-decoration:none;margin:12px auto 0;">'
+    + '<svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.318-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.891.936-3.637-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>'
+    + '</a>';
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
   gallery.scrollTop = 0;

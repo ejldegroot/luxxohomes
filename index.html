@@ -1546,11 +1546,11 @@ async function loadFeed() {
     renderFeatured();
     renderPortfolio();
     renderSoon();
-    // Deep link: auto-open property from ?p= parameter
-    var urlParams = new URLSearchParams(window.location.search);
-    var deepRef = urlParams.get('p');
-    if (deepRef) {
-      deepRef = decodeURIComponent(deepRef).replace(/-/g, ' ');
+    // Deep link: auto-open property from #woning= hash
+    var hash = window.location.hash || '';
+    var hashMatch = hash.match(/#woning=(.+)/);
+    if (hashMatch) {
+      var deepRef = decodeURIComponent(hashMatch[1]).replace(/-/g, ' ');
       var found = allProperties.find(function(prop) {
         return prop.ref && prop.ref.toLowerCase() === deepRef.toLowerCase();
       });

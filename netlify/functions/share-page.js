@@ -1,10 +1,8 @@
 const https = require('https');
-const http = require('http');
 
 function fetchJSON(url) {
   return new Promise(function(resolve, reject) {
-    var mod = url.startsWith('https') ? https : http;
-    mod.get(url, function(res) {
+    https.get(url, function(res) {
       var data = '';
       res.on('data', function(c) { data += c; });
       res.on('end', function() {
@@ -28,9 +26,8 @@ exports.handler = async function(event) {
     
     var found = null;
     for (var i = 0; i < properties.length; i++) {
-      var p = properties[i];
-      if (p.ref && p.ref.toLowerCase() === ref.toLowerCase()) {
-        found = p;
+      if (properties[i].ref && properties[i].ref.toLowerCase() === ref.toLowerCase()) {
+        found = properties[i];
         break;
       }
     }
@@ -48,9 +45,7 @@ exports.handler = async function(event) {
     if (sqm) desc += ' \u00b7 ' + sqm + ' m\u00b2';
 
     var image = (found.photos && found.photos.length > 0) ? found.photos[0] : '';
-    var refSlug = encodeURIComponent(found.ref.replace(/\s+/g, '-'));
-    var pageUrl = siteUrl + '/woning/' + refSlug;
-    var redirectUrl = siteUrl + '?p=' + refSlug;
+    var refSlug = found.ref.replace(/\s+/g, '-');
 
     var html = '<!DOCTYPE html><html><head>'
       + '<meta charset="utf-8">'
@@ -61,28 +56,23 @@ exports.handler = async function(event) {
       + (image ? '<meta property="og:image" content="' + image + '">' : '')
       + (image ? '<meta property="og:image:width" content="1200">' : '')
       + (image ? '<meta property="og:image:height" content="800">' : '')
-      + '<meta property="og:url" content="' + pageUrl + '">'
+      + '<meta property="og:url" content="' + siteUrl + '/woning/' + encodeURIComponent(refSlug) + '">'
       + '<meta property="og:site_name" content="Luxxo Homes">'
       + '<meta name="twitter:card" content="summary_large_image">'
-      + '<meta name="twitter:title" content="' + title.replace(/"/g, '&quot;') + '">'
-      + '<meta name="twitter:description" content="' + desc.replace(/"/g, '&quot;') + '">'
       + (image ? '<meta name="twitter:image" content="' + image + '">' : '')
-      + '<meta http-equiv="refresh" content="0;url=' + redirectUrl + '">'
       + '<style>body{font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#FAF8F4;color:#2A2A28;text-align:center;}</style>'
       + '</head><body>'
       + '<div><p style="font-size:18px;">' + found.ref + '</p>'
-      + '<p>Doorverwijzen naar <a href="' + redirectUrl + '" style="color:#B8952A;">Luxxo Homes</a>...</p></div>'
+      + '<p>Doorverwijzen naar <a href="' + siteUrl + '#woning=' + encodeURIComponent(refSlug) + '" style="color:#B8952A;">Luxxo Homes</a>...</p></div>'
+      + '<script>window.location.replace("' + siteUrl + '#woning=' + encodeURIComponent(refSlug) + '");</script>'
       + '</body></html>';
 
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-        'Cache-Control': 'public, max-age=3600'
-      },
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=3600' },
       body: html
     };
   } catch (err) {
-    return { statusCode: 302, headers: { Location: siteUrl + '?p=' + encodeURIComponent(ref.replace(/\s+/g, '-')) }, body: '' };
+    return { statusCode: 302, headers: { Location: siteUrl + '#woning=' + encodeURIComponent(ref.replace(/\s+/g, '-')) }, body: '' };
   }
 };

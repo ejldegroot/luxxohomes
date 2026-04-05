@@ -555,7 +555,6 @@
   <div class="listings-header">
     <span class="section-tag" data-i18n="listings_tag">Portfolio</span>
     <h1 class="section-title" data-i18n="listings_title">All <em>Properties</em></h1>
-    <p style="margin-top:16px;font-size:15px;color:var(--mid);max-width:620px;line-height:1.9;" data-i18n="listings_intro_new"></p>
   </div>
   <div class="listings-filters">
     <select class="filter-select" id="list-type" onchange="renderListings()">
@@ -928,7 +927,7 @@ const lang = {
     featured_title:'Featured <em>Properties</em>',featured_sub:'Specially selected for you — properties that meet the Luxxo Homes standard.',
     loading:'Loading properties',view_all:'View all properties',about_tag:'Luxxo Homes',about_title:'A different kind of <em>estate agency</em>',
     about_cta:'Our story',guide_teaser_tag:'Buying in Spain',guide_teaser_title:'We guide you through <em>every step</em>',
-    guide_teaser_sub:'From property search to the keys in your hand.',guide_teaser_btn:'Learn about our service',listings_tag:'Portfolio',
+    guide_teaser_sub:'From property search to the keys in your hand.',guide_teaser_btn:'Learn about our service',listings_tag:'Our Collection',
     listings_title:'All <em>Properties</em>',portfolio_tag:'Track record',portfolio_title:'Our <em>Portfolio</em>',
     portfolio_intro:'Completed projects and sold homes we\'re genuinely proud of. Every single one.',
     portfolio_renovo_header:'Casa Renovo Marbella — Our projects',portfolio_sold_header:'Previously sold properties',
@@ -1008,7 +1007,10 @@ const lang = {
     story_p6:'By now, we know the market inside out. We know where the most beautiful spots are, what to look for when buying and selling, and because we transform properties ourselves, we can explain like no one else why certain choices were made.',
     story_p7:'Thanks to that knowledge, our strong local network and the reputation we\u2019ve built, we now also guide clients in buying and selling other properties. With one condition: every project must fit the Luxxo Homes philosophy \u2014 outstanding quality, timeless design, and a lifestyle you enjoy every single day.',
     wa_cta:'WhatsApp us directly',
-    share_label:'Share this property'
+    share_label:'Share this property',
+    form_thanks_sub:'We will get back to you as soon as possible.',
+    form_thanks:'Thank you for your message.',
+    form_error:'Something went wrong. Please try again or call us directly.'
   },
   nl: {
     nav_home:'Home',nav_properties:'Ons Aanbod',nav_portfolio:'Portfolio',nav_soon:'In ontwikkeling',nav_buyers:'Aankoopbegeleiding',nav_about:'Over ons',
@@ -1099,7 +1101,10 @@ const lang = {
     story_p6:'Inmiddels kennen we de markt door en door. We weten waar de mooiste plekken zijn, waar je op moet letten bij aan- en verkoop, en omdat we zelf woningen transformeren, kunnen we als geen ander uitleggen waarom bepaalde keuzes zijn gemaakt.',
     story_p7:'Dankzij die kennis, ons sterke lokale netwerk en de reputatie die we hebben opgebouwd, begeleiden we nu ook klanten bij de aan- en verkoop van andere woningen. Met \u00e9\u00e9n voorwaarde: elk project moet passen bij de filosofie van Luxxo Homes \u2014 uitmuntende kwaliteit, tijdloos design en een levensstijl waar je elke dag van geniet.',
     wa_cta:'WhatsApp ons direct',
-    share_label:'Deel deze woning'
+    share_label:'Deel deze woning',
+    form_thanks_sub:'We nemen zo snel mogelijk contact met u op.',
+    form_thanks:'Bedankt voor uw bericht.',
+    form_error:'Er is iets misgegaan. Probeer het opnieuw of bel ons direct.'
   },
   es: {
     nav_home:'Inicio',nav_properties:'Nuestra Selecci\u00f3n',nav_portfolio:'Portfolio',nav_buyers:'Gu\u00eda de compra',nav_about:'Nosotros',nav_contact:'Contacto',
@@ -1181,7 +1186,10 @@ const lang = {
     buyers_why2_h:'Independiente y honesto',buyers_why2_p:'Te representamos a ti \u2014 no al vendedor. Nuestro consejo es siempre honesto.',
     buyers_why3_h:'El puente entre dos mundos',buyers_why3_p:'Hablamos el idioma \u2014 literal y figurativamente. Protegemos tus intereses en cada paso.',
     wa_cta:'Env\u00edanos un WhatsApp',
-    share_label:'Compartir esta propiedad'
+    share_label:'Compartir esta propiedad',
+    form_thanks_sub:'Nos pondremos en contacto con usted lo antes posible.',
+    form_thanks:'Gracias por su mensaje.',
+    form_error:'Algo sali\u00f3 mal. Int\u00e9ntelo de nuevo o ll\u00e1menos directamente.'
   },
   de: {
     nav_home:'Start',nav_properties:'Unser Angebot',nav_portfolio:'Portfolio',nav_buyers:'Kaufberatung',nav_about:'\u00dcber uns',nav_contact:'Kontakt',
@@ -1192,7 +1200,7 @@ const lang = {
     featured_title:'Ausgew\u00e4hlte <em>Immobilien</em>',featured_sub:'Sorgf\u00e4ltig ausgew\u00e4hlte Residenzen.',loading:'Immobilien werden geladen',
     view_all:'Alle Immobilien ansehen',about_tag:'Luxxo Homes',about_title:'Eine andere Art von <em>Maklerb\u00fcro</em>',about_cta:'Unsere Geschichte',
     guide_teaser_tag:'Kaufen in Spanien',guide_teaser_title:'Wir begleiten Sie durch <em>jeden Schritt</em>',
-    guide_teaser_sub:'Von der Suche bis zum Schl\u00fcssel.',guide_teaser_btn:'Mehr \u00fcber unseren Service',listings_tag:'Portfolio',
+    guide_teaser_sub:'Von der Suche bis zum Schl\u00fcssel.',guide_teaser_btn:'Mehr \u00fcber unseren Service',listings_tag:'Our Collection',
     listings_title:'Alle <em>Immobilien</em>',portfolio_tag:'Referenzen',portfolio_title:'Unser <em>Portfolio</em>',
     portfolio_intro:'Abgeschlossene Projekte und verkaufte Immobilien, auf die wir wirklich stolz sind. Jedes einzelne.',
     portfolio_renovo_header:'Casa Renovo Marbella — Unsere Projekte',portfolio_sold_header:'Zuvor verkaufte Immobilien',
@@ -1263,7 +1271,10 @@ const lang = {
     buyers_why3_h:'Die Br\u00fccke zwischen zwei Welten',
     buyers_why3_p:'Wir sprechen die Sprache \u2014 w\u00f6rtlich und im \u00fcbertragenen Sinne. Wir sch\u00fctzen Ihre Interessen bei jedem Schritt.',
     wa_cta:'Schreiben Sie uns per WhatsApp',
-    share_label:'Diese Immobilie teilen'
+    share_label:'Diese Immobilie teilen',
+    form_thanks_sub:'Wir melden uns so schnell wie m\u00f6glich bei Ihnen.',
+    form_thanks:'Vielen Dank f\u00fcr Ihre Nachricht.',
+    form_error:'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.'
   },
   sv: {
     nav_home:'Hem',nav_properties:'V\u00e5rt Utbud',nav_portfolio:'Portfolio',nav_buyers:'K\u00f6pguide',nav_about:'Om oss',nav_contact:'Kontakt',
@@ -1274,7 +1285,7 @@ const lang = {
     featured_title:'Utvalda <em>Fastigheter</em>',featured_sub:'Handplockade bost\u00e4der.',loading:'Laddar fastigheter',view_all:'Se alla fastigheter',
     about_tag:'Luxxo Homes',about_title:'En annan typ av <em>fastighetsbyr\u00e5</em>',about_cta:'V\u00e5r historia',guide_teaser_tag:'K\u00f6pa i Spanien',
     guide_teaser_title:'Vi guidar dig genom <em>varje steg</em>',guide_teaser_sub:'Fr\u00e5n s\u00f6kning till nycklar.',
-    guide_teaser_btn:'L\u00e4s om v\u00e5r tj\u00e4nst',listings_tag:'Portf\u00f6lj',listings_title:'Alla <em>Fastigheter</em>',
+    guide_teaser_btn:'L\u00e4s om v\u00e5r tj\u00e4nst',listings_tag:'V\u00e5rt Utbud',listings_title:'Alla <em>Fastigheter</em>',
     portfolio_tag:'Meritf\u00f6rteckning',portfolio_title:'V\u00e5r <em>Portf\u00f6lj</em>',
     portfolio_intro:'Avslutade projekt och s\u00e5lda bost\u00e4der vi \u00e4r genuint stolta \u00f6ver. Varenda en.',
     portfolio_renovo_header:'Casa Renovo Marbella — V\u00e5ra projekt',portfolio_sold_header:'Tidigare s\u00e5lda fastigheter',
@@ -1342,7 +1353,10 @@ const lang = {
     buyers_why2_h:'Oberoende och \u00e4rlig',buyers_why2_p:'Vi representerar dig \u2014 inte s\u00e4ljaren.',buyers_why3_h:'Bron mellan tv\u00e5 v\u00e4rldar',
     buyers_why3_p:'Vi talar spr\u00e5ket \u2014 bokstavligt och bildligt. Vi skyddar dina intressen i varje steg.',
     wa_cta:'WhatsApp:a oss direkt',
-    share_label:'Dela denna bostad'
+    share_label:'Dela denna bostad',
+    form_thanks_sub:'Vi \u00e5terkommer s\u00e5 snart som m\u00f6jligt.',
+    form_thanks:'Tack f\u00f6r ditt meddelande.',
+    form_error:'N\u00e5got gick fel. F\u00f6rs\u00f6k igen eller ring oss direkt.'
   },
   pl: {
     nav_home:'Strona g\u0142\u00f3wna',nav_properties:'Nasza Oferta',nav_portfolio:'Portfolio',nav_buyers:'Przewodnik kupuj\u0105cego',nav_about:'O nas',
@@ -1354,7 +1368,7 @@ const lang = {
     featured_title:'Wyr\u00f3\u017bnione <em>Nieruchomo\u015bci</em>',featured_sub:'Starannie wybrane rezydencje.',loading:'\u0141adowanie nieruchomo\u015bci',
     view_all:'Zobacz wszystkie nieruchomo\u015bci',about_tag:'Luxxo Homes',about_title:'Inna agencja <em>nieruchomo\u015bci</em>',about_cta:'Nasza historia',
     guide_teaser_tag:'Kupno w Hiszpanii',guide_teaser_title:'Prowadzimy Ci\u0119 przez <em>ka\u017cdy krok</em>',
-    guide_teaser_sub:'Od poszukiwa\u0144 do kluczy.',guide_teaser_btn:'Dowiedz si\u0119 o naszej us\u0142udze',listings_tag:'Portfolio',
+    guide_teaser_sub:'Od poszukiwa\u0144 do kluczy.',guide_teaser_btn:'Dowiedz si\u0119 o naszej us\u0142udze',listings_tag:'Nasza Oferta',
     listings_title:'Wszystkie <em>Nieruchomo\u015bci</em>',portfolio_tag:'Referencje',portfolio_title:'Nasze <em>Portfolio</em>',
     portfolio_intro:'Uko\u0144czone projekty i sprzedane nieruchomo\u015bci, z kt\u00f3rych jeste\u015bmy naprawd\u0119 dumni. Ka\u017cdy z nich.',
     portfolio_renovo_header:'Casa Renovo Marbella — Nasze projekty',portfolio_sold_header:'Wcze\u015bniej sprzedane nieruchomo\u015bci',
@@ -1421,7 +1435,10 @@ const lang = {
     buyers_why2_p:'Reprezentujemy Ciebie \u2014 nie sprzedaj\u0105cego.',buyers_why3_h:'Most mi\u0119dzy dwoma \u015bwiatami',
     buyers_why3_p:'M\u00f3wimy j\u0119zykiem \u2014 dos\u0142ownie i w przeno\u015bni. Chronimy Twoje interesy na ka\u017cdym kroku.',
     wa_cta:'Napisz do nas na WhatsApp',
-    share_label:'Udost\u0119pnij t\u0119 nieruchomo\u015b\u0107'
+    share_label:'Udost\u0119pnij t\u0119 nieruchomo\u015b\u0107',
+    form_thanks_sub:'Skontaktujemy si\u0119 z Pa\u0144stwem tak szybko, jak to mo\u017cliwe.',
+    form_thanks:'Dzi\u0119kujemy za wiadomo\u015b\u0107.',
+    form_error:'Co\u015b posz\u0142o nie tak. Spr\u00f3buj ponownie lub zadzwo\u0144 do nas bezpo\u015brednio.'
   },
   ar: {
     nav_home:'\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629',nav_properties:'\u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a',
@@ -1492,7 +1509,10 @@ const lang = {
     step6_title:'\u0628\u0639\u062f \u0627\u0644\u0634\u0631\u0627\u0621',
     step6_desc:'\u0639\u0644\u0627\u0642\u062a\u0646\u0627 \u0644\u0627 \u062a\u0646\u062a\u0647\u064a \u0639\u0646\u062f \u0627\u0644\u0645\u0648\u062b\u0642. \u0646\u0633\u0627\u0639\u062f \u0641\u064a \u0643\u0644 \u0645\u0627 \u062a\u062d\u062a\u0627\u062c\u0647.',
     wa_cta:'\u0631\u0627\u0633\u0644\u0646\u0627 \u0639\u0628\u0631 \u0648\u0627\u062a\u0633\u0627\u0628',
-    share_label:'\u0634\u0627\u0631\u0643 \u0647\u0630\u0627 \u0627\u0644\u0639\u0642\u0627\u0631'
+    share_label:'\u0634\u0627\u0631\u0643 \u0647\u0630\u0627 \u0627\u0644\u0639\u0642\u0627\u0631',
+    form_thanks_sub:'\u0633\u0646\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0643 \u0641\u064a \u0623\u0642\u0631\u0628 \u0648\u0642\u062a.',
+    form_thanks:'\u0634\u0643\u0631\u064b\u0627 \u0639\u0644\u0649 \u0631\u0633\u0627\u0644\u062a\u0643.',
+    form_error:'\u062d\u062f\u062b \u062e\u0637\u0623. \u064a\u0631\u062c\u0649 \u0627\u0644\u0645\u062d\u0627\u0648\u0644\u0629 \u0645\u0631\u0629 \u0623\u062e\u0631\u0649 \u0623\u0648 \u0627\u0644\u0627\u062a\u0635\u0627\u0644 \u0628\u0646\u0627 \u0645\u0628\u0627\u0634\u0631\u0629.'
   }
 };
 ;
@@ -2025,9 +2045,9 @@ function handleFormSubmit(e) {
   fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     body: new URLSearchParams(new FormData(form)).toString()
   }).then(function() {
-    form.innerHTML = '<div style="text-align:center;padding:40px 0;"><p style="font-family:var(--serif);font-size:24px;font-weight:300;margin-bottom:12px;">Bedankt voor uw bericht.</p><p style="font-size:14px;color:var(--mid);">We nemen zo snel mogelijk contact met u op.</p></div>';
+    form.innerHTML = '<div style="text-align:center;padding:40px 0;"><p style="font-family:var(--serif);font-size:24px;font-weight:300;margin-bottom:12px;">' + t('form_thanks') + '</p><p style="font-size:14px;color:var(--mid);">' + t('form_thanks_sub') + '</p></div>';
   }).catch(function() {
-    alert('Er is iets misgegaan. Probeer het opnieuw of bel ons direct.');
+    alert(t('form_error') || 'Something went wrong. Please try again or call us directly.');
   });
 }
 // Detect browser language on first load
